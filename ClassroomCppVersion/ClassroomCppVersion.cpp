@@ -4,9 +4,7 @@
 #include <iostream>
 #include "User.h"
 #include "Course.h"
-#include "attendance.h"
-#include "Teacher.h"
-#include "Student.h"
+#include "Attendance.h"
 #include "LoginSystem.h"
 #include "StateMachine.h"
 using namespace std;

@@ -38,3 +38,22 @@ void UserInfo::User::createUserName()
 {
 	username = firstName + to_string(userID);
 }
+
+void UserInfo::User::addCourseMaterials()
+{
+}
+
+void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
+{
+	// check whether user is teacher of that course
+	// add student to that course
+}
+
+void UserInfo::User::takeAttendance(CourseInfo::Course &course)
+{
+	CourseInfo::attendance attendance(&course);
+	attendance.takeAttendance();
+	course.attendanceList.insert({ static_cast<string>(__DATE__) , &attendance });
+}
+
+

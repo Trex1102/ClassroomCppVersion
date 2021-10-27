@@ -1,12 +1,14 @@
 ﻿#include "Course.h"
 using namespace std;
 
-void CourseInfo::Course::enrollCourseTeacher(UserInfo::Teacher& teacher)
+int CourseInfo::Course::courseCode = 100;
+
+void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)
 {
 	teacherList.push_back(&teacher);
 }
 
-void CourseInfo::Course::enrollCourseStudent(UserInfo::Student& student)
+void CourseInfo::Course::enrollCourseStudent(UserInfo::User& student)
 {
 	studentList.push_back(&student);
 }
@@ -21,14 +23,14 @@ void CourseInfo::Course::displayCourseInfo()
 	for(const auto it: teacherList)
 	{
 		
-		it->displayTeacherInfo(); // only shows teacher part
+		//it->displayTeacherInfo(); // only shows teacher part
 		// display user info as well
 		
 	}
 	// show students
 	for(const auto it:studentList)
 	{
-		it->displayStudentInfo();
+		//it->displayStudentInfo();
 		// display user info as well
 	}
 }
@@ -44,6 +46,19 @@ void CourseInfo::Course::showCourseMaterials()
 	{
 		//
 	}
+}
+
+void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::User &teacher)
+{
+	cout << "Department: "; cin >> course.department;
+	cout << "Course ID: "; cin >> course.courseID;
+	cout << "Course Credit: "; cin >> course.courseCredit;
+
+	// for course outline use text link or input
+
+	cout << "Your Course Code is " << course.courseCode << endl;
+	course.teacherList.push_back(&teacher);
+	cout << "Course Created Successful" << endl;
 }
 
 

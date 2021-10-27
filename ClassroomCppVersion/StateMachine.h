@@ -6,12 +6,27 @@ using namespace std;
 namespace StateInfo
 {
 	void dashboardState(UserInfo::User &currentUser);
-	//void classState(UserInfo::User& currentUser); --> create class
 	//void messageState(UserInfo::User& currentUser);
 	//void adminState(UserInfo::User& currentUser);
 
-	class classState
+	
+
+	class courseState
 	{
-		
+	private:
+		CourseInfo::Course* currentCourse;
+		UserInfo::User* currentUser;
+	public:
+
+		courseState(CourseInfo::Course* current_course, UserInfo::User* current_user)
+			: currentCourse(current_course),
+			  currentUser(current_user)
+		{
+		}
+
+		void displayParticipants();
+		virtual void displayCourseState();
+		virtual ~courseState() = default;
 	};
+
 }

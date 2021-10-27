@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include "Course.h"
-#include "Teacher.h"
+#include "User.h"
 using namespace std;
 
 namespace CourseInfo
@@ -17,7 +17,7 @@ namespace CourseInfo
 		string date;
 		map<string, string> dailyAttendance;
 		Course* course;
-		friend UserInfo::Teacher;
+		friend UserInfo::User;
 	public:
 		attendance(Course* _course): course(_course)
 		{

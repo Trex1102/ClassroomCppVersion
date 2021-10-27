@@ -4,9 +4,7 @@
 #include <map>
 #include <vector>
 #include "CourseMaterials.h"
-#include "attendance.h"
-#include "Student.h"
-#include "Teacher.h"
+#include "Attendance.h"
 using namespace std;
 namespace UserInfo
 {
@@ -22,26 +20,30 @@ namespace CourseInfo
 	class Course
 	{
 	private:
+		static int courseCode;
 		string department;
 		string courseID;
 		string courseOutline;
 		double courseCredit;
 
 		vector<CourseMaterials*> courseMaterialList;
-		vector<UserInfo::Student*> studentList;
-		vector<UserInfo::Teacher*> teacherList;
+		vector<UserInfo::User*> studentList;
+		vector<UserInfo::User*> teacherList;
         
 
 		friend class UserInfo::Teacher;
 	public:
 		map<string, attendance*> attendanceList;
 	public:
+
+		Course(){}
 		Course(string department, string course_id, string courseOutline, double courseCredit)
 			: department(std::move(department)),
 			  courseID(std::move(course_id)),
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
+			courseCode++;
 		}
 
 		//getters setters
@@ -58,21 +60,28 @@ namespace CourseInfo
         void setcourseCredit(double courseCredit) { this->courseCredit = courseCredit; }
 
 
-        vector<UserInfo::Student*> getStudentList() const { return studentList; }
-        void setStudentList(vector<UserInfo::Student*> studentList) { this->studentList = studentList; }
+        vector<UserInfo::User*> getStudentList() const { return studentList; }
+        void setStudentList(vector<UserInfo::User*> studentList) { this->studentList = studentList; }
 
-        vector<UserInfo::Teacher*> getTeacherList() const { return teacherList; }
-        void setTeacherList(vector<UserInfo::Teacher*> teacherList) { this->teacherList = teacherList; }
+        vector<UserInfo::User*> getTeacherList() const { return teacherList; }
+        void setTeacherList(vector<UserInfo::User*> teacherList) { this->teacherList = teacherList; }
 
 		map<string,attendance*> getattendanceList() const { return attendanceList; }
 		void setattendanceList(map<string,attendance*> attendanceList) { this->attendanceList = attendanceList; }
 
+		int getCourseCode() const { return courseCode; }
+		void setCourseCode(int courseCode) { this->courseCode = courseCode; }
+
         // class functions
 
-		void enrollCourseTeacher(UserInfo::Teacher& teacher);
-		void enrollCourseStudent(UserInfo::Student& student);
+		void enrollCourseTeacher(UserInfo::User& teacher);
+		void enrollCourseStudent(UserInfo::User& student);
 		void displayCourseInfo();
 		void addCourseMaterial(CourseMaterials& course_material);
 		void showCourseMaterials();
+		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
+
+    
+
 };
 }

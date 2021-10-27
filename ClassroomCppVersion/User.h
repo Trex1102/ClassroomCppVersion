@@ -2,7 +2,9 @@
 #include <string>
 #include <iostream>
 #include <vector>
+#include <map>
 #include "Course.h"
+#include "Attendance.h"
 
 namespace CourseInfo
 {
@@ -26,8 +28,10 @@ namespace UserInfo {
         string phone;
         string password;
 
+        string teacherID, studentID;
     public:
         static vector<User*> userList;
+
         static int userID;
         vector<CourseInfo::Course*> asStudent;
         vector<CourseInfo::Course*> asTeacher;
@@ -93,7 +97,10 @@ namespace UserInfo {
         void addAsTeacher(CourseInfo::Course& course);
         void static createUser(User &user);
         void createUserName();
-                    
+        static void takeAttendance(CourseInfo::Course &course);
+        static void addStudent(CourseInfo::Course &course ,User& student);
+        static void addCourseMaterials();
 
+        ~User() = default;
 };
 }

@@ -6,19 +6,19 @@ using namespace  std;
 void CourseInfo::attendance::takeAttendance()
 {
 	{
-		int i;
-		for (auto it : course->getStudentList())
+		int choice;
+		for (const auto it : course->getStudentList())
 		{
 			cout << "If Present input 1 otherwise input 0 " << endl;
-			cout << "Student ID: " << it->getStudentID() << endl;
-			cin >> i;
-			if (i == 0)
+			cout << "Student username: " << it->getUsername() << endl;
+			cin >> choice;
+			if (choice == 0)
 			{
-				dailyAttendance.insert(pair<string, string>(it->getStudentID(), "Absent"));
+				dailyAttendance.insert(pair<string, string>(it->getUsername(), "Absent"));
 			}
 			else
 			{
-				dailyAttendance.insert(pair<string, string>(it->getStudentID(), "Present"));
+				dailyAttendance.insert(pair<string, string>(it->getUsername(), "Present"));
 			}
 		}
 	}
