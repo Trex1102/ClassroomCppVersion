@@ -17,7 +17,7 @@ void LoginInfo::loginSystem()
 			cin >> password;
 			for (auto it : UserInfo::User::userList)
 			{
-				if (it->getName() == username)
+				if (it->getUsername() == username)
 				{
 					if (it->getPassword() == password)
 					{
@@ -35,11 +35,9 @@ void LoginInfo::loginSystem()
 		}
 		else
 		{
-			cout << "Creating Account" << endl;
-			cout << "Input Username: " << endl;
-			cin >> username;
-			cout << "Password: " << endl;
-			cin >> password;
+			UserInfo::User	user;
+			UserInfo::User::createUser(user);
+			break;
 		}
 	}
 }

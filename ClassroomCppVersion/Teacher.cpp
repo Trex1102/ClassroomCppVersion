@@ -16,7 +16,7 @@ void UserInfo::Teacher::takeAttendance() const
 void UserInfo::Teacher::displayTeacherInfo() const
 {
 	cout << "Teacher Info: " << endl;
-	cout << "Teacher Name: " << parentUser->getName() << endl;
+	cout << "Teacher Name: " << parentUser->getFirstName() << endl;
 	cout << "Teacher Email: " << parentUser->getEmail()<<endl;
 	cout << "Other Courses" << endl;
 }

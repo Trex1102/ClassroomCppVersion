@@ -17,7 +17,9 @@ namespace UserInfo {
     private:
         
         string username;
-        string name;
+        string firstName;
+        string middleName;
+        string lastName;
         string department;
         int age;
         string email;
@@ -31,26 +33,39 @@ namespace UserInfo {
         vector<CourseInfo::Course*> asTeacher;
 
 
-        User(string name, string department, int age, string email, string phone, string password)
-	        : name(std::move(name)),
+        User()
+        {
+            userID++;
+            userList.push_back(this);
+        }
+
+        User(string username, string first_name, string middle_name, string last_name, string department, int age,
+	        string email, string phone, string password)
+	        : username(std::move(username)),
+	          firstName(std::move(first_name)),
+	          middleName(std::move(middle_name)),
+	          lastName(std::move(last_name)),
 	          department(std::move(department)),
 	          age(age),
 	          email(std::move(email)),
 	          phone(std::move(phone)),
 	          password(std::move(password))
         {
-            userID++;
-            username = name + to_string(userID);
-            userList.push_back(this);
         }
 
-        
-
-    public:
 
         // getters setters
-        string getName() const { return name; }
-        void setName(const string name) { this->name = name; }
+        string getUsername() const { return username; }
+        void setUsername(string username) { this->username = username; }
+
+        string getFirstName() const { return firstName; }
+        void setFirstName(string firstName) { this->firstName = firstName; }
+
+        string getMiddleName() const { return middleName; }
+        void setMiddleName(string middleName) { this->middleName = middleName; }
+
+        string getLastName() const { return lastName; }
+        void setLastName(string lastName) { this->lastName = lastName; }
 
         string getdepartment() const { return department; }
         void setdepartment(string department) { this->department = department; }
@@ -76,5 +91,9 @@ namespace UserInfo {
         // class function
         void addAsStudent(CourseInfo::Course &course);
         void addAsTeacher(CourseInfo::Course& course);
-    };
+        void static createUser(User &user);
+        void createUserName();
+                    
+
+};
 }

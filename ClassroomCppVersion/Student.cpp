@@ -6,7 +6,7 @@ void UserInfo::Student::displayStudentInfo() const
 {
 	{
 		cout << "Student Info: " << endl;
-		cout << "Student Name: " << parentUser->getName() << endl;
+		cout << "Student Name: " << parentUser->getFirstName()<< endl;
 		cout << "Student ID: " << studentID<<endl;
 	}
 }
