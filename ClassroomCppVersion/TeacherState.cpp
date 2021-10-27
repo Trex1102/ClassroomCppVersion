@@ -3,6 +3,8 @@ using namespace std;
 
 void StateInfo::TeacherState::displayCourseState()
 {
+	string choice;
+	system("cls");
 	StateInfo::courseState::displayCourseState();
 	cout	<< "Commands: " << endl
 			<<"To add student #addstu" << endl
@@ -11,5 +13,11 @@ void StateInfo::TeacherState::displayCourseState()
 			<< "To add assignment #addassign" << endl
 			<< "To add Short Notes #addsnotes" << endl
 			<< "To see course participants type #coursepar" << endl;
+
+	cin >> choice;
+	if(choice == "#coursepar")
+	{
+		displayParticipants();
+	}
 
 }

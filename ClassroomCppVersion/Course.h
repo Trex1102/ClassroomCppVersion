@@ -20,7 +20,7 @@ namespace CourseInfo
 	class Course
 	{
 	private:
-		static int courseCode;
+		string courseCode;
 		string department;
 		string courseID;
 		string courseOutline;
@@ -29,21 +29,24 @@ namespace CourseInfo
 		vector<CourseMaterials*> courseMaterialList;
 		vector<UserInfo::User*> studentList;
 		vector<UserInfo::User*> teacherList;
-        
 
-		friend class UserInfo::Teacher;
 	public:
+		static vector<Course*> courseList;
 		map<string, attendance*> attendanceList;
 	public:
 
-		Course(){}
+		Course()
+		{
+			createCourseCode();
+		}
 		Course(string department, string course_id, string courseOutline, double courseCredit)
 			: department(std::move(department)),
 			  courseID(std::move(course_id)),
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
-			courseCode++;
+			//courseCode++;
+			
 		}
 
 		//getters setters
@@ -69,8 +72,7 @@ namespace CourseInfo
 		map<string,attendance*> getattendanceList() const { return attendanceList; }
 		void setattendanceList(map<string,attendance*> attendanceList) { this->attendanceList = attendanceList; }
 
-		int getCourseCode() const { return courseCode; }
-		void setCourseCode(int courseCode) { this->courseCode = courseCode; }
+		string getCourseCode() const { return courseCode; }
 
         // class functions
 
@@ -80,8 +82,7 @@ namespace CourseInfo
 		void addCourseMaterial(CourseMaterials& course_material);
 		void showCourseMaterials();
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
-
-    
-
+		void createCourseCode();
+		
 };
 }

@@ -43,6 +43,27 @@ void UserInfo::User::addCourseMaterials()
 {
 }
 
+void UserInfo::User::joinCourse(string courseCode, User& user)
+{
+	for(const auto it: CourseInfo::Course::courseList)
+	{
+		string choice;
+		if(it->getCourseCode() == courseCode)
+		{
+			cout << "Course Found" << endl;
+			// to enter as teacher you will need  to enter a password set by the creator teacher
+			// to enter as student teacher need to approve the request of joining
+		}
+	}
+}
+
+void UserInfo::User::displayInfo() const
+{
+	cout << "Name: " << firstName << ' ' << middleName << ' ' << lastName << endl;
+	// other details
+
+}
+
 void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
 {
 	// check whether user is teacher of that course

@@ -97,9 +97,11 @@ namespace UserInfo {
         void addAsTeacher(CourseInfo::Course& course);
         void static createUser(User &user);
         void createUserName();
+        void displayInfo() const;
         static void takeAttendance(CourseInfo::Course &course);
         static void addStudent(CourseInfo::Course &course ,User& student);
         static void addCourseMaterials();
+        static void joinCourse(string courseCode,User& user);
 
         ~User() = default;
 };

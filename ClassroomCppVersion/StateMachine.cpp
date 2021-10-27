@@ -60,9 +60,9 @@ void StateInfo::courseState::displayParticipants()
 
 void StateInfo::courseState::displayCourseState()
 {
-	string choice;
+	
 	system("cls");
 	cout << "Course Code: " << currentCourse->getCourseCode()<<endl;
-	cout << "Course ID: " << currentCourse->getdepartment() << currentCourse->getCourseCode()<<endl;
+	cout << "Course ID: " << currentCourse->getdepartment() << currentCourse->getCourseID()<<endl;
 	
 }

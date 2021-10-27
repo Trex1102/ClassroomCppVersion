@@ -17,7 +17,6 @@ namespace CourseInfo
 		string date;
 		map<string, string> dailyAttendance;
 		Course* course;
-		friend UserInfo::User;
 	public:
 		attendance(Course* _course): course(_course)
 		{

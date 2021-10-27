@@ -1,6 +1,5 @@
 
 #include "Attendance.h"
-
 using namespace  std;
 
 void CourseInfo::attendance::takeAttendance()

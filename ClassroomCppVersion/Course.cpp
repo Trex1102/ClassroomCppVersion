@@ -1,7 +1,8 @@
 ﻿#include "Course.h"
 using namespace std;
 
-int CourseInfo::Course::courseCode = 100;
+//int CourseInfo::Course::courseCode = 100;
+vector<CourseInfo::Course*>courseList;
 
 void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)
 {
@@ -60,5 +61,16 @@ void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::Use
 	course.teacherList.push_back(&teacher);
 	cout << "Course Created Successful" << endl;
 }
+
+void CourseInfo::Course::createCourseCode()
+{
+	srand(time(0));
+	for (int i = 0; i < 6; i++)
+	{
+		int x = (rand() % 89) + 33;
+		courseCode = char(x) + courseCode;
+	}
+}
+
 
 
