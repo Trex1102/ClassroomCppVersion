@@ -1,7 +1,7 @@
 #include "LoginSystem.h"
 
-UserInfo::User* currentUser;
-void LoginInfo::loginSystem()
+//UserInfo::User* currentUser;
+UserInfo::User LoginInfo::loginSystem()
 {
 	int choice;
 	string username,password;
@@ -15,15 +15,15 @@ void LoginInfo::loginSystem()
 			cin >> username;
 			cout << "Password: ";
 			cin >> password;
-			for (auto it : UserInfo::User::userList)
+			for (const auto it : UserInfo::User::userList)
 			{
 				if (it->getUsername() == username)
 				{
 					if (it->getPassword() == password)
 					{
 						cout << "Login Successful" << endl;
-						currentUser = it;
-						return; // do next things
+						//currentUser = it;
+						return *it; // do next things
 					}
 				}
 			}
@@ -31,13 +31,13 @@ void LoginInfo::loginSystem()
 			cout << "Try again? - Press 1" << " Exit - Press 2" << endl;
 			cin >> choice;
 			if (choice == 1) continue;
-			else break; // exit the program
+			else return UserInfo::User(); // exit the program
 		}
 		else
 		{
 			UserInfo::User	user;
 			UserInfo::User::createUser(user);
-			break;
+			return user;
 		}
 	}
 }

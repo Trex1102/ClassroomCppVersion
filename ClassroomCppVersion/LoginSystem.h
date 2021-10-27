@@ -5,6 +5,6 @@ using namespace std;
 namespace LoginInfo {
 
 	
-	void loginSystem();
+	UserInfo::User loginSystem();
 
 }
