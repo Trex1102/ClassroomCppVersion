@@ -13,5 +13,5 @@ using namespace std;
 int main()
 {
     UserInfo::User currentUser = LoginInfo::loginSystem();
-    StateInfo::dashboardState(currentUser);
+    //StateInfo::dashboardState(currentUser);
 }

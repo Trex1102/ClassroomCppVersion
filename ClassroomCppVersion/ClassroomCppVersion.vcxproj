@@ -143,8 +143,6 @@
     <ClCompile Include="ClassroomCppVersion.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="LoginSystem.cpp" />
-    <ClCompile Include="StateMachine.cpp" />
-    <ClCompile Include="TeacherState.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,11 +151,9 @@
     <ClInclude Include="CourseMaterials.h" />
     <ClInclude Include="CourseOutline.h" />
     <ClInclude Include="CourseResult.h" />
-    <ClInclude Include="StateMachine.h" />
     <ClInclude Include="ExamResult.h" />
     <ClInclude Include="LoginSystem.h" />
     <ClInclude Include="Result.h" />
-    <ClInclude Include="TeacherState.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

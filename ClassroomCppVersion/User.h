@@ -70,41 +70,45 @@ namespace UserInfo {
 
         ~User() = default;
 
+public:
+    string getUsername() const;
+    void setUsername(string username);
 
-    public:
+    string getFirstName() const;
+    void setFirstName(string firstName);
 
-        // getters setters
-        string getUsername() const { return username; }
-        void setUsername(string username) { this->username = username; }
+    string getMiddleName() const;
+    void setMiddleName(string middleName);
 
-        string getFirstName() const { return firstName; }
-        void setFirstName(string firstName) { this->firstName = firstName; }
+    int getAge() const;
+    void setAge(int age);
 
-        string getMiddleName() const { return middleName; }
-        void setMiddleName(string middleName) { this->middleName = middleName; }
+    string getLastName() const;
+    void setLastName(string lastName);
 
-        string getLastName() const { return lastName; }
-        void setLastName(string lastName) { this->lastName = lastName; }
+    string getDepartment() const;
+    void setDepartment(string department);
 
-        string getdepartment() const { return department; }
-        void setdepartment(string department) { this->department = department; }
+    string getEmail() const;
+    void setEmail(string email);
 
-        int getAge() const { return age; }
-        void setAge(const int age) { this->age = age; }
+    string getPhone() const;
+    void setPhone(string phone);
 
-        string getEmail() const { return email; }
-        void setEmail(string email) { this->email = email; }
+    string getPassword() const;
+    void setPassword(string password);
 
-        string getPhone() const { return phone; }
-        void setPhone(string phone) { this->phone = phone; }
+    vector<User*> getUserList() const;
+    void setUserList(vector<User*> userList);
 
-        string getPassword() const { return password; }
-        void setPassword(string password) { this->password = password; }
+    string getTeacherID() const;
+    void setTeacherID(string teacherID);
 
-        vector<CourseInfo::Course*> getAsStudent() const { return asStudent; }
-        void setAsStudent(vector<CourseInfo::Course*> asStudent) { this->asStudent = asStudent; }
+    string getStudentID() const;
+    void setStudentID(string studentID);
 
-        vector<CourseInfo::Course*> getAsTeacher() const { return asTeacher; }
-        void setAsTeacher(vector<CourseInfo::Course*> asTeacher) { this->asTeacher = asTeacher; }
+    int getUserID() const;
+    void setUserID(int userID);
+
 };
 }
