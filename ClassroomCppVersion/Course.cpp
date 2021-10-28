@@ -24,7 +24,7 @@ void CourseInfo::Course::displayCourseInfo()
 	for(const auto it: teacherList)
 	{
 		
-		//it->displayTeacherInfo(); // only shows teacher part
+		// only shows teacher part
 		// display user info as well
 		
 	}
@@ -73,4 +73,55 @@ void CourseInfo::Course::createCourseCode()
 }
 
 
+
+
+string CourseInfo::Course::getCourseCode() const
+{
+    return courseCode;
+}
+
+void CourseInfo::Course::setCourseCode(string courseCode)
+{
+    this->courseCode = courseCode;
+}
+
+string CourseInfo::Course::getDepartment() const
+{
+    return department;
+}
+
+void CourseInfo::Course::setDepartment(string department)
+{
+    this->department = department;
+}
+
+string CourseInfo::Course::getCourseID() const
+{
+    return courseID;
+}
+
+void CourseInfo::Course::setCourseID(string courseID)
+{
+    this->courseID = courseID;
+}
+
+string CourseInfo::Course::getCourseOutline() const
+{
+    return courseOutline;
+}
+
+void CourseInfo::Course::setCourseOutline(string courseOutline)
+{
+    this->courseOutline = courseOutline;
+}
+
+double CourseInfo::Course::getCourseCredit() const
+{
+    return courseCredit;
+}
+
+void CourseInfo::Course::setCourseCredit(double courseCredit)
+{
+    this->courseCredit = courseCredit;
+}
 

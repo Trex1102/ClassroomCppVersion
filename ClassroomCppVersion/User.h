@@ -70,45 +70,46 @@ namespace UserInfo {
 
         ~User() = default;
 
-public:
-    string getUsername() const;
-    void setUsername(string username);
+    // getters setters
+	public:
+	    string getUsername() const;
+	    void setUsername(string username);
 
-    string getFirstName() const;
-    void setFirstName(string firstName);
+	    string getFirstName() const;
+	    void setFirstName(string firstName);
 
-    string getMiddleName() const;
-    void setMiddleName(string middleName);
+	    string getMiddleName() const;
+	    void setMiddleName(string middleName);
 
-    int getAge() const;
-    void setAge(int age);
+	    int getAge() const;
+	    void setAge(int age);
 
-    string getLastName() const;
-    void setLastName(string lastName);
+	    string getLastName() const;
+	    void setLastName(string lastName);
 
-    string getDepartment() const;
-    void setDepartment(string department);
+	    string getDepartment() const;
+	    void setDepartment(string department);
 
-    string getEmail() const;
-    void setEmail(string email);
+	    string getEmail() const;
+	    void setEmail(string email);
 
-    string getPhone() const;
-    void setPhone(string phone);
+	    string getPhone() const;
+	    void setPhone(string phone);
 
-    string getPassword() const;
-    void setPassword(string password);
+	    string getPassword() const;
+	    void setPassword(string password);
 
-    vector<User*> getUserList() const;
-    void setUserList(vector<User*> userList);
+	    vector<User*> getUserList() const;
+	    void setUserList(vector<User*> userList);
 
-    string getTeacherID() const;
-    void setTeacherID(string teacherID);
+	    string getTeacherID() const;
+	    void setTeacherID(string teacherID);
 
-    string getStudentID() const;
-    void setStudentID(string studentID);
+	    string getStudentID() const;
+	    void setStudentID(string studentID);
 
-    int getUserID() const;
-    void setUserID(int userID);
+	    int getUserID() const;
+	    void setUserID(int userID);
 
 };
 }

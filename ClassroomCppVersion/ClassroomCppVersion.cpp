@@ -6,12 +6,12 @@
 #include "Course.h"
 #include "Attendance.h"
 #include "LoginSystem.h"
-#include "StateMachine.h"
 using namespace std;
 
 
 int main()
 {
     UserInfo::User currentUser = LoginInfo::loginSystem();
+
     //StateInfo::dashboardState(currentUser);
 }

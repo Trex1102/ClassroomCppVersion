@@ -62,30 +62,22 @@ namespace CourseInfo
 
 
 
+	
 	public:
-		//getters setters
-		string getdepartment() const { return department; }
-		void setdepartment(string department) { this->department = department; }
+	    string getCourseCode() const;
+	    void setCourseCode(string courseCode);
 
-		string getCourseID() const { return courseID; }
-		void setCourseID(string courseID) { this->courseID = courseID; }
+	    string getDepartment() const;
+	    void setDepartment(string department);
 
-		string getcourseOutline() const { return courseOutline; }
-		void setcourseOutline(string courseOutline) { this->courseOutline = courseOutline; }
+	    string getCourseID() const;
+	    void setCourseID(string courseID);
 
-		double getcourseCredit() const { return courseCredit; }
-		void setcourseCredit(double courseCredit) { this->courseCredit = courseCredit; }
+	    string getCourseOutline() const;
+	    void setCourseOutline(string courseOutline);
 
+	    double getCourseCredit() const;
+	    void setCourseCredit(double courseCredit);
 
-		vector<UserInfo::User*> getStudentList() const { return studentList; }
-		void setStudentList(vector<UserInfo::User*> studentList) { this->studentList = studentList; }
-
-		vector<UserInfo::User*> getTeacherList() const { return teacherList; }
-		void setTeacherList(vector<UserInfo::User*> teacherList) { this->teacherList = teacherList; }
-
-		map<string, attendance*> getattendanceList() const { return attendanceList; }
-		void setattendanceList(map<string, attendance*> attendanceList) { this->attendanceList = attendanceList; }
-
-		string getCourseCode() const { return courseCode; }
 };
 }
