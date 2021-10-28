@@ -2,7 +2,7 @@
 using namespace std;
 
 //int CourseInfo::Course::courseCode = 100;
-vector<CourseInfo::Course*>courseList;
+vector<CourseInfo::Course*>CourseInfo::Course::courseList;
 
 void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)
 {

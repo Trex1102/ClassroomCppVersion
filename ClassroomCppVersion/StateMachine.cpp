@@ -7,10 +7,10 @@ using namespace std;
 
 void StateInfo::dashboardState(UserInfo::User& currentUser)
 {
+	system("cls");
 	string choice;
 	vector<CourseInfo::Course* > asStudent = currentUser.getAsStudent();
 	vector<CourseInfo::Course* > asTeacher = currentUser.getAsTeacher();
-	system("cls");
 	cout << "User name: " << currentUser.getUsername()<<endl;
 	cout << "Joined Courses: " << endl;
 	cout << "As teacher: " << asTeacher.size() << endl;
@@ -20,7 +20,9 @@ void StateInfo::dashboardState(UserInfo::User& currentUser)
 	cin >> choice;
 	if(choice == "#joincourse")
 	{
-		
+		string courseCode;
+		cout << "Enter Course Code: "; cin >> courseCode;
+		//UserInfo::User::joinCourse(courseCode,currentUser);
 	}
 	if(choice == "#createcourse")
 	{
@@ -66,3 +68,24 @@ void StateInfo::courseState::displayCourseState()
 	cout << "Course ID: " << currentCourse->getdepartment() << currentCourse->getCourseID()<<endl;
 	
 }
+
+CourseInfo::Course* StateInfo::courseState::getCurrentCourse() const
+{
+    return currentCourse;
+}
+
+void StateInfo::courseState::setCurrentCourse(CourseInfo::Course* currentCourse)
+{
+    this->currentCourse = currentCourse;
+}
+
+UserInfo::User* StateInfo::courseState::getCurrentUser() const
+{
+    return currentUser;
+}
+
+void StateInfo::courseState::setCurrentUser(UserInfo::User* currentUser)
+{
+    this->currentUser = currentUser;
+}
+

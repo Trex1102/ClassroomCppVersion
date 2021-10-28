@@ -57,6 +57,21 @@ namespace UserInfo {
         {
         }
 
+        // class function
+        void addAsStudent(CourseInfo::Course &course);
+        void addAsTeacher(CourseInfo::Course& course);
+        void static createUser(User &user);
+        void createUserName();
+        void displayInfo() const;
+        static void takeAttendance(CourseInfo::Course &course);
+        static void addStudent(CourseInfo::Course &course ,User& student);
+        static void addCourseMaterials();
+        static void joinCourse(string courseCode,User& user);
+
+        ~User() = default;
+
+
+    public:
 
         // getters setters
         string getUsername() const { return username; }
@@ -91,18 +106,5 @@ namespace UserInfo {
 
         vector<CourseInfo::Course*> getAsTeacher() const { return asTeacher; }
         void setAsTeacher(vector<CourseInfo::Course*> asTeacher) { this->asTeacher = asTeacher; }
-
-        // class function
-        void addAsStudent(CourseInfo::Course &course);
-        void addAsTeacher(CourseInfo::Course& course);
-        void static createUser(User &user);
-        void createUserName();
-        void displayInfo() const;
-        static void takeAttendance(CourseInfo::Course &course);
-        static void addStudent(CourseInfo::Course &course ,User& student);
-        static void addCourseMaterials();
-        static void joinCourse(string courseCode,User& user);
-
-        ~User() = default;
 };
 }

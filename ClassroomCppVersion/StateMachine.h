@@ -5,15 +5,15 @@
 using namespace std;
 namespace StateInfo
 {
-	void dashboardState(UserInfo::User &currentUser);
+	
 	//void messageState(UserInfo::User& currentUser);
 	//void adminState(UserInfo::User& currentUser);
 
-	
+	void dashboardState(UserInfo::User& currentUser);
 
 	class courseState
 	{
-	private:
+	protected:
 		CourseInfo::Course* currentCourse;
 		UserInfo::User* currentUser;
 	public:
@@ -27,6 +27,15 @@ namespace StateInfo
 		void displayParticipants();
 		virtual void displayCourseState();
 		virtual ~courseState() = default;
-	};
+
+
+	public:
+        CourseInfo::Course* getCurrentCourse() const;
+        void setCurrentCourse(CourseInfo::Course* currentCourse);
+
+        UserInfo::User* getCurrentUser() const;
+        void setCurrentUser(UserInfo::User* currentUser);
+		
+};
 
 }

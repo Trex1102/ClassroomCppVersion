@@ -49,31 +49,6 @@ namespace CourseInfo
 			
 		}
 
-		//getters setters
-        string getdepartment() const { return department; }
-        void setdepartment(string department) { this->department = department; }
-
-        string getCourseID() const { return courseID; }
-        void setCourseID(string courseID) { this->courseID = courseID; }
-
-        string getcourseOutline() const { return courseOutline; }
-        void setcourseOutline(string courseOutline) { this->courseOutline = courseOutline; }
-
-        double getcourseCredit() const { return courseCredit; }
-        void setcourseCredit(double courseCredit) { this->courseCredit = courseCredit; }
-
-
-        vector<UserInfo::User*> getStudentList() const { return studentList; }
-        void setStudentList(vector<UserInfo::User*> studentList) { this->studentList = studentList; }
-
-        vector<UserInfo::User*> getTeacherList() const { return teacherList; }
-        void setTeacherList(vector<UserInfo::User*> teacherList) { this->teacherList = teacherList; }
-
-		map<string,attendance*> getattendanceList() const { return attendanceList; }
-		void setattendanceList(map<string,attendance*> attendanceList) { this->attendanceList = attendanceList; }
-
-		string getCourseCode() const { return courseCode; }
-
         // class functions
 
 		void enrollCourseTeacher(UserInfo::User& teacher);
@@ -83,6 +58,34 @@ namespace CourseInfo
 		void showCourseMaterials();
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
 		void createCourseCode();
-		
+		~Course() = default;
+
+
+
+	public:
+		//getters setters
+		string getdepartment() const { return department; }
+		void setdepartment(string department) { this->department = department; }
+
+		string getCourseID() const { return courseID; }
+		void setCourseID(string courseID) { this->courseID = courseID; }
+
+		string getcourseOutline() const { return courseOutline; }
+		void setcourseOutline(string courseOutline) { this->courseOutline = courseOutline; }
+
+		double getcourseCredit() const { return courseCredit; }
+		void setcourseCredit(double courseCredit) { this->courseCredit = courseCredit; }
+
+
+		vector<UserInfo::User*> getStudentList() const { return studentList; }
+		void setStudentList(vector<UserInfo::User*> studentList) { this->studentList = studentList; }
+
+		vector<UserInfo::User*> getTeacherList() const { return teacherList; }
+		void setTeacherList(vector<UserInfo::User*> teacherList) { this->teacherList = teacherList; }
+
+		map<string, attendance*> getattendanceList() const { return attendanceList; }
+		void setattendanceList(map<string, attendance*> attendanceList) { this->attendanceList = attendanceList; }
+
+		string getCourseCode() const { return courseCode; }
 };
 }

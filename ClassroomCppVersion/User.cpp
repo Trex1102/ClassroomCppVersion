@@ -51,8 +51,19 @@ void UserInfo::User::joinCourse(string courseCode, User& user)
 		if(it->getCourseCode() == courseCode)
 		{
 			cout << "Course Found" << endl;
-			// to enter as teacher you will need  to enter a password set by the creator teacher
-			// to enter as student teacher need to approve the request of joining
+			cout << "To join as teacher type #jointoteach" << endl << "To join as student type #jointolearn" << endl;
+			cin >> choice;
+			if(choice == "#jointoteach")
+			{
+				// search whether user is in the teacher list if not ask for password
+			}
+			else if(choice == "#jointolearn")
+			{
+				// include the user as student to the course -- no need to check as the coursecode is unique
+
+				cout << "Congo" << endl;
+				// show student dashboard 
+			}
 		}
 	}
 }
