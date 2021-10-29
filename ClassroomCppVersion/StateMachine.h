@@ -6,7 +6,7 @@ using namespace std;
 
 namespace StateInfo
 {
-	typedef  unique_ptr<State> stateRef;
+	typedef  unique_ptr<State> stateRef; // unique pointer to state
 
 	class StateMachine
 	{
@@ -16,8 +16,8 @@ namespace StateInfo
 		stateRef newState;
 		bool isRemoving, isAdding, isReplacing;
 	public:
-		StateMachine(){}
-		~StateMachine(){}
+		StateMachine() = default;
+		~StateMachine() = default;
 
 		void addState(stateRef newstate, bool isReplacing = true);
 		void removeState();
