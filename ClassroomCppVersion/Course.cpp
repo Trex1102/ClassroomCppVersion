@@ -1,7 +1,7 @@
 ﻿#include "Course.h"
 using namespace std;
 
-//int CourseInfo::Course::courseCode = 100;
+
 vector<CourseInfo::Course*>CourseInfo::Course::courseList;
 
 void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)
@@ -64,7 +64,8 @@ void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::Use
 
 void CourseInfo::Course::createCourseCode()
 {
-	srand(time(0));
+	auto const t = static_cast<long int> (time(nullptr));
+	srand(t);
 	for (int i = 0; i < 6; i++)
 	{
 		int x = (rand() % 89) + 33;
@@ -123,5 +124,36 @@ double CourseInfo::Course::getCourseCredit() const
 void CourseInfo::Course::setCourseCredit(double courseCredit)
 {
     this->courseCredit = courseCredit;
+}
+
+
+vector<CourseInfo::CourseMaterials*> CourseInfo::Course::getCourseMaterialList() const
+{
+    return courseMaterialList;
+}
+
+void CourseInfo::Course::setCourseMaterialList(vector<CourseMaterials*> courseMaterialList)
+{
+    this->courseMaterialList = courseMaterialList;
+}
+
+vector<UserInfo::User*> CourseInfo::Course::getStudentList() const
+{
+    return studentList;
+}
+
+void CourseInfo::Course::setStudentList(vector<UserInfo::User*> studentList)
+{
+    this->studentList = studentList;
+}
+
+vector<UserInfo::User*> CourseInfo::Course::getTeacherList() const
+{
+    return teacherList;
+}
+
+void CourseInfo::Course::setTeacherList(vector<UserInfo::User*> teacherList)
+{
+    this->teacherList = teacherList;
 }
 

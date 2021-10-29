@@ -45,8 +45,8 @@ namespace CourseInfo
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
-			//courseCode++;
 			
+			createCourseCode();
 		}
 
         // class functions
@@ -78,6 +78,16 @@ namespace CourseInfo
 
 	    double getCourseCredit() const;
 	    void setCourseCredit(double courseCredit);
+
+		vector<CourseMaterials*> getCourseMaterialList() const;
+		void setCourseMaterialList(vector<CourseMaterials*> courseMaterialList);
+
+		vector<UserInfo::User*> getStudentList() const;
+		void setStudentList(vector<UserInfo::User*> studentList);
+
+		vector<UserInfo::User*> getTeacherList() const;
+		void setTeacherList(vector<UserInfo::User*> teacherList);
+    
 
 };
 }

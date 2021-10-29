@@ -13,5 +13,4 @@ int main()
 {
     UserInfo::User currentUser = LoginInfo::loginSystem();
 
-    //StateInfo::dashboardState(currentUser);
 }
