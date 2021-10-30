@@ -7,6 +7,7 @@
 #include "Attendance.h"
 #include "State.h"
 #include "Program.h"
+#include "LoginSystem.h"
 using namespace std;
 
 namespace StateInfo
