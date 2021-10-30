@@ -7,6 +7,7 @@ using namespace std;
 
 namespace StateInfo
 {
+	class State;
 	typedef  unique_ptr<State> stateRef; // unique pointer to state
 
 	class StateMachine

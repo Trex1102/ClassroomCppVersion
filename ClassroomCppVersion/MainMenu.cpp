@@ -3,6 +3,7 @@ using namespace std;
 
 StateInfo::MainMenu::MainMenu(ProgramDataRef data) : data(data)
 {
+	cout << "User name: " << data->currentUser.getUsername() << endl;
 }
 
 
@@ -26,3 +27,5 @@ void StateInfo::MainMenu::Resume()
 void StateInfo::MainMenu::Display()
 {
 }
+
+

@@ -26,6 +26,6 @@ namespace StateInfo
 		void Resume() override;
 		void Display() override;
 
-		~MainMenu();
+		//~MainMenu () override = default;
 	};
 }

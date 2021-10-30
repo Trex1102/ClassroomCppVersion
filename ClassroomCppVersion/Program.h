@@ -16,7 +16,7 @@ namespace StateInfo
         UserInfo::User currentUser;
     };
 
-    typedef shared_ptr<StateInfo::ProgramData> ProgramDataRef; // making shared pointer of the data
+    typedef shared_ptr<StateInfo::ProgramData> ProgramDataRef;
 
     class Program
     {
@@ -24,7 +24,6 @@ namespace StateInfo
         Program();
 
     private:
-        ProgramDataRef data = make_shared<ProgramData>(); //
-
+        ProgramDataRef data = make_shared<ProgramData>();
     };
 }

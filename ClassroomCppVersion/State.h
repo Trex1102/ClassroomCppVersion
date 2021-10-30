@@ -13,6 +13,6 @@ namespace StateInfo
 		virtual void Pause()  = 0; // save essential datas
 		virtual void Resume()  = 0; // load essesntial datas
 		virtual void Display() = 0;
-		virtual ~State() = 0;
+		//virtual ~State() = 0;
 	};
 }

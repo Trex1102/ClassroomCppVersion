@@ -49,9 +49,7 @@ void StateInfo::StateMachine::processStateChanges()
 
 StateInfo::stateRef& StateInfo::StateMachine::getActiveState()
 {
-	if (!states.empty()) {
-		return states.top();
-	}
+	return states.top();
 }
 
 
