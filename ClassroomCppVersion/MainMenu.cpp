@@ -27,11 +27,19 @@ void StateInfo::MainMenu::HandleInput()
 	}
 	else
 	{
-		string code;
+		string code, choice;
 		cout << "Enter Course Code: "; cin >> code;
-		//UserInfo::User::joinCourse(code,data->currentUser);
-		// modification needed in joincourse -- make in a way that we will tranfer power in this function
-		// not in joinCourse function
+		choice = UserInfo::User::joinCourse(code,data->currentUser);
+		if(choice == "#jointoteach")
+		{
+			// check whether user is in the course as teacher
+			// create & passs teacher state
+		}
+		else
+		{
+			// join as teacher as codes are unique
+			// create & pass student state
+		}
 	}
 }
 
