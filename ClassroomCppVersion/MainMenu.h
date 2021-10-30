@@ -18,7 +18,7 @@ namespace StateInfo
 		
 	public:
 
-		MainMenu(ProgramDataRef _data):data(move(_data)){}
+		MainMenu(ProgramDataRef data);
 
 		void Init() override;
 		void HandleInput() override;

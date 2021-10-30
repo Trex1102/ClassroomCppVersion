@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <memory>
 #include <stack>
+
 #include "State.h"
 using namespace std;
 

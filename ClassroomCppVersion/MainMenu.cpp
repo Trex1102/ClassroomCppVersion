@@ -1,6 +1,11 @@
 ﻿#include "MainMenu.h"
 using namespace std;
 
+StateInfo::MainMenu::MainMenu(ProgramDataRef data) : data(data)
+{
+}
+
+
 void StateInfo::MainMenu::Init()
 {
 	
