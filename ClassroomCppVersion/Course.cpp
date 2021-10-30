@@ -60,6 +60,7 @@ void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::Use
 	cout << "Your Course Code is " << course.courseCode << endl;
 	course.teacherList.push_back(&teacher);
 	cout << "Course Created Successful" << endl;
+
 }
 
 void CourseInfo::Course::createCourseCode()
