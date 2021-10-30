@@ -22,7 +22,8 @@ void StateInfo::MainMenu::HandleInput()
 	{
 		
 		CourseInfo::Course::createCourse(data->currentCourse, data->currentUser);
-		// course is created 
+		// course is created
+		// create & push new teacher state here
 	}
 	else
 	{
