@@ -43,9 +43,9 @@ void UserInfo::User::addCourseMaterials()
 {
 }
 
-void UserInfo::User::joinCourse(string courseCode, User& user)
+string UserInfo::User::joinCourse(string courseCode, User& user)
 {
-	for(const auto it: CourseInfo::Course::courseList)
+	for(auto it: CourseInfo::Course::courseList)
 	{
 		string choice;
 		if(it->getCourseCode() == courseCode)
@@ -53,19 +53,10 @@ void UserInfo::User::joinCourse(string courseCode, User& user)
 			cout << "Course Found" << endl;
 			cout << "To join as teacher type #jointoteach" << endl << "To join as student type #jointolearn" << endl;
 			cin >> choice;
-			if(choice == "#jointoteach")
-			{
-				// search whether user is in the teacher list if not ask for password
-			}
-			else if(choice == "#jointolearn")
-			{
-				// include the user as student to the course -- no need to check as the coursecode is unique
-
-				cout << "Congo" << endl;
-				// show student dashboard 
-			}
+			return choice;
 		}
 	}
+	return "error";
 }
 
 void UserInfo::User::displayInfo() const

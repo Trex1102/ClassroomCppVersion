@@ -70,7 +70,7 @@ namespace UserInfo {
         static void takeAttendance(CourseInfo::Course &course);
         static void addStudent(CourseInfo::Course &course ,User& student);
         static void addCourseMaterials();
-        static void joinCourse(string courseCode,User& user);
+        static string joinCourse(string courseCode,User& user);
 
         ~User() = default;
 
