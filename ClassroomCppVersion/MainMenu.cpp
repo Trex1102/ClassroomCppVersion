@@ -27,8 +27,11 @@ void StateInfo::MainMenu::HandleInput()
 	}
 	else
 	{
-		// check for course
-		// pass to teacher / student state
+		string code;
+		cout << "Enter Course Code: "; cin >> code;
+		//UserInfo::User::joinCourse(code,data->currentUser);
+		// modification needed in joincourse -- make in a way that we will tranfer power in this function
+		// not in joinCourse function
 	}
 }
 
