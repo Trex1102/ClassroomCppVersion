@@ -14,6 +14,7 @@ namespace StateInfo
     {
         StateMachine machine;
         UserInfo::User currentUser;
+        CourseInfo::Course currentCourse;
     };
 
     typedef shared_ptr<StateInfo::ProgramData> ProgramDataRef;

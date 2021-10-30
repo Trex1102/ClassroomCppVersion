@@ -142,6 +142,7 @@
     <ClCompile Include="Attendance.cpp" />
     <ClCompile Include="ClassroomCppVersion.cpp" />
     <ClCompile Include="Course.cpp" />
+    <ClCompile Include="Login.cpp" />
     <ClCompile Include="LoginSystem.cpp" />
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Program.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="CourseOutline.h" />
     <ClInclude Include="CourseResult.h" />
     <ClInclude Include="ExamResult.h" />
+    <ClInclude Include="Login.h" />
     <ClInclude Include="LoginSystem.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Program.h" />
