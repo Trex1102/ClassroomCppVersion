@@ -10,21 +10,27 @@ using namespace std;
 
 namespace StateInfo
 {
-    struct ProgramData
+    /*struct ProgramData
     {
         StateMachine machine;
         UserInfo::User currentUser;
     };
 
-    typedef shared_ptr<StateInfo::ProgramData> ProgramDataRef; // making shared pointer of the data
+    typedef shared_ptr<StateInfo::ProgramData> ProgramDataRef; // making shared pointer of the data*/
+
+    struct ProgData
+    {
+        UserInfo::User currentUser;
+    };
+    typedef shared_ptr<ProgData> ProgDataRef;
 
     class Program
     {
     public:
-        Program();
+        Program(ProgDataRef data);
 
     private:
-        ProgramDataRef data = make_shared<ProgramData>(); //
+        ProgDataRef data; //
 
     };
 }

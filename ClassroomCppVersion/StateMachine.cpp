@@ -1,7 +1,7 @@
-#include "StateMachine.h"
+/*#include "StateMachine.h"
 using namespace std;
 
-void StateInfo::StateMachine::addState(stateRef newstate, bool isReplacing)
+void StateInfo::StateMachine::addState(State* newstate, bool isReplacing)
 {
 	this->isAdding = true;
 	this->isReplacing = isReplacing;
@@ -47,11 +47,11 @@ void StateInfo::StateMachine::processStateChanges()
 	}
 }
 
-StateInfo::stateRef& StateInfo::StateMachine::getActiveState()
+StateInfo::State* StateInfo::StateMachine::getActiveState()
 {
 	if (!states.empty()) {
 		return states.top();
 	}
 }
-
+*/
 

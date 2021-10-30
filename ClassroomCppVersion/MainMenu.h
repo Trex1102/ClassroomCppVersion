@@ -7,6 +7,7 @@
 #include "Attendance.h"
 #include "State.h"
 #include "Program.h"
+#include "DummyState.h"
 using namespace std;
 
 namespace StateInfo
@@ -14,18 +15,16 @@ namespace StateInfo
 	class MainMenu:public State
 	{
 	private:
-		ProgramDataRef data;
+		shared_ptr<UserInfo::User>currentUser = make_shared<UserInfo::User>();
 		
 	public:
-
-		MainMenu(ProgramDataRef _data):data(move(_data)){}
-
+		
+		MainMenu(shared_ptr<UserInfo::User> currentUser);
 		void Init() override;
 		void HandleInput() override;
 		void Pause() override;
 		void Resume() override;
 		void Display() override;
-
-		~MainMenu();
+		
 	};
 }

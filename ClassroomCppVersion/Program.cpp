@@ -3,8 +3,8 @@
 #include "MainMenu.h"
 using namespace std;
 
-StateInfo::Program::Program()
+StateInfo::Program::Program(ProgDataRef data):data(data)
 {
-	data->currentUser = LoginInfo::loginSystem();
-	  data->machine.addState(stateRef(new MainMenu(this->data)));
+	//data->currentUser = LoginInfo::loginSystem();
+	//MainMenu menu (this->data);
 }

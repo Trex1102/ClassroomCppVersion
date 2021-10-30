@@ -154,6 +154,7 @@
     <ClInclude Include="CourseMaterials.h" />
     <ClInclude Include="CourseOutline.h" />
     <ClInclude Include="CourseResult.h" />
+    <ClInclude Include="DummyState.h" />
     <ClInclude Include="ExamResult.h" />
     <ClInclude Include="LoginSystem.h" />
     <ClInclude Include="MainMenu.h" />
