@@ -4,13 +4,13 @@ using namespace std;
 StateInfo::MainMenu::MainMenu(ProgramDataRef data) : data(data)
 {
 	//data->currentUser = LoginInfo::loginSystem();
-	HandleInput();
+	
 }
 
 
 void StateInfo::MainMenu::Init()
 {
-	
+	HandleInput();
 }
 
 void StateInfo::MainMenu::HandleInput()

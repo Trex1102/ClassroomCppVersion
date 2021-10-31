@@ -7,4 +7,6 @@ StateInfo::Program::Program()
 {
 	data->currentUser = LoginInfo::loginSystem();
 	data->machine.addState(stateRef(new MainMenu(this->data)));
+	data->machine.processStateChanges();
+	data->machine.getActiveState()->Init();
 }
