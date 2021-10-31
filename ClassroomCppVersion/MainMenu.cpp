@@ -6,15 +6,13 @@ using namespace std;
 StateInfo::MainMenu::MainMenu(ProgramDataRef data) : data(data)
 {
 	//data->currentUser = LoginInfo::loginSystem();
-
-	HandleInput();
-	
+	Init();
 }
 
 
 void StateInfo::MainMenu::Init()
 {
-	
+	HandleInput();
 }
 
 void StateInfo::MainMenu::HandleInput()
@@ -26,15 +24,24 @@ void StateInfo::MainMenu::HandleInput()
 	{
 		
 		CourseInfo::Course::createCourse(data->currentCourse, data->currentUser);
-		// course is created 
-
-		data->machine.addState(stateRef(new TeacherState(this->data)));
+		// course is created
+		// create & push new teacher state here
 	}
 	else
 	{
-		// check for course
-		// pass to teacher / student state
-		data->machine.addState(stateRef(new StudentState(this->data)));
+		string code, choice;
+		cout << "Enter Course Code: "; cin >> code;
+		choice = UserInfo::User::joinCourse(code,data->currentUser);
+		if(choice == "#jointoteach")
+		{
+			// check whether user is in the course as teacher
+			// create & passs teacher state
+		}
+		else
+		{
+			// join as teacher as codes are unique
+			// create & pass student state
+		}
 	}
 }
 
