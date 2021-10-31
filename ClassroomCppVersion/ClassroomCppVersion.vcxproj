@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssignmentState.cpp" />
     <ClCompile Include="Attendance.cpp" />
     <ClCompile Include="AttendanceState.cpp" />
     <ClCompile Include="ClassroomCppVersion.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssignmentState.h" />
     <ClInclude Include="Attendance.h" />
     <ClInclude Include="AttendanceState.h" />
     <ClInclude Include="Course.h" />
