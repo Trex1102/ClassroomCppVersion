@@ -21,8 +21,9 @@ void StateInfo::MainMenu::HandleInput()
 	cin >> choice;
 	if (choice == "#createcourse")
 	{
-		
-		CourseInfo::Course::createCourse(data->currentCourse, data->currentUser);
+		CourseInfo::Course currentCourse;
+		CourseInfo::Course::createCourse(currentCourse, data->currentUser);
+		data->currentCourse = currentCourse;
 		data->machine.addState(stateRef(new TeacherState(this->data)), false);
 	}
 	else
@@ -57,6 +58,7 @@ void StateInfo::MainMenu::Display()
 	system("cls");
 	cout << "Welcome ";
 	cout << "User: " << data->currentUser.getUsername() << endl;
+	cout << "Total Courses: " << CourseInfo::Course::totalCourse<<endl;
 	cout << "To join Course Press #joincourse or to create course type #createcourse" << endl;
 }
 

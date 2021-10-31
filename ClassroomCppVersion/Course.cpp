@@ -1,7 +1,7 @@
 ﻿#include "Course.h"
 using namespace std;
 
-
+int CourseInfo::Course::totalCourse;
 vector<CourseInfo::Course*>CourseInfo::Course::courseList;
 
 void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)

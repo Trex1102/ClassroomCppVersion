@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <iostream>
 #include <map>
@@ -8,19 +8,18 @@
 #include "State.h"
 #include "Program.h"
 #include "LoginSystem.h"
-#include "AddStudentState.h"
 using namespace std;
 
 namespace StateInfo
 {
-	class TeacherState :public State
+	class AddStudentState : public State
 	{
 	private:
 		ProgramDataRef data;
 
 	public:
 
-		TeacherState(ProgramDataRef data);
+		AddStudentState(ProgramDataRef data);
 
 		void Init() override;
 		void HandleInput() override;

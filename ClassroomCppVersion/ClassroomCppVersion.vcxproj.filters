@@ -60,6 +60,9 @@
     <ClCompile Include="AssignmentState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddStudentState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -120,6 +123,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AssignmentState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddStudentState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

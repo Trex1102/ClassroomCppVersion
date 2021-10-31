@@ -19,7 +19,7 @@ void StateInfo::TeacherState::HandleInput()
 	cin >> choice;
 	if (choice == "#addstu")
 	{
-
+		data->machine.addState(stateRef(new AddStudentState(this->data)));
 	}
 	if (choice == "#addmat")
 	{

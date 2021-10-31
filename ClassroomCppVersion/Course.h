@@ -25,19 +25,25 @@ namespace CourseInfo
 		string courseID;
 		string courseOutline;
 		double courseCredit;
+		
 
 		vector<CourseMaterials*> courseMaterialList;
 		vector<UserInfo::User*> studentList;
 		vector<UserInfo::User*> teacherList;
 
 	public:
+
+		static int totalCourse;
 		static vector<Course*> courseList;
 		map<string, attendance*> attendanceList;
 	public:
 
 		Course()
 		{
+			totalCourse++;
 			createCourseCode();
+			courseList.push_back(this);
+			
 		}
 		Course(string department, string course_id, string courseOutline, double courseCredit)
 			: department(std::move(department)),
@@ -45,8 +51,9 @@ namespace CourseInfo
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
-			
+			totalCourse++;
 			createCourseCode();
+			courseList.push_back(this);
 		}
 
         // class functions
@@ -86,5 +93,5 @@ namespace CourseInfo
 		void setTeacherList(vector<UserInfo::User*> teacherList);
     
 
-};
+	};
 }
