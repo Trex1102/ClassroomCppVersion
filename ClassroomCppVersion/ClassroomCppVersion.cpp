@@ -13,5 +13,4 @@ using namespace std;
 int main()
 {
     StateInfo::Program mainProgram;
-
 }
