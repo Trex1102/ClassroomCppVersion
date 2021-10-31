@@ -47,7 +47,6 @@ void StateInfo::StateMachine::processStateChanges()
 		states.push(move(newState));
 		isAdding = false;
 		states.top()->Init();
-		//states.top()->Display();
 	}
 }
 

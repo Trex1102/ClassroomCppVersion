@@ -5,8 +5,7 @@ using namespace std;
 
 StateInfo::MainMenu::MainMenu(ProgramDataRef data) : data(data)
 {
-	//data->currentUser = LoginInfo::loginSystem();
-	//Init();
+	
 }
 
 
@@ -38,7 +37,7 @@ void StateInfo::MainMenu::HandleInput()
 		}
 		else
 		{
-			// join as teacher as codes are unique
+			// join as student as codes are unique
 			// create & pass student state
 		}
 	}
