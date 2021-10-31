@@ -6,6 +6,7 @@ void StateInfo::StateMachine::addState(stateRef newstate, bool isReplacing)
 	this->isAdding = true;
 	this->isReplacing = isReplacing;
 	this->newState = move(newstate);
+	//processStateChanges();
 }
 
 void StateInfo::StateMachine::removeState()

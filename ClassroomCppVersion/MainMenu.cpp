@@ -4,7 +4,7 @@ using namespace std;
 StateInfo::MainMenu::MainMenu(ProgramDataRef data) : data(data)
 {
 	//data->currentUser = LoginInfo::loginSystem();
-	
+	Init();
 }
 
 
