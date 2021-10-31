@@ -6,7 +6,7 @@ using namespace std;
 StateInfo::MainMenu::MainMenu(ProgramDataRef data) : data(data)
 {
 	//data->currentUser = LoginInfo::loginSystem();
-	Init();
+	//Init();
 }
 
 
@@ -17,15 +17,14 @@ void StateInfo::MainMenu::Init()
 
 void StateInfo::MainMenu::HandleInput()
 {
-	int choice;
+	string choice;
 	Display();
 	cin >> choice;
-	if (choice == 2)
+	if (choice == "#createcourse")
 	{
 		
 		CourseInfo::Course::createCourse(data->currentCourse, data->currentUser);
-		// course is created
-		// create & push new teacher state here
+		data->machine.addState(stateRef(new TeacherState(this->data)), false);
 	}
 	else
 	{

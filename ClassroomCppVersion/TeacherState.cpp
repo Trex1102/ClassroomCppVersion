@@ -3,13 +3,13 @@ using namespace std;
 
 StateInfo::TeacherState::TeacherState(ProgramDataRef data) : data(data)
 {
-	HandleInput();
+	//Init();
 }
 
 
 void StateInfo::TeacherState::Init()
 {
-
+	HandleInput();
 }
 
 void StateInfo::TeacherState::HandleInput()
@@ -44,7 +44,6 @@ void StateInfo::TeacherState::HandleInput()
 	if (choice == "#back")
 	{
 		data->machine.removeState();
-		//dashboardState(currentUser*);
 	}
 
 }
