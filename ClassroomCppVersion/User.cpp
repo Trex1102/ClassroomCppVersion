@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include "User.h"
 using namespace std;
@@ -45,9 +44,9 @@ void UserInfo::User::addCourseMaterials()
 
 string UserInfo::User::joinCourse(string courseCode, User& user)
 {
-	for(auto it: CourseInfo::Course::courseList)
+	string choice;
+	for(const auto it: CourseInfo::Course::courseList)
 	{
-		string choice;
 		if(it->getCourseCode() == courseCode)
 		{
 			cout << "Course Found" << endl;

@@ -59,10 +59,7 @@ namespace CourseInfo
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
 		void createCourseCode();
 		~Course() = default;
-
-
-
-	
+		
 	public:
 	    string getCourseCode() const;
 	    void setCourseCode(string courseCode);
