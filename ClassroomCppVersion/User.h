@@ -32,7 +32,7 @@ namespace UserInfo {
     public:
         static vector<User*> userList;
 
-        static int userID;
+        static int TotalUser;
         vector<CourseInfo::Course*> asStudent;
         vector<CourseInfo::Course*> asTeacher;
 
@@ -40,7 +40,7 @@ namespace UserInfo {
         User()
         {
             age = 18;
-            userID++;
+            setTotalUser();
             userList.push_back(this);
         }
 
@@ -57,7 +57,7 @@ namespace UserInfo {
 	          password(std::move(password))
         {
             age = 18;
-            userID++;
+            setTotalUser();
             userList.push_back(this);
         }
 
@@ -112,8 +112,13 @@ namespace UserInfo {
 	    string getStudentID() const;
 	    void setStudentID(string studentID);
 
-	    int getUserID() const;
-	    void setUserID(int userID);
+	    int getTotalUser() const;
+	    void setTotalUser();
+        
+       static void FindUser(string username, string password);
 
+        void User_diskout();
+        void User_diskin(int userid);
+        static int User_diskcount();
 };
 }

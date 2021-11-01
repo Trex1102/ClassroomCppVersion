@@ -1,8 +1,9 @@
 #include <iostream>
+#include <fstream>
 #include "User.h"
 using namespace std;
 
-int UserInfo::User::userID;
+int UserInfo::User::TotalUser;
 vector<UserInfo::User*> UserInfo::User::userList;
 
 void UserInfo::User::addAsStudent(CourseInfo::Course& course)
@@ -20,6 +21,7 @@ void UserInfo::User::createUser(User &user)
 	cout << "First Name: ";  cin >> user.firstName;
 	cout << "Middle Name: ";  cin >> user.middleName;
 	cout << "Last Name: ";  cin >> user.lastName;
+	//cout << "User ID: "<<user.getUserID();
 	cout << "Department: "; cin >> user.department;
 	cout << "Age: "; cin >> user.age;
 	cout << "Email: "; cin >> user.email;
@@ -33,9 +35,62 @@ void UserInfo::User::createUser(User &user)
 	cout << "Your account has been created successfully" << endl;
 }
 
+void UserInfo::User::User_diskout()
+{
+	ofstream outfile;
+	outfile.open("User.DAT", ios::app | ios::binary);
+	outfile.write((char*)this, sizeof(*this));
+	
+
+}
+void UserInfo::User::User_diskin(int userid)
+{
+	ifstream infile;
+	infile.open("User.DAT", ios::binary);
+	infile.seekg(userid * sizeof(User));
+	infile.read((char*)this, sizeof(*this));
+}
+/*void UserInfo::User::FindUser(string username, string password)
+{
+	long pos;
+	ifstream infile;
+	infile.open("User.DAT", ios::binary);
+	infile.seekg(0);
+	//User user;
+	while (!infile.eof())
+	{
+		pos = infile.tellg();
+		infile.read((char*)this, sizeof(*this));
+		if (this->username == username)
+		{
+			if (this->password == password)
+			{
+				cout << "Login Successfull" << endl;
+				infile.seekg(pos);
+				break;
+			}
+			else
+			{
+				cout << "Password doesn't match" << endl;
+			}
+		}
+		else
+		{
+			cout << "No user found" << endl;
+		}
+	}
+}*/
+int UserInfo::User::User_diskcount()
+{
+	ifstream infile;
+	infile.open("User.DAT", ios::binary);
+	infile.seekg(0, ios::end);
+	return(int)infile.tellg()/sizeof(User);
+	
+}
 void UserInfo::User::createUserName()
 {
-	username = firstName + to_string(userID);
+	username = firstName + to_string(TotalUser);
 }
 
 void UserInfo::User::addCourseMaterials()
@@ -59,6 +114,7 @@ CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 void UserInfo::User::displayInfo() const
 {
 	cout << "Name: " << firstName << ' ' << middleName << ' ' << lastName << endl;
+	//cout << "User id: " << getTotalUser() << endl;
 	// other details
 
 }
@@ -198,13 +254,14 @@ void UserInfo::User::setStudentID(string studentID)
     this->studentID = studentID;
 }
 
-int UserInfo::User::getUserID() const
+int UserInfo::User::getTotalUser() const
 {
-    return userID;
+    return TotalUser;
 }
 
-void UserInfo::User::setUserID(int userID)
+void UserInfo::User::setTotalUser()
 {
-    this->userID = userID;
+	int uid = User_diskcount()+1;
+	this->TotalUser= uid;
 }
 

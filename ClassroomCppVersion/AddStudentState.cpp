@@ -60,7 +60,7 @@ void StateInfo::AddStudentState::Resume()
 void StateInfo::AddStudentState::Display()
 {
 	system("cls");
-	cout << "Total users: " << UserInfo::User::userID << endl;
+	cout << "Total users: " << UserInfo::User::TotalUser << endl;
 	cout << "Input the user name of the student you like to add: ";
 
 }

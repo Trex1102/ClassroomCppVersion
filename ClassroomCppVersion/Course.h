@@ -91,6 +91,10 @@ namespace CourseInfo
 
 		vector<UserInfo::User*> getTeacherList() const;
 		void setTeacherList(vector<UserInfo::User*> teacherList);
+
+		void diskout();
+		void diskin(int num);
+		static int diskCount();
     
 
 	};

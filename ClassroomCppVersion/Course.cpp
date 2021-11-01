@@ -1,4 +1,5 @@
 ﻿#include "Course.h"
+#include <fstream>
 using namespace std;
 
 int CourseInfo::Course::totalCourse;
@@ -75,7 +76,29 @@ void CourseInfo::Course::createCourseCode()
 }
 
 
+void CourseInfo::Course::diskout()
+{
+	ofstream outfile;
+	outfile.open("Course.DAT", ios::app | ios::binary);
+	outfile.write((char*)this, sizeof(*this));
 
+
+}
+void CourseInfo::Course::diskin(int num)
+{
+	ifstream infile;
+	infile.open("Course.DAT", ios::binary);
+	infile.seekg(num * sizeof(Course));
+	infile.read((char*)this, sizeof(*this));
+}
+int CourseInfo::Course::diskCount()
+{
+	ifstream infile;
+	infile.open("Course.DAT", ios::binary);
+	infile.seekg(0, ios::end);
+	return(int)infile.tellg() / sizeof(Course);
+
+}
 
 string CourseInfo::Course::getCourseCode() const
 {
