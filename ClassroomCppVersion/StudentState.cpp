@@ -18,6 +18,24 @@ void StateInfo::StudentState::HandleInput()
 	string choice;
 	cin >> choice;
 
+	if(choice == "#seepost")
+	{
+		// see post state	
+	}
+
+	if(choice == "#seeassignment")
+	{
+		
+	}
+	if(choice =="seemat")
+	{
+		
+	}
+
+	if(choice =="seeoutline")
+	{
+		
+	}
 
 }
 

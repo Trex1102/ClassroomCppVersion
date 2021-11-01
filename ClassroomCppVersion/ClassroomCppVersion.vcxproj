@@ -139,12 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddMaterialState.cpp" />
     <ClCompile Include="AddStudentState.cpp" />
     <ClCompile Include="AssignmentState.cpp" />
     <ClCompile Include="Attendance.cpp" />
     <ClCompile Include="AttendanceState.cpp" />
     <ClCompile Include="ClassroomCppVersion.cpp" />
     <ClCompile Include="Course.cpp" />
+    <ClCompile Include="CourseMaterials.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="LoginSystem.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -157,6 +159,7 @@
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddMaterialState.h" />
     <ClInclude Include="AddStudentState.h" />
     <ClInclude Include="AssignmentState.h" />
     <ClInclude Include="Attendance.h" />

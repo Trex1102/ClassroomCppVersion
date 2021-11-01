@@ -23,7 +23,8 @@ void StateInfo::TeacherState::HandleInput()
 	}
 	if (choice == "#addmat")
 	{
-
+		//CourseInfo::CourseMaterials coursematerials(&data->currentUser, &data->currentCourse);
+		//data->machine.addState(stateRef(new AddMaterialState(this->data, coursematerials)));
 	}
 	if (choice == "#addout")
 	{

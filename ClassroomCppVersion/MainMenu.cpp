@@ -29,7 +29,7 @@ void StateInfo::MainMenu::HandleInput()
 	}
 	else
 	{
-		string code, choice;
+		string code;
 		CourseInfo::Course* course;
 		cout << "Enter Course Code: "; cin >> code;
 		course = UserInfo::User::joinCourse(code,data->currentUser);
@@ -46,12 +46,22 @@ void StateInfo::MainMenu::HandleInput()
 			if(choice=="#jointolearn")
 			{
 				course->enrollCourseStudent(data->currentUser);
-				// student state
+				data->currentCourse = *course;
+				data->machine.addState(stateRef(new StudentState(this->data)) ,false);
 			}
 			else
 			{
-				// checking
-				// teacher state
+				for(const auto it:course->getTeacherList())
+				{
+					if(it->getUsername() == data->currentUser.getUsername())
+					{
+						data->currentCourse = *course;
+						data->machine.addState(stateRef(new TeacherState(this->data)), false);
+					}
+				}
+
+				cout << "Sorry you are not in the teacher list. Tell your teacher friend to add you :)" << endl;
+				Init();
 			}
 		}
 	}
@@ -72,7 +82,7 @@ void StateInfo::MainMenu::Display()
 	cout << "Welcome ";
 	cout << "User: " << data->currentUser.getUsername() << endl;
 	cout << "Total Courses: " << CourseInfo::Course::totalCourse<<endl;
-	cout << "To join Course Press #joincourse or to create course type #createcourse" << endl;
+	cout << "To join Course Press #joincourse or to create course type #createcourse to go back #back" << endl;
 }
 
 
