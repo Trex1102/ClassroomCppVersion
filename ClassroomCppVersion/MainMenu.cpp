@@ -24,22 +24,35 @@ void StateInfo::MainMenu::HandleInput()
 		CourseInfo::Course currentCourse;
 		CourseInfo::Course::createCourse(currentCourse, data->currentUser);
 		data->currentCourse = currentCourse;
+		currentCourse.enrollCourseTeacher(data->currentUser);
 		data->machine.addState(stateRef(new TeacherState(this->data)), false);
 	}
 	else
 	{
 		string code, choice;
+		CourseInfo::Course* course;
 		cout << "Enter Course Code: "; cin >> code;
-		choice = UserInfo::User::joinCourse(code,data->currentUser);
-		if(choice == "#jointoteach")
+		course = UserInfo::User::joinCourse(code,data->currentUser);
+		if(course == nullptr)
 		{
-			// check whether user is in the course as teacher
-			// create & passs teacher state
+			cout << "Course not found" << endl;
+			Init();
 		}
 		else
 		{
-			// join as student as codes are unique
-			// create & pass student state
+			cout << "#jointolearn to join as student" << endl;
+			cout << "#jointoteach to join as teacher" << endl;
+			cin >> choice;
+			if(choice=="#jointolearn")
+			{
+				course->enrollCourseStudent(data->currentUser);
+				// student state
+			}
+			else
+			{
+				// checking
+				// teacher state
+			}
 		}
 	}
 }

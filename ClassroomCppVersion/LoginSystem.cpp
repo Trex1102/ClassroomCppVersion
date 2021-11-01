@@ -1,16 +1,16 @@
 #include "LoginSystem.h"
 
-//UserInfo::User* currentUser;
 UserInfo::User LoginInfo::loginSystem()
 {
-	int choice;
+	string choice;
 	string username,password;
-	cout << "Welcome to Classroom CPP Version beta 1.00001" << endl;
+	cout << "Welcome to Classroom CPP beta" << endl;
 	while (true) {
-		cout << "If you have existing account press 1 otherwise to create new account press 2" << endl;
+		cout << "If you have existing account type #signin otherwise to create new account type #signup" << endl;
 		cin >> choice;
-		if (choice == 1)
+		if (choice == "#signin")
 		{
+			cout << "Total Users: " << UserInfo::User::userID << endl;
 			cout << "Username: ";
 			cin >> username;
 			cout << "Password: ";
@@ -22,16 +22,18 @@ UserInfo::User LoginInfo::loginSystem()
 					if (it->getPassword() == password)
 					{
 						cout << "Login Successful" << endl;
-						//currentUser = it;
-						return *it; // do next things
+						return *it;
 					}
 				}
 			}
 			cout << "Username or Password is incorrect" << endl;
-			cout << "Try again? - Press 1" << " Exit - Press 2" << endl;
+			cout << "Try again? - #yes" << " Exit - #exit" << endl;
 			cin >> choice;
-			if (choice == 1) continue;
-			else return UserInfo::User(); // exit the program
+			if (choice == "#yes") continue;
+			else
+			{
+				exit(0);
+			}
 		}
 		else
 		{

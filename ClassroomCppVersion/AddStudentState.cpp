@@ -43,7 +43,9 @@ void StateInfo::AddStudentState::HandleInput()
 	{
 		data->currentCourse.getStudentList().push_back(user);
 		cout << "User added successfully" << endl;
-		data->machine.removeState();
+		cout << "To back to previous state #back" << endl;
+		cin >> choice;
+		if (choice == "#back")data->machine.removeState();
 	}
 }
 

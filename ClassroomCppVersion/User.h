@@ -18,15 +18,15 @@ namespace UserInfo {
     {
     private:
         
-        string username;
-        string firstName;
-        string middleName;
-        string lastName;
-        string department;
+        string username=" ";
+        string firstName=" ";
+        string middleName=" ";
+        string lastName=" ";
+        string department=" ";
         int age;
-        string email;
-        string phone;
-        string password;
+        string email=" ";
+        string phone=" ";
+        string password=" ";
 
         string teacherID, studentID;
     public:
@@ -70,7 +70,7 @@ namespace UserInfo {
         static void takeAttendance(CourseInfo::Course &course);
         static void addStudent(CourseInfo::Course &course ,User& student);
         static void addCourseMaterials();
-        static string joinCourse(string courseCode,User& user);
+        static CourseInfo::Course* joinCourse(string courseCode,User& user);
 
         ~User() = default;
 

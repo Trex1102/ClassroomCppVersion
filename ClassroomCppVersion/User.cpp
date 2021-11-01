@@ -42,20 +42,18 @@ void UserInfo::User::addCourseMaterials()
 {
 }
 
-string UserInfo::User::joinCourse(string courseCode, User& user)
+CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 {
-	string choice;
+	//string choice;
 	for(const auto it: CourseInfo::Course::courseList)
 	{
 		if(it->getCourseCode() == courseCode)
 		{
 			cout << "Course Found" << endl;
-			cout << "To join as teacher type #jointoteach" << endl << "To join as student type #jointolearn" << endl;
-			cin >> choice;
-			return choice;
+			return it;
 		}
 	}
-	return "error";
+	return nullptr;
 }
 
 void UserInfo::User::displayInfo() const
