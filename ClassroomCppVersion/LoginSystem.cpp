@@ -8,6 +8,7 @@ long byteNum(int num)
 UserInfo::User LoginInfo::loginSystem()
 {
 	string choice;
+	int ch;
 	string username,password;
 	cout << "Welcome to Classroom CPP beta" << endl;
 	while (true) {
@@ -41,21 +42,24 @@ UserInfo::User LoginInfo::loginSystem()
 					else
 					{
 						cout << "Password doesn't match" << endl;
+
+						cout << "Try again? - #1.yes" << " Exit - #2.exit" << endl;
+						cin >> ch;
+						if (ch == 1) continue;
+						else
+						{
+							exit(0);
+						}
+					}
 					}
 				}
+				/*
 				else
 				{
 					cout << "No user found" << endl;
 				}
-				cout << "Username or Password is incorrect" << endl;
-				cout << "Try again? - #yes" << " Exit - #exit" << endl;
-				cin >> choice;
-				if (choice == "#yes") continue;
-				else
-				{
-					exit(0);
-				}
-			}
+				cout << "Username or Password is incorrect" << endl;*/
+				
 			//UserInfo::User::FindUser(username, password);
 			/*int number = 0;
 			fstream datafile;
