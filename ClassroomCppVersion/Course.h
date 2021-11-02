@@ -42,7 +42,7 @@ namespace CourseInfo
 		{
 			totalCourse++;
 			createCourseCode();
-			courseList.push_back(this);
+			//courseList.push_back(this);
 			
 		}
 		Course(string department, string course_id, string courseOutline, double courseCredit)
@@ -53,7 +53,7 @@ namespace CourseInfo
 		{
 			totalCourse++;
 			createCourseCode();
-			courseList.push_back(this);
+			//courseList.push_back(this);
 		}
 
         // class functions

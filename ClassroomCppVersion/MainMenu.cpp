@@ -21,10 +21,11 @@ void StateInfo::MainMenu::HandleInput()
 	cin >> choice;
 	if (choice == "#createcourse")
 	{
-		CourseInfo::Course currentCourse;
-		CourseInfo::Course::createCourse(currentCourse, data->currentUser);
-		data->currentCourse = currentCourse;
-		currentCourse.enrollCourseTeacher(data->currentUser);
+		auto currentCourse = new CourseInfo::Course;
+		CourseInfo::Course::createCourse(*currentCourse, data->currentUser);
+		CourseInfo::Course::courseList.push_back(currentCourse); // pushing course
+		data->currentCourse = *currentCourse;
+		currentCourse->enrollCourseTeacher(data->currentUser);
 		data->machine.addState(stateRef(new TeacherState(this->data)), false);
 	}
 	else
