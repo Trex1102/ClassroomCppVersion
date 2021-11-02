@@ -41,8 +41,9 @@ UserInfo::User LoginInfo::loginSystem2()
 		else
 		{
 			int n;
-			UserInfo::User	user;
-			UserInfo::User::createUser(user);
+			auto user=new UserInfo::User;
+			UserInfo::User::createUser(*user);
+			UserInfo::User::userList.push_back(user);
 			cout << "\n1.Exit?" << endl;
 			int c;cin >> c;
 			if (c == 1)
@@ -50,7 +51,7 @@ UserInfo::User LoginInfo::loginSystem2()
 				UserInfo::User::write();
 				
 				//UserInfo::User::display();
-				return user;
+				return *user;
 			}
 
 		    //return user;

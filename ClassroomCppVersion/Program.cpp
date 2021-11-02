@@ -5,6 +5,6 @@ using namespace std;
 
 StateInfo::Program::Program()
 {
-	data->currentUser = LoginInfo::loginSystem2();
+	data->currentUser = LoginInfo::loginSystem();
 //	data->machine.addState(stateRef(new MainMenu(this->data)), false);
 }

@@ -41,7 +41,7 @@ namespace UserInfo {
         {
             age = 18;
             TotalUser++;
-            userList.push_back(this);
+            //userList.push_back(this);
         }
 
         User(string username, string first_name, string middle_name, string last_name, string department, int age,
@@ -58,7 +58,7 @@ namespace UserInfo {
         {
             age = 18;
             TotalUser++;
-            userList.push_back(this);
+           // userList.push_back(this);
         }
 
         // class function

@@ -7,6 +7,7 @@ long byteNum(int num)
 }
 UserInfo::User LoginInfo::loginSystem()
 {
+	cout << UserInfo::User::TotalUser << endl;
 	string choice;
 	int ch;
 	string username,password;

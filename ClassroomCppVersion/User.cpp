@@ -82,7 +82,7 @@ void UserInfo::User::write()
 		cout << "\nCan't open file\n";
 		return;
 	}
-	for (int j = 1;j <userList.size();j++)
+	for (int j = 0;j <userList.size();j++)
 	{
 		//ouf.write((char*)&User, sizeof(User));
 		ouf.write((char*)(userList[j]), size);
