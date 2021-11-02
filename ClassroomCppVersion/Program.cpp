@@ -5,7 +5,7 @@ using namespace std;
 
 StateInfo::Program::Program()
 {
-	cout << UserInfo::User::userList.size() << endl;
+	//cout << UserInfo::User::userList.size() << endl;
 	data->currentUser = LoginInfo::loginSystem();
 	data->machine.addState(stateRef(new MainMenu(this->data)), false);
 }

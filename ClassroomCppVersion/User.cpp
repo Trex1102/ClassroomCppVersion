@@ -208,3 +208,54 @@ void UserInfo::User::setUserID(int userID)
     this->userID = userID;
 }
 
+void UserInfo::User::write()
+{
+
+	//int n = userList.size();
+	
+	ofstream ouf;
+	//User user;
+	int size = sizeof(User);
+	ouf.open("User2.DAT", ios::trunc | ios::binary);
+	if (!ouf)
+	{
+		cout << "\nCan't open file\n";
+		return;
+	}
+	for (int j = 0; j < userList.size(); j++)
+	{
+		//ouf.write((char*)&User, sizeof(User));
+		if (!ouf)
+		{
+			cout << "\nCan't write to file\n";
+			return;
+		}
+		ouf.write((char*)(userList[j]), size);
+	}
+
+	cout << "Writing " << userList.size() << " Users.\n";
+}
+void UserInfo::User::read()
+{
+
+	//User user;
+	int size = sizeof(User);
+	ifstream inf;
+	inf.open("User2.DAT", ios::binary);
+	if (!inf)
+	{
+		cout << "\nCan't open file\n"; return;
+	}
+	int TotalUser = 0; // solution 1 : debug 2: store & retrieve
+	while (!inf.eof())
+	{
+		cout << TotalUser << endl;
+		userList.push_back(nullptr);
+		userList[TotalUser] = new User;
+		size = sizeof(User);
+		inf.read((char*)userList[TotalUser], size);
+		TotalUser++;
+	}
+	cout << "Reading " << TotalUser << " users\n";
+}
+

@@ -2,8 +2,15 @@
 
 UserInfo::User LoginInfo::loginSystem()
 {
+	UserInfo::User::read();
 	string choice;
 	string username,password;
+
+	for (auto it : UserInfo::User::userList)
+	{
+		cout << "UserName: " << it->getUsername() << endl;
+	}
+
 	cout << "Welcome to Classroom CPP beta" << endl;
 	while (true) {
 		cout << "If you have existing account type #signin otherwise to create new account type #signup" << endl;
@@ -43,6 +50,8 @@ UserInfo::User LoginInfo::loginSystem()
 			auto user = new UserInfo::User;
 			UserInfo::User::createUser(*user);
 			UserInfo::User::userList.push_back(user);
+			UserInfo::User::write();
+			exit(1);
 			return *user;
 		}
 	}

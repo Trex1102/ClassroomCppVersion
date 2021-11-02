@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <fstream>
 #include "Course.h"
 #include "Attendance.h"
 
@@ -71,7 +72,8 @@ namespace UserInfo {
         static void addStudent(CourseInfo::Course &course ,User& student);
         static void addCourseMaterials();
         static CourseInfo::Course* joinCourse(string courseCode,User& user);
-
+        static void read();
+        static void write();
         ~User() = default;
 
     // getters setters
