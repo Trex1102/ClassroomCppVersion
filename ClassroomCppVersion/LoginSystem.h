@@ -6,5 +6,5 @@ namespace LoginInfo {
 
 	
 	UserInfo::User loginSystem();
-
+	UserInfo::User loginSystem2();
 }

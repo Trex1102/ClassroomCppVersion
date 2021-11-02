@@ -4,6 +4,7 @@
 using namespace std;
 
 int UserInfo::User::TotalUser;
+//int UserInfo::User::n;
 vector<UserInfo::User*> UserInfo::User::userList;
 
 void UserInfo::User::addAsStudent(CourseInfo::Course& course)
@@ -15,7 +16,12 @@ void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
 {
 	this->asTeacher.push_back(&course);
 }
-
+void UserInfo::User::tempUser(User& user)
+{
+	user.firstName = "temp";
+	user.lastName = "temp";
+	user.middleName = "temp";
+}
 void UserInfo::User::createUser(User &user)
 {
 	cout << "First Name: ";  cin >> user.firstName;
@@ -33,6 +39,7 @@ void UserInfo::User::createUser(User &user)
 	cout << "Enter a password: "; cin >> user.password;
 
 	cout << "Your account has been created successfully" << endl;
+	
 }
 
 void UserInfo::User::User_diskout()
@@ -50,36 +57,8 @@ void UserInfo::User::User_diskin(int userid)
 	infile.seekg(userid * sizeof(User));
 	infile.read((char*)this, sizeof(*this));
 }
-/*void UserInfo::User::FindUser(string username, string password)
-{
-	long pos;
-	ifstream infile;
-	infile.open("User.DAT", ios::binary);
-	infile.seekg(0);
-	//User user;
-	while (!infile.eof())
-	{
-		pos = infile.tellg();
-		infile.read((char*)this, sizeof(*this));
-		if (this->username == username)
-		{
-			if (this->password == password)
-			{
-				cout << "Login Successfull" << endl;
-				infile.seekg(pos);
-				break;
-			}
-			else
-			{
-				cout << "Password doesn't match" << endl;
-			}
-		}
-		else
-		{
-			cout << "No user found" << endl;
-		}
-	}
-}*/
+
+
 int UserInfo::User::User_diskcount()
 {
 	ifstream infile;
@@ -87,6 +66,63 @@ int UserInfo::User::User_diskcount()
 	infile.seekg(0, ios::end);
 	return(int)infile.tellg()/sizeof(User);
 	
+}
+
+void UserInfo::User::write()
+{
+	
+	//int n = userList.size();
+	cout << "Writing " << TotalUser << " Users.\n";
+	ofstream ouf;
+	//User user;
+	int size = sizeof(User);
+	ouf.open("User2.DAT", ios::trunc | ios::binary);
+	if (!ouf)
+	{
+		cout << "\nCan't open file\n";
+		return;
+	}
+	for (int j = 1;j <userList.size();j++)
+	{
+		//ouf.write((char*)&User, sizeof(User));
+		ouf.write((char*)(userList[j]), size);
+		if(!ouf)
+		{
+			cout << "\nCan't write to file\n";return;
+		}
+	}
+}
+void UserInfo::User::read()
+{
+	
+	//User user;
+	int size = sizeof(User);
+	ifstream inf;
+	inf.open("User2.DAT", ios::binary);
+	if(!inf)
+	{
+		cout << "\nCan't open file\n";return;
+	}
+	//int n;
+	TotalUser = 0;
+	while (true)
+	{
+		userList.push_back(nullptr);
+		//inf.read((char*)&User , sizeof(User));
+		if (inf.eof())
+			break;
+		userList[TotalUser] = new User;
+		size = sizeof(User);
+		inf.read((char*)userList[TotalUser], size);
+		if (!inf)
+		{
+			cout << "\nCan't read from file\n";return;
+		}
+		TotalUser++;
+
+
+	}
+	cout << "Reading " << TotalUser << " users\n";
 }
 void UserInfo::User::createUserName()
 {
@@ -109,6 +145,15 @@ CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 		}
 	}
 	return nullptr;
+}
+void UserInfo::User::display()
+{
+	for (int j = 1;j <= userList.size();j++)
+	{
+		cout << j<<" : ";
+		userList[j]->displayInfo();
+		cout << endl;
+	}
 }
 
 void UserInfo::User::displayInfo() const
@@ -259,9 +304,8 @@ int UserInfo::User::getTotalUser() const
     return TotalUser;
 }
 
-void UserInfo::User::setTotalUser()
+void UserInfo::User::setTotalUser(int total_user)
 {
-	int uid = User_diskcount()+1;
-	this->TotalUser= uid;
+	TotalUser = total_user;
 }
 
