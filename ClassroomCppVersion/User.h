@@ -117,5 +117,8 @@ namespace UserInfo {
 	    int getUserID() const;
 	    void setUserID(int userID);
 
+        static void writeCount(int);
+        static int readCount();
+
 };
 }

@@ -234,10 +234,11 @@ void UserInfo::User::write()
 	}
 
 	cout << "Writing " << userList.size() << " Users.\n";
+	writeCount(userList.size());
 }
 void UserInfo::User::read()
 {
-
+	int cur = readCount();
 	//User user;
 	int size = sizeof(User);
 	ifstream inf;
@@ -247,7 +248,7 @@ void UserInfo::User::read()
 		cout << "\nCan't open file\n"; return;
 	}
 	int TotalUser = 0; // solution 1 : debug 2: store & retrieve
-	while (!inf.eof())
+	for(int j=0;j<cur;j++)
 	{
 		cout << TotalUser << endl;
 		userList.push_back(nullptr);
@@ -257,5 +258,29 @@ void UserInfo::User::read()
 		TotalUser++;
 	}
 	cout << "Reading " << TotalUser << " users\n";
+}
+void UserInfo::User::writeCount(int count)
+{
+	//int prev = readCount();
+	ofstream outfile("Count.txt",ios::trunc);
+	outfile << count;
+	cout << "\nFile Written\n";
+
+
+}
+int UserInfo::User::readCount()
+{
+	int count;
+	ifstream infile("Count.txt");
+
+	if (!infile.is_open())
+	{
+		cerr << "Could not open the file\n";
+		return 0;
+	}
+
+	infile >> count;
+	//cout << count << endl;
+	return count;
 }
 

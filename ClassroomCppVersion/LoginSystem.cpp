@@ -3,6 +3,7 @@
 UserInfo::User LoginInfo::loginSystem()
 {
 	UserInfo::User::read();
+	cout<<"Count: "<<UserInfo::User::readCount() << endl;
 	string choice;
 	string username,password;
 
@@ -51,6 +52,7 @@ UserInfo::User LoginInfo::loginSystem()
 			UserInfo::User::createUser(*user);
 			UserInfo::User::userList.push_back(user);
 			UserInfo::User::write();
+
 			exit(1);
 			return *user;
 		}
