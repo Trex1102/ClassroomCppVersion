@@ -34,6 +34,11 @@ namespace Feature
 	public:
 		static vector<Assignment*> assignmentList;
 		static int totalAssignment;
+		Assignment()
+		{
+			publishTime = __TIME__;
+			publishDate = __DATE__;
+		}
 		std::map<UserInfo::User*,std::string> PublicComments;
 		explicit Assignment(CourseInfo::Course* assigned_course)
 			: assignedCourse(assigned_course)
@@ -78,6 +83,10 @@ namespace Feature
 		vector<UserInfo::User*> getMissedUesrs() const;
 		void setMissedUesrs(vector<UserInfo::User*> missedUesrs);
 
+		static void write();
+		static void read();
+		static void writeCount(int );
+		static int readCount();
 
 };
 }

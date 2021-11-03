@@ -4,6 +4,8 @@ UserInfo::User LoginInfo::loginSystem()
 {
 	UserInfo::User::read();
 	CourseInfo::Course::read();
+	Feature::Assignment::read();
+	Feature::Post::read();
 	//cout<<"Count: "<<UserInfo::User::readCount() << endl;
 	string choice;
 	string username,password;
@@ -46,6 +48,9 @@ UserInfo::User LoginInfo::loginSystem()
 			{
 				UserInfo::User::write();
 				CourseInfo::Course::write();
+
+				Feature::Assignment::write();
+				Feature::Post::write();
 				exit(0);
 			}
 		}

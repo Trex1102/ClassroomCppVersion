@@ -37,6 +37,8 @@ void StateInfo::MainMenu::HandleInput()
 	{
 		UserInfo::User::write();
 		CourseInfo::Course::write();
+		Feature::Assignment::write();
+		Feature::Post::write();
 		exit(1);
 	}
 	else
@@ -85,6 +87,8 @@ void StateInfo::MainMenu::HandleInput()
 			{
 				CourseInfo::Course::write();
 				UserInfo::User::write();
+				Feature::Assignment::write();
+				Feature::Post::write();
 				exit(1);
 			}
 		}

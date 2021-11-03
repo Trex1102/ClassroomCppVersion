@@ -40,6 +40,8 @@ void StateInfo::StudentState::HandleInput()
 	{
 		UserInfo::User::write();
 		CourseInfo::Course::write();
+		Feature::Assignment::write();
+		Feature::Post::write();
 		exit(0);
 	}
 

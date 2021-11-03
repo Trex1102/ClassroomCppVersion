@@ -36,5 +36,9 @@ namespace Feature
 			std::cout << "Time: " << time<< std::endl;
 			std::cout << "Post: " << data<< std::endl;
 		}
+		static void write();
+		static void read();
+		static void write_PostCount(int );
+		static int read_PostCount();
 	};
 }
