@@ -18,13 +18,23 @@ namespace CourseInfo
 		map<string, string> dailyAttendance;
 		Course* course;
 	public:
+		attendance()
+		{
+			date = __DATE__;
+		}
 		attendance(Course* _course): course(_course)
 		{
 			date = __DATE__;
 		}
 		// accessing other classes functions
-
+		static int totalAttendance;
+		static vector<attendance*>AttendanceList;
 		void takeAttendance();
+
+		static void read();
+		static void write();
+		static void writeCount(int );
+		static int readCount();
 		
 	};
 }
