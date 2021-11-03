@@ -32,6 +32,6 @@ void StateInfo::seepostState::Display()
 	{
 		data->currentCourse.postList[j]->Display();
 
-	}*/
+	}*/m
 
 }
