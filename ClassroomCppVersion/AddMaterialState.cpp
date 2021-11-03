@@ -1,7 +1,7 @@
 ﻿#include "AddMaterialState.h"
 using namespace std;
 
-StateInfo::AddMaterialState::AddMaterialState(ProgramDataRef data)
+StateInfo::AddMaterialState::AddMaterialState(ProgramDataRef data):data(data)
 {
 }
 
@@ -19,7 +19,7 @@ void StateInfo::AddMaterialState::HandleInput()
 	Feature::Material::materialList.push_back(material);
 	data->currentCourse.courseMaterialList.push_back(material);
 	cin.ignore();
-	cout << "Enter Material Topic" << endl;
+	cout << "Enter Material Topic: " << endl;
 	getline(cin, _data);
 	cout << "Enter Link: ";
 	cin >> choice;
