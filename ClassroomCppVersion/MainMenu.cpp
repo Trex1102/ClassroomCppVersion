@@ -23,6 +23,7 @@ void StateInfo::MainMenu::HandleInput()
 	{
 		auto currentCourse = new CourseInfo::Course;
 		CourseInfo::Course::createCourse(*currentCourse, data->currentUser);
+		CourseInfo::Course::totalCourse++;
 		CourseInfo::Course::courseList.push_back(currentCourse); // pushing course
 		data->currentCourse = *currentCourse;
 		currentCourse->enrollCourseTeacher(data->currentUser);

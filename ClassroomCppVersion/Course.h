@@ -5,12 +5,20 @@
 #include <vector>
 #include "CourseMaterials.h"
 #include "Attendance.h"
+#include "Post.h"
+#include "Assignment.h"
 using namespace std;
 namespace UserInfo
 {
 	class Student;
 	class Teacher;
 	class User;
+}
+
+namespace Feature
+{
+	class Post;
+	class Assignment;
 }
 
 namespace CourseInfo
@@ -33,6 +41,8 @@ namespace CourseInfo
 
 	public:
 
+		vector<Feature::Assignment*> assignmentList;
+		vector<Feature::Post*> postList;
 		static int totalCourse;
 		static vector<Course*> courseList;
 		map<string, attendance*> attendanceList;
@@ -40,7 +50,7 @@ namespace CourseInfo
 
 		Course()
 		{
-			totalCourse++;
+			//totalCourse++;
 			createCourseCode();
 			//courseList.push_back(this);
 			
@@ -51,7 +61,7 @@ namespace CourseInfo
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
-			totalCourse++;
+			//totalCourse++;
 			createCourseCode();
 			//courseList.push_back(this);
 		}

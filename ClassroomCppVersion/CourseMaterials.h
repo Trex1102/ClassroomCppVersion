@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include "Course.h"
-#include "AddMaterialState.h"
 using namespace std;
 namespace UserInfo
 {

@@ -48,9 +48,6 @@
     <ClCompile Include="StudentState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PostState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ResultState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -63,10 +60,13 @@
     <ClCompile Include="AddStudentState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AddMaterialState.cpp">
+    <ClCompile Include="CourseMaterials.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CourseMaterials.cpp">
+    <ClCompile Include="AddPostState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,9 +119,6 @@
     <ClInclude Include="StudentState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PostState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AttendanceState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -134,7 +131,13 @@
     <ClInclude Include="AddStudentState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AddMaterialState.h">
+    <ClInclude Include="AddPostState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Post.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

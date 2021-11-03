@@ -9,6 +9,7 @@
 #include "Program.h"
 #include "LoginSystem.h"
 #include "AddStudentState.h"
+#include "AddPostState.h"
 using namespace std;
 
 namespace StateInfo
