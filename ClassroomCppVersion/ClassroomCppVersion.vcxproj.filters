@@ -78,6 +78,9 @@
     <ClCompile Include="AddMaterialState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="seepostState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -153,6 +156,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AddMaterialState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seepostState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
