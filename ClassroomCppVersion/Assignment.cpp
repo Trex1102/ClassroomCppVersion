@@ -1,4 +1,5 @@
 ﻿#include "Assignment.h"
+#include<fstream>
 using namespace std;
 
 int Feature::Assignment::totalAssignment;
@@ -156,4 +157,80 @@ void Feature::Assignment::setMissedUesrs(vector<UserInfo::User*> missedUesrs)
 {
     this->missedUesrs = missedUesrs;
 }
+void Feature::Assignment::write()
+{
 
+	//int n = userList.size();
+
+	ofstream ouf;
+	//User user;
+	int size = sizeof(Assignment);
+	ouf.open("Assignment.DAT", ios::trunc | ios::binary);
+	if (!ouf)
+	{
+		cout << "\nCan't open file\n";
+		return;
+	}
+	for (int j = 0; j < assignmentList.size(); j++)
+	{
+		//ouf.write((char*)&User, sizeof(User));
+		if (!ouf)
+		{
+			cout << "\nCan't write to file\n";
+			return;
+		}
+		ouf.write((char*)(assignmentList[j]), size);
+	}
+
+	cout << "Writing " << assignmentList.size() << " Assignments.\n";
+	writeCount(assignmentList.size());
+}
+void Feature::Assignment::read()
+{
+	int cur = readCount();
+	totalAssignment = cur;
+	//User user;
+	int size = sizeof(Assignment);
+	ifstream inf;
+	inf.open("Assignment.DAT", ios::binary);
+	if (!inf.is_open())
+	{
+		//cout << "\nCan't open file\n"; return;
+		return;
+	}
+	int TotalAssignment = 0; // solution 1 : debug 2: store & retrieve
+	for (int j = 0;j < cur;j++)
+	{
+		//cout << TotalCourse << endl;
+		assignmentList.push_back(nullptr);
+		assignmentList[TotalAssignment] = new Assignment;
+		size = sizeof(Assignment);
+		inf.read((char*)assignmentList[TotalAssignment], size);
+		TotalAssignment++;
+	}
+	//cout << "Reading " << TotalCourse << " users\n";
+}
+void Feature::Assignment::writeCount(int count)
+{
+	//int prev = readCount();
+	ofstream outfile("Assignment_count.txt", ios::trunc);
+	outfile << count;
+	cout << "\nFile Written\n";
+
+
+}
+int Feature::Assignment::readCount()
+{
+	int count;
+	ifstream infile("Assignment_count.txt");
+
+	if (!infile.is_open())
+	{
+		cerr << "Could not open the file\n";
+		return 0;
+	}
+
+	infile >> count;
+	//cout << count << endl;
+	return count;
+}
