@@ -20,8 +20,9 @@ void CourseInfo::Course::displayCourseInfo()
 	cout << "Course ID: " << courseID << endl;
 	cout << "department Name: " << department << endl;
 	cout << "Course Teacher: " << endl;
+	cout << "Course Code: " << courseCode << endl;
 	// show teachers
-	for(const auto it: teacherList)
+	/*for (const auto it : teacherList)
 	{
 		
 		// only shows teacher part
@@ -33,6 +34,13 @@ void CourseInfo::Course::displayCourseInfo()
 	{
 		//it->displayStudentInfo();
 		// display user info as well
+	}*/
+}
+void CourseInfo::Course::display()
+{
+	for (auto it : CourseInfo::Course::courseList)
+	{
+		cout << "CourseCode: " << it->getCourseCode() << endl;
 	}
 }
 
@@ -59,6 +67,7 @@ void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::Use
 
 	cout << "Your Course Code is " << course.courseCode << endl;
 	course.teacherList.push_back(&teacher);
+	//totalCourse++;
 	cout << "Course Created Successful" << endl;
 
 }
@@ -72,6 +81,83 @@ void CourseInfo::Course::createCourseCode()
 		int x = (rand() % 89) + 33;
 		courseCode = char(x) + courseCode;
 	}
+}
+void CourseInfo::Course::write()
+{
+
+	//int n = userList.size();
+
+	ofstream ouf;
+	//User user;
+	int size = sizeof(Course);
+	ouf.open("Course.DAT", ios::trunc | ios::binary);
+	if (!ouf)
+	{
+		cout << "\nCan't open file\n";
+		return;
+	}
+	for (int j = 0; j < courseList.size(); j++)
+	{
+		//ouf.write((char*)&User, sizeof(User));
+		if (!ouf)
+		{
+			cout << "\nCan't write to file\n";
+			return;
+		}
+		ouf.write((char*)(courseList[j]), size);
+	}
+
+	cout << "Writing " << courseList.size() << " Courses.\n";
+	writeCount(courseList.size());
+}
+void CourseInfo::Course::read()
+{
+	int cur = readCount();
+	totalCourse = cur;
+	//User user;
+	int size = sizeof(Course);
+	ifstream inf;
+	inf.open("Course.DAT", ios::binary);
+	if (!inf.is_open())
+	{
+		//cout << "\nCan't open file\n"; return;
+		return;
+	}
+	int TotalCourse = 0; // solution 1 : debug 2: store & retrieve
+	for (int j = 0;j < cur;j++)
+	{
+		//cout << TotalCourse << endl;
+		courseList.push_back(nullptr);
+		courseList[TotalCourse] = new Course;
+		size = sizeof(Course);
+		inf.read((char*)courseList[TotalCourse], size);
+		TotalCourse++;
+	}
+	//cout << "Reading " << TotalCourse << " users\n";
+}
+void CourseInfo::Course::writeCount(int count)
+{
+	//int prev = readCount();
+	ofstream outfile("Course_Count.txt", ios::trunc);
+	outfile << count;
+	cout << "\nFile Written\n";
+
+
+}
+int CourseInfo::Course::readCount()
+{
+	int count;
+	ifstream infile("Course_Count.txt");
+
+	if (!infile.is_open())
+	{
+		cerr << "Could not open the file\n";
+		return 0;
+	}
+
+	infile >> count;
+	//cout << count << endl;
+	return count;
 }
 
 

@@ -44,6 +44,7 @@ void UserInfo::User::addCourseMaterials()
 
 CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 {
+	
 	//string choice;
 	for(const auto it: CourseInfo::Course::courseList)
 	{
@@ -244,7 +245,7 @@ void UserInfo::User::read()
 	int size = sizeof(User);
 	ifstream inf;
 	inf.open("User2.DAT", ios::binary);
-	if (!inf)
+	if (!inf.is_open())
 	{
 		//cout << "\nCan't open file\n"; return;
 		return;

@@ -46,6 +46,7 @@ void StateInfo::TeacherState::HandleInput()
 	{
 		data->machine.removeState();
 	}
+	
 
 }
 
@@ -58,6 +59,7 @@ void StateInfo::TeacherState::Resume()
 {
 
 }
+
 
 void StateInfo::TeacherState::Display()
 {

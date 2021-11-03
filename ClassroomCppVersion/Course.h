@@ -40,7 +40,7 @@ namespace CourseInfo
 
 		Course()
 		{
-			totalCourse++;
+			//totalCourse++;
 			createCourseCode();
 			//courseList.push_back(this);
 			
@@ -51,7 +51,7 @@ namespace CourseInfo
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
-			totalCourse++;
+			//totalCourse++;
 			createCourseCode();
 			//courseList.push_back(this);
 		}
@@ -92,6 +92,10 @@ namespace CourseInfo
 		vector<UserInfo::User*> getTeacherList() const;
 		void setTeacherList(vector<UserInfo::User*> teacherList);
     
-
+		static void display();
+		static void read();
+		static void write();
+		static void writeCount(int );
+		static int readCount();
 	};
 }

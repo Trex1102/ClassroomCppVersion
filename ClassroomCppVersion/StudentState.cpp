@@ -36,6 +36,12 @@ void StateInfo::StudentState::HandleInput()
 	{
 		
 	}
+	if (choice == "#exit")
+	{
+		UserInfo::User::write();
+		CourseInfo::Course::write();
+		exit(0);
+	}
 
 }
 
@@ -59,4 +65,5 @@ void StateInfo::StudentState::Display()
 	cout << "#seeassignment - To see class assignment" << endl;
 	cout << "#seemat - To see course materials" << endl;
 	cout << "#seeoutline - To see course outline" << endl;
+	cout << "#exit" << endl;
 }

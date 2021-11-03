@@ -3,6 +3,7 @@
 UserInfo::User LoginInfo::loginSystem()
 {
 	UserInfo::User::read();
+	CourseInfo::Course::read();
 	//cout<<"Count: "<<UserInfo::User::readCount() << endl;
 	string choice;
 	string username,password;
@@ -43,6 +44,8 @@ UserInfo::User LoginInfo::loginSystem()
 			if (choice == "#yes") continue;
 			else
 			{
+				UserInfo::User::write();
+				CourseInfo::Course::write();
 				exit(0);
 			}
 		}
@@ -52,7 +55,7 @@ UserInfo::User LoginInfo::loginSystem()
 			UserInfo::User::createUser(*user);
 			UserInfo::User::userID++;
 			UserInfo::User::userList.push_back(user);
-			UserInfo::User::write(); // write after exit
+			//UserInfo::User::write(); // write after exit
 			return *user;
 		}
 	}

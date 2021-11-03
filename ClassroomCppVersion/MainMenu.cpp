@@ -24,15 +24,29 @@ void StateInfo::MainMenu::HandleInput()
 		auto currentCourse = new CourseInfo::Course;
 		CourseInfo::Course::createCourse(*currentCourse, data->currentUser);
 		CourseInfo::Course::courseList.push_back(currentCourse); // pushing course
+		CourseInfo::Course::totalCourse++;
 		data->currentCourse = *currentCourse;
 		currentCourse->enrollCourseTeacher(data->currentUser);
+		
 		data->machine.addState(stateRef(new TeacherState(this->data)), false);
+	
+		
+	}
+	else if (choice == "#exit")
+	{
+		UserInfo::User::write();
+		CourseInfo::Course::write();
+		exit(1);
 	}
 	else
 	{
 		string code;
 		CourseInfo::Course* course;
+		int cur_course = CourseInfo::Course::readCount();
+		//cout << "Current Courses: " << cur_course << endl;
+	//	CourseInfo::Course::display();
 		cout << "Enter Course Code: "; cin >> code;
+
 		course = UserInfo::User::joinCourse(code,data->currentUser);
 		if(course == nullptr)
 		{
@@ -43,6 +57,7 @@ void StateInfo::MainMenu::HandleInput()
 		{
 			cout << "#jointolearn to join as student" << endl;
 			cout << "#jointoteach to join as teacher" << endl;
+			cout << "#exit" << endl;
 			cin >> choice;
 			if(choice=="#jointolearn")
 			{
@@ -50,7 +65,8 @@ void StateInfo::MainMenu::HandleInput()
 				data->currentCourse = *course;
 				data->machine.addState(stateRef(new StudentState(this->data)) ,false);
 			}
-			else
+			
+			else if(choice=="#jointoteach")
 			{
 				for(const auto it:course->getTeacherList())
 				{
@@ -63,6 +79,12 @@ void StateInfo::MainMenu::HandleInput()
 
 				cout << "Sorry you are not in the teacher list. Tell your teacher friend to add you :)" << endl;
 				Init();
+			}
+			else
+			{
+				CourseInfo::Course::write();
+				UserInfo::User::write();
+				exit(1);
 			}
 		}
 	}
@@ -83,7 +105,7 @@ void StateInfo::MainMenu::Display()
 	cout << "Welcome ";
 	cout << "User: " << data->currentUser.getUsername() << endl;
 	cout << "Total Courses: " << CourseInfo::Course::totalCourse<<endl;
-	cout << "To join Course Press #joincourse or to create course type #createcourse to go back #back" << endl;
+	cout << "To join Course Press #joincourse or to create course type #createcourse to go back #back to exit #exit" << endl;
 }
 
 
