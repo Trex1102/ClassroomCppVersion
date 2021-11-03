@@ -29,7 +29,12 @@ void StateInfo::TeacherState::HandleInput()
 	}
 	if (choice == "#addout")
 	{
-		//
+		string _data;
+		cout << "Enter Outline" << endl;
+		cin.ignore();
+		getline(cin, _data);
+		data->currentCourse.setCourseOutline(_data);
+		Init();
 	}
 	if (choice == "#addassign")
 	{
@@ -75,5 +80,4 @@ void StateInfo::TeacherState::Display()
 		<< "To add post #addpost" << endl
 		<< "To see course information type #courseinfo" << endl
 		<< "To go back type #back" << endl;
-
 }
