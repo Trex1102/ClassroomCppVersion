@@ -41,7 +41,7 @@ namespace UserInfo {
         User()
         {
             age = 18;
-            userID++;
+            //userID++;
             //userList.push_back(this);
         }
 
@@ -58,7 +58,7 @@ namespace UserInfo {
 	          password(std::move(password))
         {
             age = 18;
-            userID++;
+            //userID++;
             //userList.push_back(this);
         }
 

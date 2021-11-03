@@ -219,7 +219,7 @@ void UserInfo::User::write()
 	ouf.open("User2.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
+		//cout << "\nCan't open file\n";
 		return;
 	}
 	for (int j = 0; j < userList.size(); j++)
@@ -227,7 +227,7 @@ void UserInfo::User::write()
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)
 		{
-			cout << "\nCan't write to file\n";
+			//cout << "\nCan't write to file\n";
 			return;
 		}
 		ouf.write((char*)(userList[j]), size);
@@ -239,32 +239,34 @@ void UserInfo::User::write()
 void UserInfo::User::read()
 {
 	int cur = readCount();
+	userID = cur;
 	//User user;
 	int size = sizeof(User);
 	ifstream inf;
 	inf.open("User2.DAT", ios::binary);
 	if (!inf)
 	{
-		cout << "\nCan't open file\n"; return;
+		//cout << "\nCan't open file\n"; return;
+		return;
 	}
 	int TotalUser = 0; // solution 1 : debug 2: store & retrieve
 	for(int j=0;j<cur;j++)
 	{
-		cout << TotalUser << endl;
+		//cout << TotalUser << endl;
 		userList.push_back(nullptr);
 		userList[TotalUser] = new User;
 		size = sizeof(User);
 		inf.read((char*)userList[TotalUser], size);
 		TotalUser++;
 	}
-	cout << "Reading " << TotalUser << " users\n";
+	//cout << "Reading " << TotalUser << " users\n";
 }
 void UserInfo::User::writeCount(int count)
 {
 	//int prev = readCount();
 	ofstream outfile("Count.txt",ios::trunc);
 	outfile << count;
-	cout << "\nFile Written\n";
+	//cout << "\nFile Written\n";
 
 
 }
@@ -275,7 +277,7 @@ int UserInfo::User::readCount()
 
 	if (!infile.is_open())
 	{
-		cerr << "Could not open the file\n";
+		//cerr << "Could not open the file\n";
 		return 0;
 	}
 

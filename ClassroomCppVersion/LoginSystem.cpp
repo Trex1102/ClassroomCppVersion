@@ -3,14 +3,14 @@
 UserInfo::User LoginInfo::loginSystem()
 {
 	UserInfo::User::read();
-	cout<<"Count: "<<UserInfo::User::readCount() << endl;
+	//cout<<"Count: "<<UserInfo::User::readCount() << endl;
 	string choice;
 	string username,password;
 
-	for (auto it : UserInfo::User::userList)
+	/*for (auto it : UserInfo::User::userList)
 	{
 		cout << "UserName: " << it->getUsername() << endl;
-	}
+	}*/
 
 	cout << "Welcome to Classroom CPP beta" << endl;
 	while (true) {
@@ -50,10 +50,9 @@ UserInfo::User LoginInfo::loginSystem()
 		{
 			auto user = new UserInfo::User;
 			UserInfo::User::createUser(*user);
+			UserInfo::User::userID++;
 			UserInfo::User::userList.push_back(user);
-			UserInfo::User::write();
-
-			exit(1);
+			UserInfo::User::write(); // write after exit
 			return *user;
 		}
 	}
