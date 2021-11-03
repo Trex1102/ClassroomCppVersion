@@ -3,10 +3,11 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "CourseMaterials.h"
+
 #include "Attendance.h"
 #include "Post.h"
 #include "Assignment.h"
+#include "Material.h"
 using namespace std;
 namespace UserInfo
 {
@@ -19,12 +20,13 @@ namespace Feature
 {
 	class Post;
 	class Assignment;
+	class Material;
 }
 
 namespace CourseInfo
 {
 	class attendance;
-	class CourseMaterials;
+	
 	class Course
 	{
 	private:
@@ -35,12 +37,13 @@ namespace CourseInfo
 		double courseCredit;
 		
 
-		vector<CourseMaterials*> courseMaterialList;
+		
 		vector<UserInfo::User*> studentList;
 		vector<UserInfo::User*> teacherList;
 
 	public:
 
+		vector<Feature::Material*> courseMaterialList;
 		vector<Feature::Assignment*> assignmentList;
 		vector<Feature::Post*> postList;
 		static int totalCourse;
@@ -71,7 +74,6 @@ namespace CourseInfo
 		void enrollCourseTeacher(UserInfo::User& teacher);
 		void enrollCourseStudent(UserInfo::User& student);
 		void displayCourseInfo();
-		void addCourseMaterial(CourseMaterials& course_material);
 		void showCourseMaterials();
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
 		void createCourseCode();
@@ -92,9 +94,7 @@ namespace CourseInfo
 
 	    double getCourseCredit() const;
 	    void setCourseCredit(double courseCredit);
-
-		vector<CourseMaterials*> getCourseMaterialList() const;
-		void setCourseMaterialList(vector<CourseMaterials*> courseMaterialList);
+		
 
 		vector<UserInfo::User*> getStudentList() const;
 		void setStudentList(vector<UserInfo::User*> studentList);
@@ -105,7 +105,7 @@ namespace CourseInfo
 		static void display();
 		static void read();
 		static void write();
-		static void writeCount(int );
+		static void writeCount(int count);
 		static int readCount();
 	};
 }

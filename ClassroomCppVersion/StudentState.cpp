@@ -20,7 +20,7 @@ void StateInfo::StudentState::HandleInput()
 
 	if(choice == "#seepost")
 	{
-		// see post state	
+		
 	}
 
 	if(choice == "#seeassignment")
@@ -34,7 +34,7 @@ void StateInfo::StudentState::HandleInput()
 
 	if(choice =="seeoutline")
 	{
-		
+		cout << data->currentCourse.getCourseOutline() << endl;
 	}
 	if (choice == "#exit")
 	{

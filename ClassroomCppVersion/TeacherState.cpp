@@ -1,4 +1,6 @@
 #include "TeacherState.h"
+
+
 using namespace std;
 
 StateInfo::TeacherState::TeacherState(ProgramDataRef data) : data(data)
@@ -23,8 +25,7 @@ void StateInfo::TeacherState::HandleInput()
 	}
 	if (choice == "#addmat")
 	{
-		//CourseInfo::CourseMaterials coursematerials(&data->currentUser, &data->currentCourse);
-		//data->machine.addState(stateRef(new AddMaterialState(this->data, coursematerials)));
+		data->machine.addState(stateRef(new AddMaterialState(this->data)), false);
 	}
 	if (choice == "#addout")
 	{
@@ -32,7 +33,7 @@ void StateInfo::TeacherState::HandleInput()
 	}
 	if (choice == "#addassign")
 	{
-
+		data->machine.addState(stateRef(new AddAssignmentState(this->data)), false);
 	}
 	if (choice == "#addpost")
 	{

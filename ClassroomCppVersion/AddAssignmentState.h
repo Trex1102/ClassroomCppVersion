@@ -3,7 +3,6 @@
 #include <iostream>
 #include <map>
 #include <vector>
-
 #include "Attendance.h"
 #include "State.h"
 #include "Program.h"
@@ -11,14 +10,14 @@
 
 namespace StateInfo
 {
-	class AddPostState :public State
+	class AddAssignmentState :public State
 	{
 	private:
 		ProgramDataRef data;
 
 	public:
 
-		AddPostState(ProgramDataRef data);
+		AddAssignmentState(ProgramDataRef data);
 
 		void Init() override;
 		void HandleInput() override;

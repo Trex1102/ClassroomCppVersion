@@ -14,6 +14,8 @@ void StateInfo::AddPostState::HandleInput()
 	Display();
 	string _data, choice;
 	auto post = new Feature::Post();
+	Feature::Post::totalPosts++;
+	Feature::Post::postList.push_back(post);
 	data->currentCourse.postList.push_back(post);
 	cin.ignore();
 	getline(cin, _data);

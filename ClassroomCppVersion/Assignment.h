@@ -38,6 +38,8 @@ namespace Feature
 		explicit Assignment(CourseInfo::Course* assigned_course)
 			: assignedCourse(assigned_course)
 		{
+			publishTime = __TIME__;
+			publishDate = __DATE__;
 		}
 
 

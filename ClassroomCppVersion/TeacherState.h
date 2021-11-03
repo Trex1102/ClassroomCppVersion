@@ -3,13 +3,15 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "CourseMaterials.h"
+#include "AddMaterialState.h"
+#include "Material.h"
 #include "Attendance.h"
 #include "State.h"
 #include "Program.h"
 #include "LoginSystem.h"
 #include "AddStudentState.h"
 #include "AddPostState.h"
+#include "AddAssignmentState.h"
 using namespace std;
 
 namespace StateInfo
