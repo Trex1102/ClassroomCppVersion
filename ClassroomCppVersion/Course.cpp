@@ -18,23 +18,21 @@ void CourseInfo::Course::displayCourseInfo()
 {
 	cout << "Course Information: " << endl;
 	cout << "Course ID: " << courseID << endl;
-	cout << "department Name: " << department << endl;
-	cout << "Course Teacher: " << endl;
+	cout << "Department Name: " << department << endl;
+	//cout << "Course Teacher: " << endl;
 	cout << "Course Code: " << courseCode << endl;
 	// show teachers
-	/*for (const auto it : teacherList)
+	cout << "Course Teachers: " << endl;
+	for (const auto it : teacherList)
 	{
-		
-		// only shows teacher part
-		// display user info as well
-		
+		cout << it->getUsername() << endl;
 	}
 	// show students
+	cout << "Course Students: " << endl;
 	for(const auto it:studentList)
 	{
-		//it->displayStudentInfo();
-		// display user info as well
-	}*/
+		cout << it->getUsername() << endl;
+	}
 }
 void CourseInfo::Course::showCourseMaterials()
 {

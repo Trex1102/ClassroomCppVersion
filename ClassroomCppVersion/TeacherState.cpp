@@ -29,7 +29,7 @@ void StateInfo::TeacherState::HandleInput()
 	}
 	if (choice == "#addout")
 	{
-
+		//
 	}
 	if (choice == "#addassign")
 	{
@@ -39,9 +39,9 @@ void StateInfo::TeacherState::HandleInput()
 	{
 		data->machine.addState(stateRef(new AddPostState(this->data)), false);
 	}
-	if (choice == "#coursepar")
+	if (choice == "#courseinfo")
 	{
-		//displayParticipants();
+		data->currentCourse.displayCourseInfo();
 	}
 	if (choice == "#back")
 	{
@@ -73,7 +73,7 @@ void StateInfo::TeacherState::Display()
 		<< "To add Course Outline #addout" << endl
 		<< "To add assignment #addassign" << endl
 		<< "To add post #addpost" << endl
-		<< "To see course participants type #coursepar" << endl
+		<< "To see course information type #courseinfo" << endl
 		<< "To go back type #back" << endl;
 
 }

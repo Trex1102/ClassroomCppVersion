@@ -3,7 +3,6 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "CourseMaterials.h"
 #include "Attendance.h"
 #include "State.h"
 #include "Program.h"
