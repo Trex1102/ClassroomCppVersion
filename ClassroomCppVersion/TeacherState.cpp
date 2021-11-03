@@ -19,7 +19,7 @@ void StateInfo::TeacherState::HandleInput()
 	cin >> choice;
 	if (choice == "#addstu")
 	{
-		data->machine.addState(stateRef(new AddStudentState(this->data)));
+		data->machine.addState(stateRef(new AddStudentState(this->data)), false);
 	}
 	if (choice == "#addmat")
 	{
@@ -34,9 +34,9 @@ void StateInfo::TeacherState::HandleInput()
 	{
 
 	}
-	if (choice == "#addnotes")
+	if (choice == "#addpost")
 	{
-
+		data->machine.addState(stateRef(new AddPostState(this->data)), false);
 	}
 	if (choice == "#coursepar")
 	{
@@ -71,7 +71,7 @@ void StateInfo::TeacherState::Display()
 		<< "To add Course Materials #addmat" << endl
 		<< "To add Course Outline #addout" << endl
 		<< "To add assignment #addassign" << endl
-		<< "To add Short Notes #addsnotes" << endl
+		<< "To add post #addpost" << endl
 		<< "To see course participants type #coursepar" << endl
 		<< "To go back type #back" << endl;
 

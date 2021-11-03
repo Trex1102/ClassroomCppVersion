@@ -223,7 +223,7 @@ void UserInfo::User::write()
 		//cout << "\nCan't open file\n";
 		return;
 	}
-	for (int j = 0; j < userList.size(); j++)
+	for (unsigned j = 0; j < userList.size(); j++)
 	{
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)

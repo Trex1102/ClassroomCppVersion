@@ -8,6 +8,7 @@
 #include "LoginSystem.h"
 #include "StateMachine.h"
 #include "Program.h"
+#include "Assignment.h"
 using namespace std;
 
 int main()
