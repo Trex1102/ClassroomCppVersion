@@ -2,7 +2,7 @@
 using namespace std;
 
 int Feature::Assignment::totalAssignment;
-
+vector<Feature::Assignment*> Feature::Assignment::assignmentList;
 
 void Feature::Assignment::assignUsers()
 {

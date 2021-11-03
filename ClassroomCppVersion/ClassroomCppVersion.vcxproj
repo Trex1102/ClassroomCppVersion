@@ -151,6 +151,7 @@
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="LoginSystem.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Post.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="ResultState.cpp" />
     <ClCompile Include="StateMachine.cpp" />

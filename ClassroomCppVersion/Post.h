@@ -9,30 +9,32 @@ namespace Feature
 	class Post
 	{
 	private:
-		string time, date;
-		string data;
+		std::string time, date;
+		std::string data;
 	public:
+		static int totalPosts;
+		static std::vector<Post*> postList;
 		Post()
 		{
 			time = __TIME__;
 			date = __DATE__;
 		}
 
-		void setData(string _data)
+		void setData(std::string _data)
 		{
 			data = move(_data);
 		}
 
-		string getData()const
+		std::string getData()const
 		{
 			return data;
 		}
 
 		void Display()
 		{
-			cout << "Date: " << date << endl;
-			cout << "Time: " << time<<endl;
-			cout << "Post: " << data<<endl;
+			std::cout << "Date: " << date << std::endl;
+			std::cout << "Time: " << time<< std::endl;
+			std::cout << "Post: " << data<< std::endl;
 		}
 	};
 }
