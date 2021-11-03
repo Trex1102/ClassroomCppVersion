@@ -36,6 +36,10 @@ void CourseInfo::Course::displayCourseInfo()
 		// display user info as well
 	}*/
 }
+void CourseInfo::Course::showCourseMaterials()
+{
+
+}
 void CourseInfo::Course::display()
 {
 	for (auto it : CourseInfo::Course::courseList)
@@ -44,18 +48,6 @@ void CourseInfo::Course::display()
 	}
 }
 
-void CourseInfo::Course::addCourseMaterial(CourseMaterials& course_material)
-{
-	courseMaterialList.push_back(&course_material);
-}
-
-void CourseInfo::Course::showCourseMaterials()
-{
-	for(auto it:courseMaterialList)
-	{
-		//
-	}
-}
 
 void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::User &teacher)
 {
@@ -96,7 +88,7 @@ void CourseInfo::Course::write()
 		cout << "\nCan't open file\n";
 		return;
 	}
-	for (int j = 0; j < courseList.size(); j++)
+	for (unsigned j = 0; j < courseList.size(); j++)
 	{
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)
@@ -213,16 +205,6 @@ void CourseInfo::Course::setCourseCredit(double courseCredit)
     this->courseCredit = courseCredit;
 }
 
-
-vector<CourseInfo::CourseMaterials*> CourseInfo::Course::getCourseMaterialList() const
-{
-    return courseMaterialList;
-}
-
-void CourseInfo::Course::setCourseMaterialList(vector<CourseMaterials*> courseMaterialList)
-{
-    this->courseMaterialList = courseMaterialList;
-}
 
 vector<UserInfo::User*> CourseInfo::Course::getStudentList() const
 {

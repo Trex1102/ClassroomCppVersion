@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddAssignmentState.cpp" />
+    <ClCompile Include="AddMaterialState.cpp" />
     <ClCompile Include="AddPostState.cpp" />
     <ClCompile Include="AddStudentState.cpp" />
     <ClCompile Include="Assignment.cpp" />
@@ -147,10 +149,10 @@
     <ClCompile Include="AttendanceState.cpp" />
     <ClCompile Include="ClassroomCppVersion.cpp" />
     <ClCompile Include="Course.cpp" />
-    <ClCompile Include="CourseMaterials.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="LoginSystem.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="Post.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="ResultState.cpp" />
@@ -161,6 +163,8 @@
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddAssignmentState.h" />
+    <ClInclude Include="AddMaterialState.h" />
     <ClInclude Include="AddPostState.h" />
     <ClInclude Include="AddStudentState.h" />
     <ClInclude Include="Assignment.h" />
@@ -168,13 +172,13 @@
     <ClInclude Include="Attendance.h" />
     <ClInclude Include="AttendanceState.h" />
     <ClInclude Include="Course.h" />
-    <ClInclude Include="CourseMaterials.h" />
     <ClInclude Include="CourseOutline.h" />
     <ClInclude Include="CourseResult.h" />
     <ClInclude Include="ExamResult.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="LoginSystem.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Post.h" />
     <ClInclude Include="Program.h" />
     <ClInclude Include="Result.h" />
