@@ -51,6 +51,7 @@ void StateInfo::MainMenu::HandleInput()
 		cout << "Enter Course Code: "; cin >> code;
 
 		course = UserInfo::User::joinCourse(code,data->currentUser);
+		cout << course->getTeacherList().size() << endl;
 		if(course == nullptr)
 		{
 			cout << "Course not found" << endl;

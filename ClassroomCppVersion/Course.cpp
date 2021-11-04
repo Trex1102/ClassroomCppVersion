@@ -118,7 +118,7 @@ void CourseInfo::Course::read()
 	{
 		//cout << TotalCourse << endl;
 		courseList.push_back(nullptr);
-		courseList[TotalCourse] = new Course;
+		courseList[TotalCourse] = new Course; // new memory allocation
 		size = sizeof(Course);
 		inf.read((char*)courseList[TotalCourse], size);
 		TotalCourse++;

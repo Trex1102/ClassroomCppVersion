@@ -49,6 +49,7 @@ namespace CourseInfo
 		static int totalCourse;
 		static vector<Course*> courseList;
 		map<string, attendance*> attendanceList;
+
 	public:
 
 		Course()
