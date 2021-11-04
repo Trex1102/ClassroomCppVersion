@@ -1,28 +1,25 @@
 #pragma once
+#pragma once
 #include <string>
 #include <iostream>
 #include <map>
 #include <vector>
-
+//#include "CourseMaterials.h"
 #include "Attendance.h"
 #include "State.h"
 #include "Program.h"
 #include "LoginSystem.h"
-#include"seeassignmentState.h"
-#include"seematState.h"
-#include"seepostState.h"
-using namespace std;
 
 namespace StateInfo
 {
-	class StudentState :public State
+	class seeassignmentState :public State
 	{
 	private:
 		ProgramDataRef data;
 
 	public:
 
-		StudentState(ProgramDataRef data);
+		seeassignmentState(ProgramDataRef data);
 
 		void Init() override;
 		void HandleInput() override;

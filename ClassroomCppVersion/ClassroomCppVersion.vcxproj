@@ -156,6 +156,8 @@
     <ClCompile Include="Post.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="ResultState.cpp" />
+    <ClCompile Include="seeassignmentState.cpp" />
+    <ClCompile Include="seematState.cpp" />
     <ClCompile Include="seepostState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
     <ClCompile Include="StudentState.cpp" />
@@ -183,6 +185,8 @@
     <ClInclude Include="Program.h" />
     <ClInclude Include="Result.h" />
     <ClInclude Include="ResultState.h" />
+    <ClInclude Include="seeassignmentState.h" />
+    <ClInclude Include="seematState.h" />
     <ClInclude Include="seepostState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />

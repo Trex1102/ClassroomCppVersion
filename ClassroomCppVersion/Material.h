@@ -34,7 +34,10 @@ namespace Feature
 		{
 			inputTime = __TIME__;
 		}
-
+		Material()//cons
+		{
+			inputTime = __TIME__;
+		}
 		void Display();
 		
 
@@ -48,5 +51,9 @@ namespace Feature
         CourseInfo::Course* getLinkedCourse() const;
         void setLinkedCourse(CourseInfo::Course* linkedCourse);
 
+		static void write();
+		static void read();
+		static void writeCount(int);
+		static int readCount();
 	};
 }

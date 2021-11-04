@@ -18,7 +18,7 @@ namespace CourseInfo
 		map<string, string> dailyAttendance;
 		Course* course;
 	public:
-		attendance()
+		attendance()//cons
 		{
 			date = __DATE__;
 		}

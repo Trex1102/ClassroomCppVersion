@@ -20,16 +20,16 @@ void StateInfo::StudentState::HandleInput()
 
 	if(choice == "#seepost")
 	{
-		
+		data->machine.addState(stateRef(new seepostState(this->data)), false);
 	}
 
 	if(choice == "#seeassignment")
 	{
-		
+		data->machine.addState(stateRef(new seeassignmentState(this->data)), false);
 	}
 	if(choice =="seemat")
 	{
-		
+		data->machine.addState(stateRef(new seematState(this->data)), false);
 	}
 
 	if(choice =="seeoutline")
@@ -42,6 +42,8 @@ void StateInfo::StudentState::HandleInput()
 		CourseInfo::Course::write();
 		Feature::Assignment::write();
 		Feature::Post::write();
+		Feature::Material::write();
+		CourseInfo::attendance::write();
 		exit(0);
 	}
 

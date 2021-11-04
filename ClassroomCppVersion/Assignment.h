@@ -34,7 +34,7 @@ namespace Feature
 	public:
 		static vector<Assignment*> assignmentList;
 		static int totalAssignment;
-		Assignment()
+		Assignment()//cons
 		{
 			publishTime = __TIME__;
 			publishDate = __DATE__;

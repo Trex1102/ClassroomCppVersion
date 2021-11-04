@@ -43,3 +43,80 @@ void Feature::Material::setLinkedCourse(CourseInfo::Course* linkedCourse)
     this->linkedCourse = linkedCourse;
 }
 
+void Feature::Material::write()
+{
+
+	//int n = userList.size();
+
+	ofstream ouf;
+	//User user;
+	int size = sizeof(Material);
+	ouf.open("Material.DAT", ios::trunc | ios::binary);
+	if (!ouf)
+	{
+		cout << "\nCan't open file\n";
+		return;
+	}
+	for (int j = 0; j < materialList.size(); j++)
+	{
+		//ouf.write((char*)&User, sizeof(User));
+		if (!ouf)
+		{
+			cout << "\nCan't write to file\n";
+			return;
+		}
+		ouf.write((char*)(materialList[j]), size);
+	}
+
+	cout << "Writing " << materialList.size() << " materials.\n";
+	writeCount(materialList.size());
+}
+void Feature::Material::read()
+{
+	int cur = readCount();
+	totalMaterials = cur;
+	//User user;
+	int size = sizeof(Material);
+	ifstream inf;
+	inf.open("Material.DAT", ios::binary);
+	if (!inf.is_open())
+	{
+		//cout << "\nCan't open file\n"; return;
+		return;
+	}
+	int Total = 0; // solution 1 : debug 2: store & retrieve
+	for (int j = 0;j < cur;j++)
+	{
+		//cout << TotalCourse << endl;
+		materialList.push_back(nullptr);
+		materialList[Total] = new Material;//no cons
+		size = sizeof(Material);
+		inf.read((char*)materialList[Total], size);
+		Total++;
+	}
+	//cout << "Reading " << TotalCourse << " users\n";
+}
+void Feature::Material::writeCount(int count)
+{
+	//int prev = readCount();
+	ofstream outfile("Material_Count.txt", ios::trunc);
+	outfile << count;
+	cout << "\nFile Written\n";
+
+
+}
+int Feature::Material::readCount()
+{
+	int count;
+	ifstream infile("Material_Count.txt");
+
+	if (!infile.is_open())
+	{
+		cerr << "Could not open the file\n";
+		return 0;
+	}
+
+	infile >> count;
+	//cout << count << endl;
+	return count;
+}

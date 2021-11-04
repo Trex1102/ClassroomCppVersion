@@ -81,6 +81,12 @@
     <ClCompile Include="seepostState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="seeassignmentState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seematState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -159,6 +165,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="seepostState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seematState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seeassignmentState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

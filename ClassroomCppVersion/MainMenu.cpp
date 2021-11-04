@@ -39,6 +39,8 @@ void StateInfo::MainMenu::HandleInput()
 		CourseInfo::Course::write();
 		Feature::Assignment::write();
 		Feature::Post::write();
+		Feature::Material::write();
+		CourseInfo::attendance::write();
 		exit(1);
 	}
 	else
@@ -51,6 +53,7 @@ void StateInfo::MainMenu::HandleInput()
 		cout << "Enter Course Code: "; cin >> code;
 
 		course = UserInfo::User::joinCourse(code,data->currentUser);
+		//cout << course->getTeacherList().size()<<endl;
 		if(course == nullptr)
 		{
 			cout << "Course not found" << endl;
@@ -64,8 +67,11 @@ void StateInfo::MainMenu::HandleInput()
 			cin >> choice;
 			if(choice=="#jointolearn")
 			{
+				cout << "1\n";
 				course->enrollCourseStudent(data->currentUser);
+				cout << "2\n";
 				data->currentCourse = *course;
+				cout << "3\n";
 				data->machine.addState(stateRef(new StudentState(this->data)) ,false);
 			}
 			
@@ -89,6 +95,8 @@ void StateInfo::MainMenu::HandleInput()
 				UserInfo::User::write();
 				Feature::Assignment::write();
 				Feature::Post::write();
+				Feature::Material::write();
+				CourseInfo::attendance::write();
 				exit(1);
 			}
 		}
