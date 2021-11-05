@@ -3,7 +3,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
-
+#include <array>
 #include "Attendance.h"
 #include "Post.h"
 #include "Assignment.h"
@@ -38,14 +38,21 @@ namespace CourseInfo
 		
 
 		
-		vector<UserInfo::User*> studentList;
-		vector<UserInfo::User*> teacherList;
+		vector<UserInfo::User*> studentList; // relation - course-user-student
+		vector<UserInfo::User*> teacherList; // relation - course-user-teacher
+
+		//vector<string> StudentList;
+		//vector<string> TeacherList;
+
+		
+
 
 	public:
 
-		vector<Feature::Material*> courseMaterialList;
-		vector<Feature::Assignment*> assignmentList;
-		vector<Feature::Post*> postList;
+		 
+		vector<Feature::Material*> courseMaterialList; // relation - course- material
+		vector<Feature::Assignment*> assignmentList; // relation - course - assignment
+		vector<Feature::Post*> postList; // relaation- course- post
 		static int totalCourse;
 		static vector<Course*> courseList;
 		map<string, attendance*> attendanceList;

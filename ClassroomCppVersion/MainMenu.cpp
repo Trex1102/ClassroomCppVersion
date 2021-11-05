@@ -46,12 +46,13 @@ void StateInfo::MainMenu::HandleInput()
 		string code;
 		CourseInfo::Course* course;
 		int cur_course = CourseInfo::Course::readCount();
+		
 		//cout << "Current Courses: " << cur_course << endl;
 	//	CourseInfo::Course::display();
 		cout << "Enter Course Code: "; cin >> code;
 
 		course = UserInfo::User::joinCourse(code,data->currentUser);
-		cout << course->getTeacherList().size() << endl;
+		//cout << course->StudentList[0] << endl;
 		if(course == nullptr)
 		{
 			cout << "Course not found" << endl;

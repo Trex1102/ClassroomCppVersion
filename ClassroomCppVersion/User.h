@@ -34,8 +34,11 @@ namespace UserInfo {
         static vector<User*> userList;
 
         static int userID;
-        vector<CourseInfo::Course*> asStudent;
-        vector<CourseInfo::Course*> asTeacher;
+        vector<CourseInfo::Course*> asStudent; // realtion - course-user-student
+        vector<CourseInfo::Course*> asTeacher;// relation - course-user-teacher
+
+        //vector<string> AsStudent;
+        //vector<string> AsTeacher;
 
 
         User()

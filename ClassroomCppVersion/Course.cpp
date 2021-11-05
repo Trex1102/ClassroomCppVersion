@@ -11,7 +11,7 @@ void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)
 
 void CourseInfo::Course::enrollCourseStudent(UserInfo::User& student)
 {
-	studentList.push_back(&student);
+	//studentList.push_back(&student);
 }
 
 void CourseInfo::Course::displayCourseInfo()
