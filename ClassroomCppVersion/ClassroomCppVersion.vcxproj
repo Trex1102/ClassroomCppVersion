@@ -144,11 +144,11 @@
     <ClCompile Include="AddPostState.cpp" />
     <ClCompile Include="AddStudentState.cpp" />
     <ClCompile Include="Assignment.cpp" />
-    <ClCompile Include="AssignmentState.cpp" />
     <ClCompile Include="Attendance.cpp" />
     <ClCompile Include="AttendanceState.cpp" />
     <ClCompile Include="ClassroomCppVersion.cpp" />
     <ClCompile Include="Course.cpp" />
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="Login.cpp" />
     <ClCompile Include="LoginSystem.cpp" />
     <ClCompile Include="MainMenu.cpp" />
@@ -168,12 +168,12 @@
     <ClInclude Include="AddPostState.h" />
     <ClInclude Include="AddStudentState.h" />
     <ClInclude Include="Assignment.h" />
-    <ClInclude Include="AssignmentState.h" />
     <ClInclude Include="Attendance.h" />
     <ClInclude Include="AttendanceState.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="CourseOutline.h" />
     <ClInclude Include="CourseResult.h" />
+    <ClInclude Include="Database.h" />
     <ClInclude Include="ExamResult.h" />
     <ClInclude Include="Login.h" />
     <ClInclude Include="LoginSystem.h" />

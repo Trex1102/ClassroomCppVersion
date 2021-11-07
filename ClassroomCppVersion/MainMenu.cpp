@@ -28,6 +28,8 @@ void StateInfo::MainMenu::HandleInput()
 		CourseInfo::Course::totalCourse++;
 		data->currentCourse = *currentCourse;
 		currentCourse->enrollCourseTeacher(data->currentUser);
+
+		//Database::Relations::CourseStudent[data->currentCourse.getCourseCode()].push_back(data->currentUser.getUsername());
 		
 		data->machine.addState(stateRef(new TeacherState(this->data)), false);
 	
@@ -39,6 +41,7 @@ void StateInfo::MainMenu::HandleInput()
 		CourseInfo::Course::write();
 		Feature::Assignment::write();
 		Feature::Post::write();
+		Database::Relations::write();
 		exit(1);
 	}
 	else

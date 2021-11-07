@@ -52,7 +52,7 @@ namespace CourseInfo
 		 
 		vector<Feature::Material*> courseMaterialList; // relation - course- material
 		vector<Feature::Assignment*> assignmentList; // relation - course - assignment
-		vector<Feature::Post*> postList; // relaation- course- post
+		vector<Feature::Post*> postList; // relation- course- post
 		static int totalCourse;
 		static vector<Course*> courseList;
 		map<string, attendance*> attendanceList;

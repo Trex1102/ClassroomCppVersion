@@ -54,9 +54,6 @@
     <ClCompile Include="AttendanceState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AssignmentState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AddStudentState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -79,6 +76,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="seepostState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -134,9 +134,6 @@
     <ClInclude Include="ResultState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AssignmentState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AddStudentState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -159,6 +156,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="seepostState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

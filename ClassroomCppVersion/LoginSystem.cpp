@@ -2,6 +2,14 @@
 
 UserInfo::User LoginInfo::loginSystem()
 {
+	Database::Relations::read();
+	//Database::Relations::display();
+	//Database::input();
+	//Database::Relations::write();
+
+
+	//////////
+
 	UserInfo::User::read();
 	CourseInfo::Course::read();
 	Feature::Assignment::read();
@@ -48,7 +56,6 @@ UserInfo::User LoginInfo::loginSystem()
 			{
 				UserInfo::User::write();
 				CourseInfo::Course::write();
-
 				Feature::Assignment::write();
 				Feature::Post::write();
 				exit(0);
