@@ -52,7 +52,10 @@ void StateInfo::TeacherState::HandleInput()
 	{
 		data->machine.removeState();
 	}
-	
+	else
+	{
+		///throw ...;
+	}
 
 }
 

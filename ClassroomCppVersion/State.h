@@ -14,5 +14,6 @@ namespace StateInfo
 		virtual void Resume()  = 0; // load essesntial datas
 		virtual void Display() = 0;
 		//virtual ~State() = 0;
+		class Invalid_time{};
 	};
 }

@@ -38,6 +38,8 @@ namespace UserInfo {
         vector<CourseInfo::Course*> asTeacher;
 
         class Empty {};
+        class Invalid_password{};
+        class Invalid_Username{};
         User()
         {
             age = 18;

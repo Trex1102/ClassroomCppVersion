@@ -34,6 +34,10 @@ void StateInfo::AddStudentState::HandleInput()
 	if(user== nullptr)
 	
 	{
+		/// <summary>
+		/// ******************************************************
+		/// </summary>
+		throw UserInfo::User::Invalid_Username();
 		cout << "No user exists with this username" << endl;
 		cout << "To back to previous state #back" << endl;
 		cin >> choice;

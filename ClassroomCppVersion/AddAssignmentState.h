@@ -24,5 +24,7 @@ namespace StateInfo
 		void Pause() override;
 		void Resume() override;
 		void Display() override;
+
+		
 	};
 }
