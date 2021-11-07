@@ -87,13 +87,22 @@ void Feature::Material::read()
 	int Total = 0; // solution 1 : debug 2: store & retrieve
 	for (int j = 0;j < cur;j++)
 	{
-		//cout << TotalCourse << endl;
-		materialList.push_back(nullptr);
-		materialList[Total] = new Material;//no cons
-		size = sizeof(Material);
-		inf.read((char*)materialList[Total], size);
-		Total++;
+		try
+		{
+			//cout << TotalCourse << endl;
+			materialList.push_back(nullptr);
+			materialList[Total] = new Material;//no cons
+			size = sizeof(Material);
+			inf.read((char*)materialList[Total], size);
+			Total++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "Exception: bad_alloc. Can't Allocate memory for posts";
+			return;
+		}
 	}
+	
 	//cout << "Reading " << TotalCourse << " users\n";
 }
 void Feature::Material::writeCount(int count)

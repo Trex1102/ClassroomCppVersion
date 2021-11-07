@@ -22,6 +22,9 @@ void StateInfo::AddAssignmentState::HandleInput()
 	assignment->setData(_data);
 	cout << "Enter Deadline Date: ";
 	cin >> choice;
+	/// <summary>
+	/// throw invalid time;
+	/// </summary>
 	assignment->setDeadlineDate(choice);
 	cout << "Enter Deadline Time: ";
 	cin >> choice;

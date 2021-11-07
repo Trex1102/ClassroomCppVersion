@@ -57,6 +57,7 @@ void StateInfo::MainMenu::HandleInput()
 		if(course == nullptr)
 		{
 			cout << "Course not found" << endl;
+			///throw Invalid_Course_ID();
 			Init();
 		}
 		else

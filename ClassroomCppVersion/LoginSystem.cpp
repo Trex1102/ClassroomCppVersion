@@ -22,7 +22,12 @@ UserInfo::User LoginInfo::loginSystem()
 		cout << "If you have existing account type #signin otherwise to create new account type #signup" << endl;
 		cin >> choice;
 		if (choice == "#signin")
-		{
+		{    
+			if (UserInfo::User::userID == 0)
+			{
+				///throw UserInfo::User::Empty();
+				///continue;
+			}
 			//cout << "Total Users: " << UserInfo::User::userID << endl;
 			cout << "Total Users: " << UserInfo::User::userList.size() << endl;
 			cout << "Username: ";
@@ -39,7 +44,9 @@ UserInfo::User LoginInfo::loginSystem()
 						cout << "Login Successful" << endl;
 						return *it;
 					}
+					///throw Invalid_Password();
 				}
+				///throw Invalid_Username();
 			}
 
 			cout << "Username or Password is incorrect" << endl;

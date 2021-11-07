@@ -253,12 +253,20 @@ void UserInfo::User::read()
 	int TotalUser = 0; // solution 1 : debug 2: store & retrieve
 	for(int j=0;j<cur;j++)
 	{
-		//cout << TotalUser << endl;
-		userList.push_back(nullptr);
-		userList[TotalUser] = new User;
-		size = sizeof(User);
-		inf.read((char*)userList[TotalUser], size);
-		TotalUser++;
+		try 
+		{
+			//cout << TotalUser << endl;
+			userList.push_back(nullptr);
+			userList[TotalUser] = new User;
+			size = sizeof(User);
+			inf.read((char*)userList[TotalUser], size);
+			TotalUser++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "bad_alloc exception: can't allocate memory" << endl;
+			return;
+		}
 	}
 	//cout << "Reading " << TotalUser << " users\n";
 }

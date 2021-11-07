@@ -46,14 +46,23 @@ void Feature::Post::read()
 		return;
 	}
 	int TotalPost = 0; // solution 1 : debug 2: store & retrieve
+
 	for (int j = 0;j < cur;j++)
 	{
-		//cout << TotalCourse << endl;
-		postList.push_back(nullptr);
-		postList[TotalPost] = new Post;
-		size = sizeof(Post);
-		inf.read((char*)postList[TotalPost], size);
-		TotalPost++;
+		try 
+		{
+			//cout << TotalCourse << endl;
+			postList.push_back(nullptr);
+			postList[TotalPost] = new Post;
+			size = sizeof(Post);
+			inf.read((char*)postList[TotalPost], size);
+			TotalPost++;
+		}
+		catch(bad_alloc)
+		{
+			cout << "Exception: bad_alloc. Can't Allocate memory for posts";
+			return;
+		}
 	}
 	//cout << "Reading " << TotalCourse << " users\n";
 }

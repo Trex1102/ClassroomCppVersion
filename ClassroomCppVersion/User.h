@@ -37,7 +37,7 @@ namespace UserInfo {
         vector<CourseInfo::Course*> asStudent;
         vector<CourseInfo::Course*> asTeacher;
 
-
+        class Empty {};
         User()
         {
             age = 18;
