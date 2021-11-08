@@ -84,7 +84,7 @@ void CourseInfo::Course::write()
 {
 	ofstream ouf;
 	int size = sizeof(Course);
-	ouf.open("Course.DAT", ios::trunc | ios::binary);
+	ouf.open("Database0/Course.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
 		return;
@@ -93,13 +93,13 @@ void CourseInfo::Course::write()
 	{
 		if (!ouf)
 		{
-			cout << "\nCan't write to file\n";
+			//cout << "\nCan't write to file\n";
 			return;
 		}
 		ouf.write((char*)(courseList[j]), size);
 	}
 
-	cout << "Writing " << courseList.size() << " Courses.\n";
+	//cout << "Writing " << courseList.size() << " Courses.\n";
 	writeCount(courseList.size());
 }
 void CourseInfo::Course::read()
@@ -108,7 +108,7 @@ void CourseInfo::Course::read()
 	totalCourse = cur;
 	int size = sizeof(Course);
 	ifstream inf;
-	inf.open("Course.DAT", ios::binary);
+	inf.open("Database0/Course.DAT", ios::binary);
 	if (!inf.is_open())
 	{
 		return;
@@ -116,29 +116,36 @@ void CourseInfo::Course::read()
 	int TotalCourse = 0; 
 	for (int j = 0;j < cur;j++)
 	{
-		courseList.push_back(nullptr);
-		courseList[TotalCourse] = new Course;
-		size = sizeof(Course);
-		inf.read((char*)courseList[TotalCourse], size);
-		TotalCourse++;
+		try 
+		{
+			courseList.push_back(nullptr);
+			courseList[TotalCourse] = new Course;
+			size = sizeof(Course);
+			inf.read((char*)courseList[TotalCourse], size);
+			TotalCourse++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "Can't Allocate Course" << endl;
+		}
 	}
 }
 void CourseInfo::Course::writeCount(int count)
 {
-	ofstream outfile("Course_Count.txt", ios::trunc);
+	ofstream outfile("Database0/Course_Count.txt", ios::trunc);
 	outfile << count;
-	cout << "\nFile Written\n";
+//	cout << "\nFile Written\n";
 
 
 }
 int CourseInfo::Course::readCount()
 {
 	int count;
-	ifstream infile("Course_Count.txt");
+	ifstream infile("Database0/Course_Count.txt");
 
 	if (!infile.is_open())
 	{
-		cerr << "Could not open the file\n";
+		//cerr << "Could not open the file\n";
 		return 0;
 	}
 

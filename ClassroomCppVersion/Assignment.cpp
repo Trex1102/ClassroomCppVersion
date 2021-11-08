@@ -165,10 +165,10 @@ void Feature::Assignment::write()
 	ofstream ouf;
 	//User user;
 	int size = sizeof(Assignment);
-	ouf.open("Assignment.DAT", ios::trunc | ios::binary);
+	ouf.open("Database0/Assignment.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
+	//	cout << "\nCan't open file\n";
 		return;
 	}
 	for (unsigned j = 0; j < assignmentList.size(); j++)
@@ -176,13 +176,13 @@ void Feature::Assignment::write()
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)
 		{
-			cout << "\nCan't write to file\n";
+		//	cout << "\nCan't write to file\n";
 			return;
 		}
 		ouf.write((char*)(assignmentList[j]), size);
 	}
 
-	cout << "Writing " << assignmentList.size() << " Assignments.\n";
+//	cout << "Writing " << assignmentList.size() << " Assignments.\n";
 	writeCount(assignmentList.size());
 }
 void Feature::Assignment::read()
@@ -192,7 +192,7 @@ void Feature::Assignment::read()
 	//User user;
 	int size = sizeof(Assignment);
 	ifstream inf;
-	inf.open("Assignment.DAT", ios::binary);
+	inf.open("Database0/Assignment.DAT", ios::binary);
 	if (!inf.is_open())
 	{
 		//cout << "\nCan't open file\n"; return;
@@ -213,20 +213,20 @@ void Feature::Assignment::read()
 void Feature::Assignment::writeCount(int count)
 {
 	//int prev = readCount();
-	ofstream outfile("Assignment_count.txt", ios::trunc);
+	ofstream outfile("Database0/Assignment_count.txt", ios::trunc);
 	outfile << count;
-	cout << "\nFile Written\n";
+//	cout << "\nFile Written\n";
 
 
 }
 int Feature::Assignment::readCount()
 {
 	int count;
-	ifstream infile("Assignment_count.txt");
+	ifstream infile("Database0/Assignment_count.txt");
 
 	if (!infile.is_open())
 	{
-		cerr << "Could not open the file\n";
+	//	cerr << "Could not open the file\n";
 		return 0;
 	}
 
