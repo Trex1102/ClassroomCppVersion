@@ -149,12 +149,20 @@ void Feature::Assignment::read()
 	int TotalAssignment = 0; // solution 1 : debug 2: store & retrieve
 	for (int j = 0;j < cur;j++)
 	{
-		//cout << TotalCourse << endl;
-		assignmentList.push_back(nullptr);
-		assignmentList[TotalAssignment] = new Assignment;
-		size = sizeof(Assignment);
-		inf.read((char*)assignmentList[TotalAssignment], size);
-		TotalAssignment++;
+		try
+		{
+			//cout << TotalCourse << endl;
+			assignmentList.push_back(nullptr);
+			assignmentList[TotalAssignment] = new Assignment;
+			size = sizeof(Assignment);
+			inf.read((char*)assignmentList[TotalAssignment], size);
+			TotalAssignment++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "Error allocating " << j << " th Assignment"<<endl;
+		}
+
 	}
 	//cout << "Reading " << TotalCourse << " users\n";
 }

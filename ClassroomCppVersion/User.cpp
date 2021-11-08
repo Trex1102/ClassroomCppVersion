@@ -15,6 +15,13 @@ void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
 	//this->asTeacher.push_back(&course);
 }
 
+void UserInfo::User::operator=(const User& user)
+{
+	firstName = user.firstName;
+	department = user.department;
+	age = user.age;
+    createUserName();
+}
 void UserInfo::User::createUser(User &user)
 {
 	cout << "First Name: ";  cin >> user.firstName;
@@ -242,11 +249,18 @@ void UserInfo::User::read()
 	int TotalUser = 0; 
 	for(int j=0;j<cur;j++)
 	{
-		userList.push_back(nullptr);
-		userList[TotalUser] = new User;
-		size = sizeof(User);
-		inf.read((char*)userList[TotalUser], size);
-		TotalUser++;
+		try
+		{
+			userList.push_back(nullptr);
+			userList[TotalUser] = new User;
+			size = sizeof(User);
+			inf.read((char*)userList[TotalUser], size);
+			TotalUser++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "Can't allocate " << j << " th user" << endl;
+		}
 	}
 }
 void UserInfo::User::writeCount(int count)

@@ -59,6 +59,11 @@ void CourseInfo::Course::display()
 	}
 }
 
+void CourseInfo::Course::operator = (const Course& course)
+{
+	department = course.department;
+	courseCredit = course.courseCredit;
+}
 
 void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::User &teacher)
 {
@@ -126,7 +131,7 @@ void CourseInfo::Course::read()
 		}
 		catch (bad_alloc)
 		{
-			cout << "Can't Allocate Course" << endl;
+			cout << "Can't Allocate "<<j<<" th Course" << endl;
 		}
 	}
 }

@@ -56,7 +56,7 @@ namespace UserInfo {
         }
 
         //friend ostream& operator<<(ostream& c, const User& user);
-
+        void operator = (const User& user);
         // class function
         void addAsStudent(CourseInfo::Course &course);
         void addAsTeacher(CourseInfo::Course& course);

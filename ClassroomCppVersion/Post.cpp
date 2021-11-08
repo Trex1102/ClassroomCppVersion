@@ -48,12 +48,19 @@ void Feature::Post::read()
 	int TotalPost = 0; // solution 1 : debug 2: store & retrieve
 	for (int j = 0;j < cur;j++)
 	{
-		//cout << TotalCourse << endl;
-		postList.push_back(nullptr);
-		postList[TotalPost] = new Post;
-		size = sizeof(Post);
-		inf.read((char*)postList[TotalPost], size);
-		TotalPost++;
+		try 
+		{
+			//cout << TotalCourse << endl;
+			postList.push_back(nullptr);
+			postList[TotalPost] = new Post;
+			size = sizeof(Post);
+			inf.read((char*)postList[TotalPost], size);
+			TotalPost++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "Can't allocate " << j << " th post"<<endl;
+		}
 	}
 	//cout << "Reading " << TotalCourse << " users\n";
 }
