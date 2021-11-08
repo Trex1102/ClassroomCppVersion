@@ -20,7 +20,7 @@ namespace StateInfo
     typedef shared_ptr<StateInfo::ProgramData> ProgramDataRef;
 
     class Program
-    {
+    { 
     public:
         Program();
 

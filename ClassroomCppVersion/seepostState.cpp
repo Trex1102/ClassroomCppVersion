@@ -13,7 +13,13 @@ void StateInfo::seepostState::Init()
 void StateInfo::seepostState::HandleInput()
 {
 	Display();
-
+	string choice;
+	cout << "To go back #back\n";
+	cin >> choice;
+	if(choice == "#back")
+	{
+		data->machine.removeState();
+	}
 }
 
 void StateInfo::seepostState::Pause()
@@ -28,9 +34,13 @@ void StateInfo::seepostState::Resume()
 void StateInfo::seepostState::Display()
 {
 	system("cls");
-	for (int j = 0;j <data->currentCourse.postList.size();j++)
+
+	for(auto it: Feature::Post::postList)
 	{
-		data->currentCourse.postList[j]->Display();
-    }
+		if(it->enrolledCourseCode == data->currentCourse.getCourseCode())
+		{
+			it->Display();
+		}
+	}
 
 }

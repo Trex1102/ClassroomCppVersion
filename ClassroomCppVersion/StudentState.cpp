@@ -35,6 +35,7 @@ void StateInfo::StudentState::HandleInput()
 
 	if(choice =="seeoutline")
 	{
+		// retrieve from file
 		cout << data->currentCourse.getCourseOutline() << endl;
 	}
 	if (choice == "#exit")

@@ -24,7 +24,8 @@ namespace Feature
 		std::string publishDate;
 		std::string publishTime;
 		std::string data;
-		std::map<UserInfo::User*,std::string> PrivateComments;
+		//std::string assignedCourse;
+		std::map<UserInfo::User*,std::string> PrivateComments; // i/o ed
 		//std::string assignmentID;
 
 		//CourseInfo::Course* assignedCourse;

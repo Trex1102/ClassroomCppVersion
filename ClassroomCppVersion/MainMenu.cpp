@@ -18,6 +18,8 @@ void StateInfo::MainMenu::HandleInput()
 {
 	string choice;
 	Display();
+	
+
 	cin >> choice;
 	if (choice == "#createcourse")
 	{
@@ -25,41 +27,27 @@ void StateInfo::MainMenu::HandleInput()
 		CourseInfo::Course::createCourse(*currentCourse, data->currentUser);
 		CourseInfo::Course::totalCourse++;
 		CourseInfo::Course::courseList.push_back(currentCourse); // pushing course
-		CourseInfo::Course::totalCourse++;
 		data->currentCourse = *currentCourse;
 		currentCourse->enrollCourseTeacher(data->currentUser);
-
-		//Database::Relations::CourseStudent[data->currentCourse.getCourseCode()].push_back(data->currentUser.getUsername());
-		
 		data->machine.addState(stateRef(new TeacherState(this->data)), false);
-	
-		
 	}
 	else if (choice == "#exit")
 	{
-		UserInfo::User::write();
-		CourseInfo::Course::write();
-		Feature::Assignment::write();
-		Feature::Post::write();
-//		Database::Relations::write();
-
-		Feature::Material::write();
-		CourseInfo::attendance::write();
-
+		UserInfo::User::write(); // User
+		CourseInfo::Course::write(); // Course
+		Feature::Assignment::write(); // Assignment
+		Feature::Post::write(); // Post
+		Database::Relations::write(); // Relations
 		exit(1);
 	}
 	else
 	{
 		string code;
 		CourseInfo::Course* course;
-		int cur_course = CourseInfo::Course::readCount();
-		
-		//cout << "Current Courses: " << cur_course << endl;
-	//	CourseInfo::Course::display();
 		cout << "Enter Course Code: "; cin >> code;
-
 		course = UserInfo::User::joinCourse(code,data->currentUser);
-		//cout << course->StudentList[0] << endl;
+		data->currentCourse = *course;
+
 		if(course == nullptr)
 		{
 			cout << "Course not found" << endl;
@@ -73,24 +61,32 @@ void StateInfo::MainMenu::HandleInput()
 			cin >> choice;
 			if(choice=="#jointolearn")
 			{
-				course->enrollCourseStudent(data->currentUser);
-				data->currentCourse = *course;
-				data->machine.addState(stateRef(new StudentState(this->data)) ,false);
+				if (course->enrollCourseStudent(data->currentUser))
+				{
+					data->machine.addState(stateRef(new StudentState(this->data)), false);
+				}
+				else
+				{
+					Init();
+				}
 			}
 			
 			else if(choice=="#jointoteach")
 			{
-				for(const auto it:course->getTeacherList())
+				// check whether he is in the teacher list or not then add teacher state
+				for(const auto it: Database::Relations::CourseTeacher[data->currentCourse.getCourseCode()])
 				{
-					if(it->getUsername() == data->currentUser.getUsername())
+					if(it == data->currentUser.getUsername())
 					{
-						data->currentCourse = *course;
+						cout << "Go to teacher state\n";
 						data->machine.addState(stateRef(new TeacherState(this->data)), false);
 					}
+					else
+					{
+						cout << "Sorry you are not in the teacher list. Tell your teacher friend to add you :)" << endl;
+						Init();
+					}
 				}
-
-				cout << "Sorry you are not in the teacher list. Tell your teacher friend to add you :)" << endl;
-				Init();
 			}
 			else
 			{
@@ -98,10 +94,7 @@ void StateInfo::MainMenu::HandleInput()
 				UserInfo::User::write();
 				Feature::Assignment::write();
 				Feature::Post::write();
-
-				Feature::Material::write();
-				CourseInfo::attendance::write();
-
+				Database::Relations::write();
 				exit(1);
 			}
 		}
@@ -123,7 +116,7 @@ void StateInfo::MainMenu::Display()
 	cout << "Welcome ";
 	cout << "User: " << data->currentUser.getUsername() << endl;
 	cout << "Total Courses: " << CourseInfo::Course::totalCourse<<endl;
-	cout << "To join Course Press #joincourse or to create course type #createcourse to go back #back to exit #exit" << endl;
+	cout << "To join Course Press #joincourse \nTo create course type #createcourse \nTo go back #back \nTo exit #exit" << endl;
 }
 
 

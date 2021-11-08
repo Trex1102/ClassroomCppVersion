@@ -7,12 +7,12 @@ vector<UserInfo::User*> UserInfo::User::userList;
 
 void UserInfo::User::addAsStudent(CourseInfo::Course& course)
 {
-	this->asStudent.push_back(&course);
+	//this->asStudent.push_back(&course);
 }
 
 void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
 {
-	this->asTeacher.push_back(&course);
+	//this->asTeacher.push_back(&course);
 }
 
 void UserInfo::User::createUser(User &user)
@@ -45,7 +45,6 @@ void UserInfo::User::addCourseMaterials()
 CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 {
 	
-	//string choice;
 	for(const auto it: CourseInfo::Course::courseList)
 	{
 		if(it->getCourseCode() == courseCode)
@@ -74,7 +73,7 @@ void UserInfo::User::takeAttendance(CourseInfo::Course &course)
 {
 	CourseInfo::attendance attendance(&course);
 	attendance.takeAttendance();
-	course.attendanceList.insert({ static_cast<string>(__DATE__) , &attendance });
+	//course.attendanceList.insert({ static_cast<string>(__DATE__) , &attendance });
 }
 
 
@@ -211,24 +210,18 @@ void UserInfo::User::setUserID(int userID)
 
 void UserInfo::User::write()
 {
-
-	//int n = userList.size();
 	
 	ofstream ouf;
-	//User user;
 	int size = sizeof(User);
 	ouf.open("User2.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
-		//cout << "\nCan't open file\n";
 		return;
 	}
 	for (unsigned j = 0; j < userList.size(); j++)
 	{
-		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)
 		{
-			//cout << "\nCan't write to file\n";
 			return;
 		}
 		ouf.write((char*)(userList[j]), size);
@@ -241,33 +234,27 @@ void UserInfo::User::read()
 {
 	int cur = readCount();
 	userID = cur;
-	//User user;
 	int size = sizeof(User);
 	ifstream inf;
 	inf.open("User2.DAT", ios::binary);
 	if (!inf.is_open())
 	{
-		//cout << "\nCan't open file\n"; return;
 		return;
 	}
-	int TotalUser = 0; // solution 1 : debug 2: store & retrieve
+	int TotalUser = 0; 
 	for(int j=0;j<cur;j++)
 	{
-		//cout << TotalUser << endl;
 		userList.push_back(nullptr);
 		userList[TotalUser] = new User;
 		size = sizeof(User);
 		inf.read((char*)userList[TotalUser], size);
 		TotalUser++;
 	}
-	//cout << "Reading " << TotalUser << " users\n";
 }
 void UserInfo::User::writeCount(int count)
 {
-	//int prev = readCount();
 	ofstream outfile("Count.txt",ios::trunc);
 	outfile << count;
-	//cout << "\nFile Written\n";
 
 
 }
@@ -278,12 +265,10 @@ int UserInfo::User::readCount()
 
 	if (!infile.is_open())
 	{
-		//cerr << "Could not open the file\n";
 		return 0;
 	}
 
 	infile >> count;
-	//cout << count << endl;
 	return count;
 }
 

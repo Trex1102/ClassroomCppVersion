@@ -34,18 +34,10 @@ namespace UserInfo {
         static vector<User*> userList;
 
         static int userID;
-        vector<CourseInfo::Course*> asStudent; // realtion - course-user-student
-        vector<CourseInfo::Course*> asTeacher;// relation - course-user-teacher
-
-        //vector<string> AsStudent;
-        //vector<string> AsTeacher;
-
 
         User()
         {
             age = 18;
-            //userID++;
-            //userList.push_back(this);
         }
 
         User(string username, string first_name, string middle_name, string last_name, string department, int age,
@@ -61,8 +53,6 @@ namespace UserInfo {
 	          password(std::move(password))
         {
             age = 18;
-            //userID++;
-            //userList.push_back(this);
         }
 
         // class function
@@ -77,8 +67,10 @@ namespace UserInfo {
         static CourseInfo::Course* joinCourse(string courseCode,User& user);
         static void read();
         static void write();
-        ~User() = default;
+        static void writeCount(int);
+        static int readCount();
 
+        ~User() = default;
     // getters setters
 	public:
 	    string getUsername() const;
@@ -119,9 +111,5 @@ namespace UserInfo {
 
 	    int getUserID() const;
 	    void setUserID(int userID);
-
-        static void writeCount(int);
-        static int readCount();
-
-};
+	};
 }
