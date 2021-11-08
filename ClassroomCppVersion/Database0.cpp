@@ -1,6 +1,6 @@
 #include "Database0.h"
 
-void Database0::write()
+void Database0::IO::write()
 {
 
 	//int n = userList.size();
@@ -25,7 +25,7 @@ void Database0::write()
 		ouf.write((char*)(UserInfo::User::userList[j]), size);
 	}
 
-	//cout << "Writing " << UserInfo::User::userList.size() << " Users.\n";
+	cout << "Writing " << UserInfo::User::userList.size() << " Users.\n";
 	writeCount(UserInfo::User::userList.size(), "Database0/User_Count.txt");
 
 
@@ -55,7 +55,7 @@ void Database0::write()
 	writeCount(CourseInfo::Course::courseList.size(), "Database0/Course_count.txt");
 
 }
-void Database0::read()
+void Database0::IO::read()
 {
 	int cur = readCount("Database0/User_Count.txt");
 	UserInfo::User::userID = cur;

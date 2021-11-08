@@ -35,7 +35,7 @@ void StateInfo::MainMenu::HandleInput()
 	}
 	else if (choice == "#exit")
 	{
-		Database0::write();
+		Database0::IO::write();
 		//UserInfo::User::write();
 		//CourseInfo::Course::write();
 		Feature::Assignment::write();
@@ -92,7 +92,7 @@ void StateInfo::MainMenu::HandleInput()
 			}
 			else
 			{
-				Database0::write();
+				Database0::IO::write();
 				//CourseInfo::Course::write();
 				//UserInfo::User::write();
 				Feature::Assignment::write();

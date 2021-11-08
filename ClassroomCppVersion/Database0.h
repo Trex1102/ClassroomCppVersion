@@ -11,8 +11,12 @@ namespace Database0
 {
 	void writeCount(int count, std::string filename);
 	int readCount(std::string filename);
-	static void read();
-	static void write();
-	static void display();
+	class IO {
+	public:
+		static void read();
+		static void write();
+		static void display();
 
+	};
+	
 }

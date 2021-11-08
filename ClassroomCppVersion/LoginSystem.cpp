@@ -2,7 +2,7 @@
 
 UserInfo::User LoginInfo::loginSystem()
 {
-	Database0::read();
+	Database0::IO::read();
 	//serInfo::User::read();
 	//CourseInfo::Course::read();
 	Feature::Assignment::read();
@@ -49,7 +49,7 @@ UserInfo::User LoginInfo::loginSystem()
 			if (choice == "#yes") continue;
 			else
 			{
-				Database0::write();
+				Database0::IO::write();
 				//UserInfo::User::write();
 				//CourseInfo::Course::write();
 
