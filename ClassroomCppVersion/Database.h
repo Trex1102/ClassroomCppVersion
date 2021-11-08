@@ -22,10 +22,26 @@ namespace Database
 		static map<string, vector<string>> TeacherCourse;
 		static int TeacherCoursecount; 
 
+		// not implemented
+		static map<string, vector<string>> AssignmentAssignedStudent; 
+		static int AssignmentAssignedStudentcount;
+		static map<string, vector<string>> AssignmentCompletedStudent;
+		static int AssignmentCompletedStudentcount;
+		static map<string, vector<string>> AssignmentMissedStudent;
+		static int AssignmentMissedStudentcount;
+
+		// not implemented
+
+
+
+
 		static map<string, vector<string>> CoursePost;
 		static int CoursePostcount;
 		static map<string, vector<string>> CourseAssignment;
 		static int CourseAssignmentcount;
+
+
+
 		static void read();
 		static void write();
 		static void display();

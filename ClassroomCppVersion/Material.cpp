@@ -23,24 +23,24 @@ void Feature::Material::setInputTime(string inputTime)
     this->inputTime = inputTime;
 }
 
-UserInfo::User* Feature::Material::getUploaderTeacher() const
+string Feature::Material::getUploaderTeacher() const
 {
-    //return uploaderTeacher;
+    return uploaderTeacher;
 }
 
-void Feature::Material::setUploaderTeacher(UserInfo::User* uploaderTeacher)
+void Feature::Material::setUploaderTeacher(string uploaderTeacher)
 {
-    //this->uploaderTeacher = uploaderTeacher;
+    this->uploaderTeacher = uploaderTeacher;
 }
 
-CourseInfo::Course* Feature::Material::getLinkedCourse() const
+string Feature::Material::getLinkedCourse() const
 {
-    //return linkedCourse;
+    return linkedCourse;
 }
 
-void Feature::Material::setLinkedCourse(CourseInfo::Course* linkedCourse)
+void Feature::Material::setLinkedCourse(string linkedCourse)
 {
-    //this->linkedCourse = linkedCourse;
+    this->linkedCourse = linkedCourse;
 }
 
 void Feature::Material::write()

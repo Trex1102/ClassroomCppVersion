@@ -23,16 +23,13 @@ namespace Feature
 	{
 	public:
 		string inputTime;
-		//UserInfo::User* uploaderTeacher;
-		//CourseInfo::Course* linkedCourse;
+		string uploaderTeacher;
+		string linkedCourse;
 	public:
+		Material(){}
 		static int totalMaterials;
-		std::map<string, string> materials;
+		std::map<string, string> materials; // have to find alternative
 		static vector<Material*> materialList;
-		
-		/// <summary>
-		/// constructor is removed as *uploaderTeacher was used.
-		/// </summary>
 
 		void Display();
 		static void write();
@@ -44,11 +41,11 @@ namespace Feature
         string getInputTime() const;
         void setInputTime(string inputTime);
 
-        UserInfo::User* getUploaderTeacher() const;
-        void setUploaderTeacher(UserInfo::User* uploaderTeacher);
+        string getUploaderTeacher() const;
+        void setUploaderTeacher(string uploaderTeacher);
 
-        CourseInfo::Course* getLinkedCourse() const;
-        void setLinkedCourse(CourseInfo::Course* linkedCourse);
+        string getLinkedCourse() const;
+        void setLinkedCourse(string linkedCourse);
 
 	};
 }

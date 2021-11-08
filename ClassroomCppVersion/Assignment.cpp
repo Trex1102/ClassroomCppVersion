@@ -7,10 +7,7 @@ vector<Feature::Assignment*> Feature::Assignment::assignmentList;
 
 void Feature::Assignment::assignUsers()
 {
-   /* for (const auto it : assignedCourse->getStudentList())
-    {
-        assignedUsers.push_back(it);
-    }*/
+   
 }
 
 void Feature::Assignment::Complete(std::string username)
@@ -31,12 +28,12 @@ void Feature::Assignment::Missed()
 
 void Feature::Assignment::PublicComment(UserInfo::User &user,std::string msg)
 {
-    PublicComments.insert({ &user, msg });
+
 }
 
 void Feature::Assignment::PrivateComment(UserInfo::User &user,string msg)
 {
-    PrivateComments.insert({ &user,msg });
+
 }
 
 void Feature::Assignment::Display()
@@ -45,11 +42,11 @@ void Feature::Assignment::Display()
     cout << "Published: "<<publishDate <<" "<<publishTime <<endl;
     cout << "Deadline: " << deadlineDate << " " << deadlineTime << endl;
     cout << "Comments: " << endl;
-    for(auto it: PublicComments)
+    /*for(auto it: PublicComments)
     {
         cout << "User name: " << it.first->getUsername() << endl;
         cout << "Comment: " << it.second << endl;
-    }
+    }*/
 }
 
 
@@ -97,34 +94,43 @@ void Feature::Assignment::setData(std::string data)
 }
 
 
-//CourseInfo::Course* Feature::Assignment::getAssignedCourse() const
-//{
-//    //return assignedCourse;
-//}
-
-void Feature::Assignment::setAssignedCourse(CourseInfo::Course* assignedCourse)
+string Feature::Assignment::getAssignedCourse() const
 {
-   // this->assignedCourse = assignedCourse;
+    return assignedCourse;
 }
 
-//vector<UserInfo::User*> Feature::Assignment::getAssignedUsers() const
-//{
-//    //return assignedUsers;
-//}
-
-void Feature::Assignment::setAssignedUsers(vector<UserInfo::User*> assignedUsers)
+void Feature::Assignment::setAssignedCourse(string assignedCourse)
 {
-    //this->assignedUsers = assignedUsers;
+	this->assignedCourse = assignedCourse;
 }
 
-//vector<UserInfo::User*> Feature::Assignment::getComepletedUsers() const
-//{
-//    //return comepletedUsers;
-//}
-
-void Feature::Assignment::setComepletedUsers(vector<UserInfo::User*> comepletedUsers)
+void Feature::Assignment::displayAssignedUsers() const
 {
-    //this->comepletedUsers = comepletedUsers;
+    for(auto it: Database::Relations::AssignmentAssignedStudent[assignedCourse])
+    {
+		cout << it << endl;
+    }
+}
+
+void Feature::Assignment::setAssignedUsers() const
+{
+	for(auto it:Database::Relations::CourseStudent[assignedCourse])
+	{
+		Database::Relations::AssignmentAssignedStudent[assignedCourse].push_back(it);
+	}
+}
+
+void Feature::Assignment::displayCompletedUsers() const
+{
+    for(auto it:Database::Relations::AssignmentCompletedStudent[assignedCourse])
+    {
+		cout << it << endl;
+    }
+}
+
+void Feature::Assignment::setCompletedUsers(string username) const
+{
+	Database::Relations::AssignmentCompletedStudent[assignedCourse].push_back(username);
 }
 
 
@@ -148,15 +154,6 @@ void Feature::Assignment::setPublishTime(std::string publishTime)
     this->publishTime = publishTime;
 }
 
-//vector<UserInfo::User*> Feature::Assignment::getMissedUesrs() const
-//{
-//    //return missedUesrs;
-//}
-
-//void Feature::Assignment::setMissedUesrs(vector<UserInfo::User*> missedUesrs)
-//{
-//    //this->missedUesrs = missedUesrs;
-//}
 void Feature::Assignment::write()
 {
 

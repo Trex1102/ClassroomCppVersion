@@ -5,6 +5,8 @@
 #include <vector>
 #include "Course.h"
 #include "User.h"
+#include "Database.h"
+
 namespace CourseInfo
 {
 	class Course;
@@ -24,14 +26,8 @@ namespace Feature
 		std::string publishDate;
 		std::string publishTime;
 		std::string data;
-		//std::string assignedCourse;
-		std::map<UserInfo::User*,std::string> PrivateComments; // i/o ed
-		//std::string assignmentID;
+		std::string assignedCourse;
 
-		//CourseInfo::Course* assignedCourse;
-		//vector<UserInfo::User*> assignedUsers;
-		//vector<UserInfo::User*> comepletedUsers;
-		//vector<UserInfo::User*> missedUesrs;
 	public:
 		static vector<Assignment*> assignmentList;
 		static int totalAssignment;
@@ -40,11 +36,8 @@ namespace Feature
 			publishTime = __TIME__;
 			publishDate = __DATE__;
 		}
-		std::map<UserInfo::User*,std::string> PublicComments;
 		
-		//constructor has been removed
 		void assignUsers();
-		//void createID();
 		void Complete(std::string username);
 		void Missed();
 		void PublicComment(UserInfo::User &user,std::string msg);
@@ -62,23 +55,21 @@ namespace Feature
         std::string getData() const;
         void setData(std::string data);
 
-        CourseInfo::Course* getAssignedCourse() const;
-        void setAssignedCourse(CourseInfo::Course* assignedCourse);
+        string getAssignedCourse() const;
+        void setAssignedCourse(string assignedCourse);
 
-        vector<UserInfo::User*> getAssignedUsers() const;
-        void setAssignedUsers(vector<UserInfo::User*> assignedUsers);
+        void displayAssignedUsers() const;
+        void setAssignedUsers()const;
 
-        vector<UserInfo::User*> getComepletedUsers() const;
-        void setComepletedUsers(vector<UserInfo::User*> comepletedUsers);
+        void displayCompletedUsers() const;
+        void setCompletedUsers(string username) const;
+		
 
 		std::string getPublishDate() const;
 		void setPublishDate(std::string publishDate);
 
 		std::string getPublishTime() const;
 		void setPublishTime(std::string publishTime);
-
-		vector<UserInfo::User*> getMissedUesrs() const;
-		void setMissedUesrs(vector<UserInfo::User*> missedUesrs);
 
 		static void write();
 		static void read();
