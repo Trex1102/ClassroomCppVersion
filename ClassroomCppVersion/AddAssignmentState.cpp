@@ -16,7 +16,7 @@ void StateInfo::AddAssignmentState::HandleInput()
 	auto assignment = new Feature::Assignment;
 	assignment->setAssignedCourse(data->currentCourse.getCourseCode());
 	Feature::Assignment::totalAssignment++;
-
+	Feature::Assignment::assignmentList.push_back(assignment);
 	// add to database
 	assignment->setAssignedUsers();
 

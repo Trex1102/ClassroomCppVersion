@@ -58,7 +58,7 @@ CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 
 void UserInfo::User::displayInfo() const
 {
-	cout << this;
+//	cout << this;
 }
 
 void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
@@ -270,8 +270,9 @@ int UserInfo::User::readCount()
 	return count;
 }
 
-ostream& UserInfo::operator<<(ostream& c, const User& user)
+/*ostream& UserInfo::operator<<(ostream& c, const User& user)
 {
 	c << "User Name: " << user.firstName << ' ' << user.middleName << ' ' << user.lastName << endl;
 	c << "Department: " << user.department << endl << "Age: " << user.age << "Email: " << user.email << "Phone: " << user.phone << endl;
-}
+	return c;
+}*/

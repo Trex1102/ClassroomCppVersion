@@ -15,6 +15,7 @@ void StateInfo::seeassignmentState::HandleInput()
 	Display();
 	string choice;
 	cout << "To go back #back\n";
+	cin >> choice;
 	if (choice == "#back") data->machine.removeState();
 	else
 	{
