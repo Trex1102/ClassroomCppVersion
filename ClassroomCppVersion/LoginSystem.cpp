@@ -10,11 +10,13 @@ UserInfo::User LoginInfo::loginSystem()
 
 	//////////
 
-	Database0::read();
-	//UserInfo::User::read();
-	//CourseInfo::Course::read();
+	//Database0::read();
+	UserInfo::User::read();
+	CourseInfo::Course::read();
 	Feature::Assignment::read();
 	Feature::Post::read();
+	Feature::Material::read();
+	CourseInfo::attendance::read();
 	//cout<<"Count: "<<UserInfo::User::readCount() << endl;
 	string choice;
 	string username,password;
@@ -55,11 +57,14 @@ UserInfo::User LoginInfo::loginSystem()
 			if (choice == "#yes") continue;
 			else
 			{
-				Database0::write();
-				//UserInfo::User::write();
-				//CourseInfo::Course::write();
+				//Database0::write();
+				UserInfo::User::write();
+				CourseInfo::Course::write();
 				Feature::Assignment::write();
 				Feature::Post::write();
+
+				Feature::Material::write();
+				CourseInfo::attendance::write();
 				exit(0);
 			}
 		}

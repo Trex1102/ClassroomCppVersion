@@ -43,6 +43,10 @@ void StateInfo::StudentState::HandleInput()
 		CourseInfo::Course::write();
 		Feature::Assignment::write();
 		Feature::Post::write();
+
+		Feature::Material::write();
+		CourseInfo::attendance::write();
+
 		exit(0);
 	}
 

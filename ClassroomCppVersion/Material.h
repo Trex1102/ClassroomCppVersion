@@ -35,7 +35,10 @@ namespace Feature
 		/// </summary>
 
 		void Display();
-		
+		static void write();
+		static void read();
+		static void writeCount(int);
+		static int readCount();
 
 	public:
         string getInputTime() const;

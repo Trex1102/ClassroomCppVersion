@@ -41,7 +41,11 @@ void StateInfo::MainMenu::HandleInput()
 		CourseInfo::Course::write();
 		Feature::Assignment::write();
 		Feature::Post::write();
-		Database::Relations::write();
+//		Database::Relations::write();
+
+		Feature::Material::write();
+		CourseInfo::attendance::write();
+
 		exit(1);
 	}
 	else
@@ -94,6 +98,10 @@ void StateInfo::MainMenu::HandleInput()
 				UserInfo::User::write();
 				Feature::Assignment::write();
 				Feature::Post::write();
+
+				Feature::Material::write();
+				CourseInfo::attendance::write();
+
 				exit(1);
 			}
 		}
