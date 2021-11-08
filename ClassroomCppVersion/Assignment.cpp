@@ -7,21 +7,21 @@ vector<Feature::Assignment*> Feature::Assignment::assignmentList;
 
 void Feature::Assignment::assignUsers()
 {
-    for(const auto it: assignedCourse->getStudentList())
+    /*for(const auto it: assignedCourse->getStudentList())
     {
         assignedUsers.push_back(it);
-    }
+    }*/
 }
 
 void Feature::Assignment::Complete(std::string username)
 {
-    for (const auto it : assignedCourse->getStudentList())
+    /*for (const auto it : assignedCourse->getStudentList())
     {
         if(it->getUsername() == username)
         {
             comepletedUsers.push_back(it);
         }
-    }
+    }*/
 }
 
 void Feature::Assignment::Missed()
@@ -171,7 +171,7 @@ void Feature::Assignment::write()
 		cout << "\nCan't open file\n";
 		return;
 	}
-	for (int j = 0; j < assignmentList.size(); j++)
+	for (unsigned j = 0; j < assignmentList.size(); j++)
 	{
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)

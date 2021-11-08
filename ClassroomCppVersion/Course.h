@@ -8,6 +8,7 @@
 #include "Post.h"
 #include "Assignment.h"
 #include "Material.h"
+#include "Database.h"
 using namespace std;
 namespace UserInfo
 {
@@ -37,9 +38,9 @@ namespace CourseInfo
 		double courseCredit;
 		
 
-		
-		vector<UserInfo::User*> studentList; // relation - course-user-student
-		vector<UserInfo::User*> teacherList; // relation - course-user-teacher
+	//public:
+	//	vector<UserInfo::User*> studentList; // relation - course-user-student
+	//	vector<UserInfo::User*> teacherList; // relation - course-user-teacher
 
 		//vector<string> StudentList;
 		//vector<string> TeacherList;
@@ -50,12 +51,12 @@ namespace CourseInfo
 	public:
 
 		 
-		vector<Feature::Material*> courseMaterialList; // relation - course- material
-		vector<Feature::Assignment*> assignmentList; // relation - course - assignment
-		vector<Feature::Post*> postList; // relation- course- post
+		//vector<Feature::Material*> courseMaterialList; // relation - course- material
+		//vector<Feature::Assignment*> assignmentList; // relation - course - assignment
+		//vector<Feature::Post*> postList; // relation- course- post
 		static int totalCourse;
 		static vector<Course*> courseList;
-		map<string, attendance*> attendanceList;
+		//map<string, attendance*> attendanceList;
 
 	public:
 
@@ -80,7 +81,7 @@ namespace CourseInfo
         // class functions
 
 		void enrollCourseTeacher(UserInfo::User& teacher);
-		void enrollCourseStudent(UserInfo::User& student);
+		bool enrollCourseStudent(UserInfo::User& student);
 		void displayCourseInfo();
 		void showCourseMaterials();
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
@@ -104,11 +105,11 @@ namespace CourseInfo
 	    void setCourseCredit(double courseCredit);
 		
 
-		vector<UserInfo::User*> getStudentList() const;
-		void setStudentList(vector<UserInfo::User*> studentList);
+		//vector<UserInfo::User*> getStudentList() const;
+		//void setStudentList(vector<UserInfo::User*> studentList);
 
-		vector<UserInfo::User*> getTeacherList() const;
-		void setTeacherList(vector<UserInfo::User*> teacherList);
+		//vector<UserInfo::User*> getTeacherList() const;
+		//void setTeacherList(vector<UserInfo::User*> teacherList);
     
 		static void display();
 		static void read();

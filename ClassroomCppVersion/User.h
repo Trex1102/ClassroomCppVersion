@@ -35,17 +35,11 @@ namespace UserInfo {
 
         static int userID;
         vector<CourseInfo::Course*> asStudent; // realtion - course-user-student
-        vector<CourseInfo::Course*> asTeacher;// relation - course-user-teacher
-
-        //vector<string> AsStudent;
-        //vector<string> AsTeacher;
-
+        vector<CourseInfo::Course*> asTeacher; // relation - course-user-teacher
 
         User()
         {
             age = 18;
-            //userID++;
-            //userList.push_back(this);
         }
 
         User(string username, string first_name, string middle_name, string last_name, string department, int age,
@@ -61,8 +55,6 @@ namespace UserInfo {
 	          password(std::move(password))
         {
             age = 18;
-            //userID++;
-            //userList.push_back(this);
         }
 
         // class function

@@ -41,7 +41,7 @@ void StateInfo::AddStudentState::HandleInput()
 	}
 	else
 	{
-		data->currentCourse.getStudentList().push_back(user);
+		//data->currentCourse.getStudentList().push_back(user);
 		cout << "User added successfully" << endl;
 		cout << "To back to previous state #back" << endl;
 		cin >> choice;

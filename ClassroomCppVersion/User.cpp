@@ -45,7 +45,6 @@ void UserInfo::User::addCourseMaterials()
 CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 {
 	
-	//string choice;
 	for(const auto it: CourseInfo::Course::courseList)
 	{
 		if(it->getCourseCode() == courseCode)
@@ -74,7 +73,7 @@ void UserInfo::User::takeAttendance(CourseInfo::Course &course)
 {
 	CourseInfo::attendance attendance(&course);
 	attendance.takeAttendance();
-	course.attendanceList.insert({ static_cast<string>(__DATE__) , &attendance });
+	//course.attendanceList.insert({ static_cast<string>(__DATE__) , &attendance });
 }
 
 

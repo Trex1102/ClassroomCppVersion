@@ -6,12 +6,26 @@ vector<CourseInfo::Course*>CourseInfo::Course::courseList;
 
 void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)
 {
-	teacherList.push_back(&teacher);
+	/*Database Part*/
+	Database::Relations::CourseTeacher[this->getCourseCode()].push_back(teacher.getUsername());
+	Database::Relations::TeacherCourse[teacher.getUsername()].push_back(this->getCourseCode());
 }
 
-void CourseInfo::Course::enrollCourseStudent(UserInfo::User& student)
+bool CourseInfo::Course::enrollCourseStudent(UserInfo::User& student)
 {
-	//studentList.push_back(&student);
+	// check whether he is a teacher or not
+	if(!Database::Relations::TeacherCourse[student.getUsername()].empty())
+	{
+		cout << "Oh boy! You are already a teacher!\n";
+		return false;
+	}
+
+	cout << "You are added successfully\n";
+
+	/*Database Part*/
+	Database::Relations::StudentCourse[student.getUsername()].push_back(this->getCourseCode());
+	Database::Relations::CourseStudent[this->getCourseCode()].push_back(student.getUsername());
+	return true;
 }
 
 void CourseInfo::Course::displayCourseInfo()
@@ -23,16 +37,16 @@ void CourseInfo::Course::displayCourseInfo()
 	cout << "Course Code: " << courseCode << endl;
 	// show teachers
 	cout << "Course Teachers: " << endl;
-	for (const auto it : teacherList)
-	{
-		cout << it->getUsername() << endl;
-	}
+	//for (const auto it : teacherList)
+	//{
+	//	cout << it->getUsername() << endl;
+	//}
 	// show students
 	cout << "Course Students: " << endl;
-	for(const auto it:studentList)
-	{
-		cout << it->getUsername() << endl;
-	}
+	//for(const auto it:studentList)
+	//{
+	//	cout << it->getUsername() << endl;
+	//}
 }
 void CourseInfo::Course::showCourseMaterials()
 {
@@ -56,7 +70,7 @@ void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::Use
 	// for course outline use text link or input
 
 	cout << "Your Course Code is " << course.courseCode << endl;
-	course.teacherList.push_back(&teacher);
+	//course.teacherList.push_back(&teacher);
 	//totalCourse++;
 	cout << "Course Created Successful" << endl;
 
@@ -204,23 +218,23 @@ void CourseInfo::Course::setCourseCredit(double courseCredit)
 }
 
 
-vector<UserInfo::User*> CourseInfo::Course::getStudentList() const
-{
-    return studentList;
-}
-
-void CourseInfo::Course::setStudentList(vector<UserInfo::User*> studentList)
-{
-    this->studentList = studentList;
-}
-
-vector<UserInfo::User*> CourseInfo::Course::getTeacherList() const
-{
-    return teacherList;
-}
-
-void CourseInfo::Course::setTeacherList(vector<UserInfo::User*> teacherList)
-{
-    this->teacherList = teacherList;
-}
+//vector<UserInfo::User*> CourseInfo::Course::getStudentList() const
+//{
+//    return studentList;
+//}
+//
+//void CourseInfo::Course::setStudentList(vector<UserInfo::User*> studentList)
+//{
+//    this->studentList = studentList;
+//}
+//
+//vector<UserInfo::User*> CourseInfo::Course::getTeacherList() const
+//{
+//    return teacherList;
+//}
+//
+//void CourseInfo::Course::setTeacherList(vector<UserInfo::User*> teacherList)
+//{
+//    this->teacherList = teacherList;
+//}
 

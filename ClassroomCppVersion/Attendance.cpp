@@ -8,8 +8,8 @@ vector<CourseInfo::attendance*>CourseInfo::attendance::AttendanceList;
 void CourseInfo::attendance::takeAttendance()
 {
 	{
-		int choice;
-		for (const auto it : course->getStudentList())
+		//int choice;
+		/*for (const auto it : course->getStudentList())
 		{
 			cout << "If Present input 1 otherwise input 0 " << endl;
 			cout << "Student username: " << it->getUsername() << endl;
@@ -22,7 +22,7 @@ void CourseInfo::attendance::takeAttendance()
 			{
 				dailyAttendance.insert(pair<string, string>(it->getUsername(), "Present"));
 			}
-		}
+		}*/
 	}
 }
 void CourseInfo::attendance::write()

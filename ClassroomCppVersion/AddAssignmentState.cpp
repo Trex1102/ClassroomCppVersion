@@ -16,7 +16,7 @@ void StateInfo::AddAssignmentState::HandleInput()
 	auto assignment = new Feature::Assignment(&data->currentCourse);
 	Feature::Assignment::totalAssignment++;
 	Feature::Assignment::assignmentList.push_back(assignment);
-	data->currentCourse.assignmentList.push_back(assignment);
+	//data->currentCourse.assignmentList.push_back(assignment);
 	cin.ignore();
 	getline(cin, _data);
 	assignment->setData(_data);

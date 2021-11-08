@@ -28,9 +28,9 @@ void StateInfo::seepostState::Resume()
 void StateInfo::seepostState::Display()
 {
 	system("cls");
-	for (int j = 0;j <data->currentCourse.postList.size();j++)
+	/*for (int j = 0;j <data->currentCourse.postList.size();j++)
 	{
 		data->currentCourse.postList[j]->Display();
-    }
+    }*/
 
 }

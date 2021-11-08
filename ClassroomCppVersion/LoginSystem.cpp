@@ -3,7 +3,8 @@
 UserInfo::User LoginInfo::loginSystem()
 {
 	Database::Relations::read();
-	//Database::Relations::display();
+	Database::Relations::display();
+
 	//Database::input();
 	//Database::Relations::write();
 
