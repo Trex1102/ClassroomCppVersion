@@ -5,7 +5,7 @@ using namespace std;
 
 StateInfo::TeacherState::TeacherState(ProgramDataRef data) : data(data)
 {
-	//Init();
+	
 }
 
 

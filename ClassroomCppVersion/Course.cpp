@@ -6,7 +6,7 @@ vector<CourseInfo::Course*>CourseInfo::Course::courseList;
 
 void CourseInfo::Course::enrollCourseTeacher(UserInfo::User& teacher)
 {
-	/*Database Part*/
+	
 	Database::Relations::CourseTeacher[this->getCourseCode()].push_back(teacher.getUsername());
 	Database::Relations::TeacherCourse[teacher.getUsername()].push_back(this->getCourseCode());
 }
@@ -28,27 +28,26 @@ bool CourseInfo::Course::enrollCourseStudent(UserInfo::User& student)
 	return true;
 }
 
-void CourseInfo::Course::displayCourseInfo()
+void CourseInfo::Course::displayCourseInfo() const
 {
 	cout << "Course Information: " << endl;
 	cout << "Course ID: " << courseID << endl;
 	cout << "Department Name: " << department << endl;
-	//cout << "Course Teacher: " << endl;
 	cout << "Course Code: " << courseCode << endl;
 	// show teachers
 	cout << "Course Teachers: " << endl;
-	//for (const auto it : teacherList)
-	//{
-	//	cout << it->getUsername() << endl;
-	//}
+	for (const auto it : Database::Relations::CourseTeacher[courseCode])
+	{
+		cout << it << endl;
+	}
 	// show students
 	cout << "Course Students: " << endl;
-	//for(const auto it:studentList)
-	//{
-	//	cout << it->getUsername() << endl;
-	//}
+	for(const auto it:Database::Relations::CourseStudent[courseCode])
+	{
+		cout << it << endl;
+	}
 }
-void CourseInfo::Course::showCourseMaterials()
+void CourseInfo::Course::showCourseMaterials() const
 {
 
 }
@@ -66,12 +65,7 @@ void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::Use
 	cout << "Department: "; cin >> course.department;
 	cout << "Course ID: "; cin >> course.courseID;
 	cout << "Course Credit: "; cin >> course.courseCredit;
-
-	// for course outline use text link or input
-
 	cout << "Your Course Code is " << course.courseCode << endl;
-	//course.teacherList.push_back(&teacher);
-	//totalCourse++;
 	cout << "Course Created Successful" << endl;
 
 }
@@ -88,21 +82,15 @@ void CourseInfo::Course::createCourseCode()
 }
 void CourseInfo::Course::write()
 {
-
-	//int n = userList.size();
-
 	ofstream ouf;
-	//User user;
 	int size = sizeof(Course);
 	ouf.open("Course.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	for (unsigned j = 0; j < courseList.size(); j++)
 	{
-		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)
 		{
 			cout << "\nCan't write to file\n";
@@ -118,30 +106,25 @@ void CourseInfo::Course::read()
 {
 	int cur = readCount();
 	totalCourse = cur;
-	//User user;
 	int size = sizeof(Course);
 	ifstream inf;
 	inf.open("Course.DAT", ios::binary);
 	if (!inf.is_open())
 	{
-		//cout << "\nCan't open file\n"; return;
 		return;
 	}
-	int TotalCourse = 0; // solution 1 : debug 2: store & retrieve
+	int TotalCourse = 0; 
 	for (int j = 0;j < cur;j++)
 	{
-		//cout << TotalCourse << endl;
 		courseList.push_back(nullptr);
-		courseList[TotalCourse] = new Course; // new memory allocation
+		courseList[TotalCourse] = new Course;
 		size = sizeof(Course);
 		inf.read((char*)courseList[TotalCourse], size);
 		TotalCourse++;
 	}
-	//cout << "Reading " << TotalCourse << " users\n";
 }
 void CourseInfo::Course::writeCount(int count)
 {
-	//int prev = readCount();
 	ofstream outfile("Course_Count.txt", ios::trunc);
 	outfile << count;
 	cout << "\nFile Written\n";
@@ -160,7 +143,6 @@ int CourseInfo::Course::readCount()
 	}
 
 	infile >> count;
-	//cout << count << endl;
 	return count;
 }
 
@@ -217,24 +199,4 @@ void CourseInfo::Course::setCourseCredit(double courseCredit)
     this->courseCredit = courseCredit;
 }
 
-
-//vector<UserInfo::User*> CourseInfo::Course::getStudentList() const
-//{
-//    return studentList;
-//}
-//
-//void CourseInfo::Course::setStudentList(vector<UserInfo::User*> studentList)
-//{
-//    this->studentList = studentList;
-//}
-//
-//vector<UserInfo::User*> CourseInfo::Course::getTeacherList() const
-//{
-//    return teacherList;
-//}
-//
-//void CourseInfo::Course::setTeacherList(vector<UserInfo::User*> teacherList)
-//{
-//    this->teacherList = teacherList;
-//}
 

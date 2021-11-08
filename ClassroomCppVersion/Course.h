@@ -36,35 +36,16 @@ namespace CourseInfo
 		string courseID;
 		string courseOutline;
 		double courseCredit;
-		
-
-	//public:
-	//	vector<UserInfo::User*> studentList; // relation - course-user-student
-	//	vector<UserInfo::User*> teacherList; // relation - course-user-teacher
-
-		//vector<string> StudentList;
-		//vector<string> TeacherList;
-
-		
-
 
 	public:
-
-		 
-		//vector<Feature::Material*> courseMaterialList; // relation - course- material
-		//vector<Feature::Assignment*> assignmentList; // relation - course - assignment
-		//vector<Feature::Post*> postList; // relation- course- post
 		static int totalCourse;
 		static vector<Course*> courseList;
-		//map<string, attendance*> attendanceList;
 
 	public:
 
 		Course()
 		{
-			//totalCourse++;
 			createCourseCode();
-			//courseList.push_back(this);
 			
 		}
 		Course(string department, string course_id, string courseOutline, double courseCredit)
@@ -73,21 +54,24 @@ namespace CourseInfo
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
-			//totalCourse++;
 			createCourseCode();
-			//courseList.push_back(this);
 		}
-
-        // class functions
+		
 
 		void enrollCourseTeacher(UserInfo::User& teacher);
 		bool enrollCourseStudent(UserInfo::User& student);
-		void displayCourseInfo();
-		void showCourseMaterials();
+		void displayCourseInfo() const;
+		void showCourseMaterials() const;
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
 		void createCourseCode();
+		static void display();
+		static void read();
+		static void write();
+		static void writeCount(int count);
+		static int readCount();
+
+
 		~Course() = default;
-		
 	public:
 	    string getCourseCode() const;
 	    void setCourseCode(string courseCode);
@@ -103,18 +87,5 @@ namespace CourseInfo
 
 	    double getCourseCredit() const;
 	    void setCourseCredit(double courseCredit);
-		
-
-		//vector<UserInfo::User*> getStudentList() const;
-		//void setStudentList(vector<UserInfo::User*> studentList);
-
-		//vector<UserInfo::User*> getTeacherList() const;
-		//void setTeacherList(vector<UserInfo::User*> teacherList);
-    
-		static void display();
-		static void read();
-		static void write();
-		static void writeCount(int count);
-		static int readCount();
 	};
 }
