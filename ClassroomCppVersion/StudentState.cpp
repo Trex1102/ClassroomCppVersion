@@ -46,6 +46,7 @@ void StateInfo::StudentState::HandleInput()
 		Feature::Post::write();
 		Feature::Material::write();
 		CourseInfo::attendance::write();
+		Database::Relations::write();
 
 		exit(0);
 	}

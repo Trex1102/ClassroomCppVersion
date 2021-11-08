@@ -54,6 +54,19 @@ void StateInfo::TeacherState::HandleInput()
 	{
 		data->machine.removeState();
 	}
+
+	if (choice == "#exit")
+	{
+		UserInfo::User::write();
+		CourseInfo::Course::write();
+		Feature::Assignment::write();
+		Feature::Post::write();
+		Feature::Material::write();
+		CourseInfo::attendance::write();
+		Database::Relations::write();
+
+		exit(0);
+	}
 	
 
 }
@@ -81,5 +94,6 @@ void StateInfo::TeacherState::Display()
 		<< "To add assignment #addassign" << endl
 		<< "To add post #addpost" << endl
 		<< "To see course information type #courseinfo" << endl
-		<< "To go back type #back" << endl;
+		<< "To go back type #back" << endl
+		<< "To exit type #exit" << endl;
 }
