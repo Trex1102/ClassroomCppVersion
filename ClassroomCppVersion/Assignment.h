@@ -27,10 +27,10 @@ namespace Feature
 		std::map<UserInfo::User*,std::string> PrivateComments;
 		//std::string assignmentID;
 
-		CourseInfo::Course* assignedCourse;
-		vector<UserInfo::User*> assignedUsers;
-		vector<UserInfo::User*> comepletedUsers;
-		vector<UserInfo::User*> missedUesrs;
+		//CourseInfo::Course* assignedCourse;
+		//vector<UserInfo::User*> assignedUsers;
+		//vector<UserInfo::User*> comepletedUsers;
+		//vector<UserInfo::User*> missedUesrs;
 	public:
 		static vector<Assignment*> assignmentList;
 		static int totalAssignment;
@@ -40,14 +40,8 @@ namespace Feature
 			publishDate = __DATE__;
 		}
 		std::map<UserInfo::User*,std::string> PublicComments;
-		explicit Assignment(CourseInfo::Course* assigned_course)
-			: assignedCourse(assigned_course)
-		{
-			publishTime = __TIME__;
-			publishDate = __DATE__;
-		}
-
-
+		
+		//constructor has been removed
 		void assignUsers();
 		//void createID();
 		void Complete(std::string username);

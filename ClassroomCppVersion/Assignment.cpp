@@ -7,21 +7,21 @@ vector<Feature::Assignment*> Feature::Assignment::assignmentList;
 
 void Feature::Assignment::assignUsers()
 {
-    for(const auto it: assignedCourse->getStudentList())
+   /* for (const auto it : assignedCourse->getStudentList())
     {
         assignedUsers.push_back(it);
-    }
+    }*/
 }
 
 void Feature::Assignment::Complete(std::string username)
 {
-    for (const auto it : assignedCourse->getStudentList())
+   /* for (const auto it : assignedCourse->getStudentList())
     {
         if(it->getUsername() == username)
         {
             comepletedUsers.push_back(it);
         }
-    }
+    }*/
 }
 
 void Feature::Assignment::Missed()
@@ -99,32 +99,32 @@ void Feature::Assignment::setData(std::string data)
 
 CourseInfo::Course* Feature::Assignment::getAssignedCourse() const
 {
-    return assignedCourse;
+    //return assignedCourse;
 }
 
 void Feature::Assignment::setAssignedCourse(CourseInfo::Course* assignedCourse)
 {
-    this->assignedCourse = assignedCourse;
+   // this->assignedCourse = assignedCourse;
 }
 
 vector<UserInfo::User*> Feature::Assignment::getAssignedUsers() const
 {
-    return assignedUsers;
+    //return assignedUsers;
 }
 
 void Feature::Assignment::setAssignedUsers(vector<UserInfo::User*> assignedUsers)
 {
-    this->assignedUsers = assignedUsers;
+    //this->assignedUsers = assignedUsers;
 }
 
 vector<UserInfo::User*> Feature::Assignment::getComepletedUsers() const
 {
-    return comepletedUsers;
+    //return comepletedUsers;
 }
 
 void Feature::Assignment::setComepletedUsers(vector<UserInfo::User*> comepletedUsers)
 {
-    this->comepletedUsers = comepletedUsers;
+    //this->comepletedUsers = comepletedUsers;
 }
 
 
@@ -150,12 +150,12 @@ void Feature::Assignment::setPublishTime(std::string publishTime)
 
 vector<UserInfo::User*> Feature::Assignment::getMissedUesrs() const
 {
-    return missedUesrs;
+    //return missedUesrs;
 }
 
 void Feature::Assignment::setMissedUesrs(vector<UserInfo::User*> missedUesrs)
 {
-    this->missedUesrs = missedUesrs;
+    //this->missedUesrs = missedUesrs;
 }
 void Feature::Assignment::write()
 {

@@ -8,6 +8,9 @@
 #include "State.h"
 #include "Program.h"
 #include "LoginSystem.h"
+#include "seeassignmentState.h"
+#include "seematState.h"
+#include"seepostState.h"
 using namespace std;
 
 namespace StateInfo

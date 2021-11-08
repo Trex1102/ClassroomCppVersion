@@ -14,17 +14,17 @@ void StateInfo::AddMaterialState::HandleInput()
 {
 	Display();
 	string _data, choice;
-	auto material = new Feature::Material(&data->currentUser,&data->currentCourse);
+	//auto material = new Feature::Material(&data->currentUser,&data->currentCourse); //constructor was removed
 	Feature::Material::totalMaterials++;
-	Feature::Material::materialList.push_back(material);
-	data->currentCourse.courseMaterialList.push_back(material);
+	//Feature::Material::materialList.push_back(material);
+	//data->currentCourse.courseMaterialList.push_back(material);
 	cin.ignore();
 	cout << "Enter Material Topic: " << endl;
 	getline(cin, _data);
 	cout << "Enter Link: ";
 	cin >> choice;
-	material->materials.insert({ _data, choice });
-	material->Display();
+	//material->materials.insert({ _data, choice });
+	//material->Display();
 	cout << "Course Material Added Successfully" << endl;
 	cout << "Add Another Course Material?? #retry or #back" << endl;
 	cin >> choice;

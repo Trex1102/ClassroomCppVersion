@@ -13,20 +13,20 @@ void StateInfo::AddAssignmentState::HandleInput()
 {
 	Display();
 	string _data, choice;
-	auto assignment = new Feature::Assignment(&data->currentCourse);
+	//auto assignment = new Feature::Assignment(&data->currentCourse); //constructor was removed
 	Feature::Assignment::totalAssignment++;
-	Feature::Assignment::assignmentList.push_back(assignment);
-	data->currentCourse.assignmentList.push_back(assignment);
+	//Feature::Assignment::assignmentList.push_back(assignment);
+	//data->currentCourse.assignmentList.push_back(assignment);
 	cin.ignore();
 	getline(cin, _data);
-	assignment->setData(_data);
+	//assignment->setData(_data);
 	cout << "Enter Deadline Date: ";
 	cin >> choice;
-	assignment->setDeadlineDate(choice);
+	//assignment->setDeadlineDate(choice);
 	cout << "Enter Deadline Time: ";
 	cin >> choice;
-	assignment->setDeadlineTime(choice);
-	assignment->Display();
+	//assignment->setDeadlineTime(choice);
+	//assignment->Display();
 	cout << "Assignment Added Successfully" << endl;
 	cout << "Add Another Assignment?? #retry or #back" << endl;
 	cin >> choice;
