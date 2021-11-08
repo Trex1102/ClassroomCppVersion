@@ -38,8 +38,9 @@ void StateInfo::StudentState::HandleInput()
 	}
 	if (choice == "#exit")
 	{
-		UserInfo::User::write();
-		CourseInfo::Course::write();
+		Database0::write();
+		//UserInfo::User::write();
+		//CourseInfo::Course::write();
 		Feature::Assignment::write();
 		Feature::Post::write();
 		Feature::Material::write();

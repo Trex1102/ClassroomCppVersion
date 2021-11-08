@@ -2,8 +2,9 @@
 
 UserInfo::User LoginInfo::loginSystem()
 {
-	UserInfo::User::read();
-	CourseInfo::Course::read();
+	Database0::read();
+	//serInfo::User::read();
+	//CourseInfo::Course::read();
 	Feature::Assignment::read();
 	Feature::Post::read();
 	Feature::Material::read();
@@ -48,8 +49,9 @@ UserInfo::User LoginInfo::loginSystem()
 			if (choice == "#yes") continue;
 			else
 			{
-				UserInfo::User::write();
-				CourseInfo::Course::write();
+				Database0::write();
+				//UserInfo::User::write();
+				//CourseInfo::Course::write();
 
 				Feature::Assignment::write();
 				Feature::Post::write();

@@ -35,8 +35,9 @@ void StateInfo::MainMenu::HandleInput()
 	}
 	else if (choice == "#exit")
 	{
-		UserInfo::User::write();
-		CourseInfo::Course::write();
+		Database0::write();
+		//UserInfo::User::write();
+		//CourseInfo::Course::write();
 		Feature::Assignment::write();
 		Feature::Post::write();
 		Feature::Material::write();
@@ -91,8 +92,9 @@ void StateInfo::MainMenu::HandleInput()
 			}
 			else
 			{
-				CourseInfo::Course::write();
-				UserInfo::User::write();
+				Database0::write();
+				//CourseInfo::Course::write();
+				//UserInfo::User::write();
 				Feature::Assignment::write();
 				Feature::Post::write();
 				Feature::Material::write();
