@@ -213,7 +213,7 @@ void UserInfo::User::write()
 	
 	ofstream ouf;
 	int size = sizeof(User);
-	ouf.open("User2.DAT", ios::trunc | ios::binary);
+	ouf.open("Database0/User.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
 		return;
@@ -227,7 +227,7 @@ void UserInfo::User::write()
 		ouf.write((char*)(userList[j]), size);
 	}
 
-	cout << "Writing " << userList.size() << " Users.\n";
+	//cout << "Writing " << userList.size() << " Users.\n";
 	writeCount(userList.size());
 }
 void UserInfo::User::read()
@@ -236,7 +236,7 @@ void UserInfo::User::read()
 	userID = cur;
 	int size = sizeof(User);
 	ifstream inf;
-	inf.open("User2.DAT", ios::binary);
+	inf.open("Database0/User.DAT", ios::binary);
 	if (!inf.is_open())
 	{
 		return;
@@ -253,7 +253,7 @@ void UserInfo::User::read()
 }
 void UserInfo::User::writeCount(int count)
 {
-	ofstream outfile("Count.txt",ios::trunc);
+	ofstream outfile("Database0/Count.txt",ios::trunc);
 	outfile << count;
 
 
@@ -261,7 +261,7 @@ void UserInfo::User::writeCount(int count)
 int UserInfo::User::readCount()
 {
 	int count;
-	ifstream infile("Count.txt");
+	ifstream infile("Database0/Count.txt");
 
 	if (!infile.is_open())
 	{

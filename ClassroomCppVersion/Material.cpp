@@ -51,10 +51,10 @@ void Feature::Material::write()
 	ofstream ouf;
 	//User user;
 	int size = sizeof(Material);
-	ouf.open("Material.DAT", ios::trunc | ios::binary);
+	ouf.open("Database0/Material.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
+		//cout << "\nCan't open file\n";
 		return;
 	}
 	for (unsigned j = 0; j < materialList.size(); j++)
@@ -62,13 +62,13 @@ void Feature::Material::write()
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)
 		{
-			cout << "\nCan't write to file\n";
+			//cout << "\nCan't write to file\n";
 			return;
 		}
 		ouf.write((char*)(materialList[j]), size);
 	}
 
-	cout << "Writing " << materialList.size() << " materials.\n";
+	//cout << "Writing " << materialList.size() << " materials.\n";
 	writeCount(materialList.size());
 }
 void Feature::Material::read()
@@ -78,7 +78,7 @@ void Feature::Material::read()
 	//User user;
 	int size = sizeof(Material);
 	ifstream inf;
-	inf.open("Material.DAT", ios::binary);
+	inf.open("Database0/Material.DAT", ios::binary);
 	if (!inf.is_open())
 	{
 		//cout << "\nCan't open file\n"; return;
@@ -87,32 +87,39 @@ void Feature::Material::read()
 	int Total = 0; // solution 1 : debug 2: store & retrieve
 	for (int j = 0;j < cur;j++)
 	{
-		//cout << TotalCourse << endl;
-		materialList.push_back(nullptr);
-		materialList[Total] = new Material;//no cons
-		size = sizeof(Material);
-		inf.read((char*)materialList[Total], size);
-		Total++;
+		try
+		{
+			//cout << TotalCourse << endl;
+			materialList.push_back(nullptr);
+			materialList[Total] = new Material;//no cons
+			size = sizeof(Material);
+			inf.read((char*)materialList[Total], size);
+			Total++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "Can't allocate Material" << endl;
+		}
 	}
 	//cout << "Reading " << TotalCourse << " users\n";
 }
 void Feature::Material::writeCount(int count)
 {
 	//int prev = readCount();
-	ofstream outfile("Material_Count.txt", ios::trunc);
+	ofstream outfile("Database0/Material_Count.txt", ios::trunc);
 	outfile << count;
-	cout << "\nFile Written\n";
+	//cout << "\nFile Written\n";
 
 
 }
 int Feature::Material::readCount()
 {
 	int count;
-	ifstream infile("Material_Count.txt");
+	ifstream infile("Database0/Material_Count.txt");
 
 	if (!infile.is_open())
 	{
-		cerr << "Could not open the file\n";
+		//cerr << "Could not open the file\n";
 		return 0;
 	}
 
