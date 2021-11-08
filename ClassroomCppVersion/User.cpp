@@ -21,13 +21,7 @@ void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
 	//this->asTeacher.push_back(&course);
 }
 
-void UserInfo::User::operator=(const User& user)
-{
-	firstName = user.firstName;
-	department = user.department;
-	age = user.age;
-    createUserName();
-}
+
 void UserInfo::User::createUser(User &user)
 {
 	cout << "First Name: ";  cin >> user.firstName;

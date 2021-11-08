@@ -59,11 +59,7 @@ void CourseInfo::Course::display()
 	}
 }
 
-void CourseInfo::Course::operator = (const Course& course)
-{
-	department = course.department;
-	courseCredit = course.courseCredit;
-}
+
 
 void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::User &teacher)
 {
