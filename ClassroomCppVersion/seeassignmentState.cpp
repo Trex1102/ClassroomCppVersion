@@ -28,9 +28,9 @@ void StateInfo::seeassignmentState::Resume()
 void StateInfo::seeassignmentState::Display()
 {
 	system("cls");
-	for (int j = 0;j < data->currentCourse.assignmentList.size();j++)
+	/*for (int j = 0;j < data->currentCourse.assignmentList.size();j++)
 	{
 		data->currentCourse.assignmentList[j]->Display();
-	}
+	}*/
 
 }

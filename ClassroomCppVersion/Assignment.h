@@ -36,12 +36,7 @@ namespace Feature
 			publishTime = __TIME__;
 			publishDate = __DATE__;
 		}
-		
-		void assignUsers();
-		void Complete(std::string username);
-		void Missed();
-		void PublicComment(UserInfo::User &user,std::string msg);
-		void PrivateComment(UserInfo::User &user,string msg);
+
 		void Display();
 
 

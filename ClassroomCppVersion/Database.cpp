@@ -33,6 +33,13 @@ map<string, vector<string>>Database::Relations::CourseStudent;
 map<string, vector<string>>Database::Relations::CoursePost;
 map<string, vector<string>>Database::Relations::CourseAssignment;
 
+
+map<string, vector<string>>Database::Relations::AssignmentAssignedStudent;
+int Database::Relations::AssignmentAssignedStudentcount;
+map<string, vector<string>>Database::Relations::AssignmentCompletedStudent;
+int Database::Relations::AssignmentCompletedStudentcount;
+
+
 void Database::Relations::write()
 {
 	string filename1 = "CourseStudentcount.txt";
@@ -178,6 +185,79 @@ void Database::Relations::write()
 		writeCount(j, filename2);
 	}
 	writeCount(i, "Database/" + filename1);
+
+	//////////////////////////////////////////////////////////
+
+	filename1 = "AssignmentAssignedStudentcount.txt";
+	filename2;
+	size = 30;
+	if (!ouf)
+	{
+		cout << "\nCan't open file\n";
+		return;
+	}
+	i = 0;
+
+	for (auto it : Database::Relations::AssignmentAssignedStudent)
+	{
+		i++;
+		const char* a, * b;
+		a = &it.first[0];
+		if (!ouf)
+		{
+			cout << "\nCan't write to file\n";
+			return;
+		}
+		ouf.write((char*)(a), size);
+		int j = 0;
+		for (auto i : it.second)
+		{
+			j++;
+			b = &i[0];
+			ouf.write((char*)(b), size);
+
+		}
+		filename2 = "Database/" + to_string(i) + filename1;
+		writeCount(j, filename2);
+	}
+	writeCount(i, "Database/" + filename1);
+	/////////////////////////////////////////////
+
+	filename1 = "AssignmentCompletedStudentcount.txt";
+	filename2;
+	size = 30;
+	if (!ouf)
+	{
+		cout << "\nCan't open file\n";
+		return;
+	}
+	i = 0;
+
+	for (auto it : Database::Relations::AssignmentCompletedStudent)
+	{
+		i++;
+		const char* a, * b;
+		a = &it.first[0];
+		if (!ouf)
+		{
+			cout << "\nCan't write to file\n";
+			return;
+		}
+		ouf.write((char*)(a), size);
+		int j = 0;
+		for (auto i : it.second)
+		{
+			j++;
+			b = &i[0];
+			ouf.write((char*)(b), size);
+
+		}
+		filename2 = "Database/" + to_string(i) + filename1;
+		writeCount(j, filename2);
+	}
+	writeCount(i, "Database/" + filename1);
+
+	/////////////////////////////////////////////////
 
 	//////////////////////////////////////////////////
 	filename1 = "CoursePostcount.txt";
@@ -329,6 +409,38 @@ void Database::Relations::read()
 			inf.read((char*)b, size);
 			string d(b);
 			Database::Relations::TeacherCourse[c].push_back(d);
+		}
+	}
+
+	filename1 = "AssignmentAssignedStudentcount.txt";
+	keycount = readCount("Database/" + filename1);
+
+	for (int i = 1; i <= keycount; i++)
+	{
+		filename2 = "Database/" + to_string(i) + filename1;
+		count = readCount(filename2); // read every loop --> count of total values of that key
+		inf.read((char*)a, size);
+		string c(a);
+		for (int j = 0; j < count; j++) {
+			inf.read((char*)b, size);
+			string d(b);
+			Database::Relations::AssignmentAssignedStudent[c].push_back(d);
+		}
+	}
+
+	filename1 = "AssignmentCompletedStudentcount.txt";
+	keycount = readCount("Database/" + filename1);
+
+	for (int i = 1; i <= keycount; i++)
+	{
+		filename2 = "Database/" + to_string(i) + filename1;
+		count = readCount(filename2); // read every loop --> count of total values of that key
+		inf.read((char*)a, size);
+		string c(a);
+		for (int j = 0; j < count; j++) {
+			inf.read((char*)b, size);
+			string d(b);
+			Database::Relations::AssignmentCompletedStudent[c].push_back(d);
 		}
 	}
 

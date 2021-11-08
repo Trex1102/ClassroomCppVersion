@@ -28,9 +28,9 @@ void StateInfo::seematState::Resume()
 void StateInfo::seematState::Display()
 {
 	system("cls");
-	for (int j = 0;j < data->currentCourse.courseMaterialList.size();j++)
+	/*for (int j = 0;j < data->currentCourse.courseMaterialList.size();j++)
 	{
 		data->currentCourse.courseMaterialList[j]->Display();
-	}
+	}*/
 
 }

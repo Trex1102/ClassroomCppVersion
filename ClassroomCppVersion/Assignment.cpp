@@ -5,37 +5,6 @@ using namespace std;
 int Feature::Assignment::totalAssignment;
 vector<Feature::Assignment*> Feature::Assignment::assignmentList;
 
-void Feature::Assignment::assignUsers()
-{
-   
-}
-
-void Feature::Assignment::Complete(std::string username)
-{
-   /* for (const auto it : assignedCourse->getStudentList())
-    {
-        if(it->getUsername() == username)
-        {
-            comepletedUsers.push_back(it);
-        }
-    }*/
-}
-
-void Feature::Assignment::Missed()
-{
-    
-}
-
-void Feature::Assignment::PublicComment(UserInfo::User &user,std::string msg)
-{
-
-}
-
-void Feature::Assignment::PrivateComment(UserInfo::User &user,string msg)
-{
-
-}
-
 void Feature::Assignment::Display()
 {
     cout << data << endl;
