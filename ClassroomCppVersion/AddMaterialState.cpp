@@ -14,10 +14,10 @@ void StateInfo::AddMaterialState::HandleInput()
 {
 	Display();
 	string _data, choice;
-	//auto material = new Feature::Material(&data->currentUser,&data->currentCourse); //constructor was removed
+	auto material = new Feature::Material();
 	Feature::Material::totalMaterials++;
-	//Feature::Material::materialList.push_back(material);
-	//data->currentCourse.courseMaterialList.push_back(material);
+	material->setLinkedCourse(data->currentCourse.getCourseCode());
+	material->setUploaderTeacher(data->currentUser.getUsername());
 	cin.ignore();
 	cout << "Enter Material Topic: " << endl;
 	getline(cin, _data);

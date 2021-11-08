@@ -11,26 +11,8 @@ void Feature::Assignment::Display()
     cout << "Published: "<<publishDate <<" "<<publishTime <<endl;
     cout << "Deadline: " << deadlineDate << " " << deadlineTime << endl;
     cout << "Comments: " << endl;
-    /*for(auto it: PublicComments)
-    {
-        cout << "User name: " << it.first->getUsername() << endl;
-        cout << "Comment: " << it.second << endl;
-    }*/
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 std::string Feature::Assignment::getDeadlineDate() const
 {
