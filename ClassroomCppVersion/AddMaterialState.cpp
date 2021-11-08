@@ -23,7 +23,7 @@ void StateInfo::AddMaterialState::HandleInput()
 	getline(cin, _data);
 	cout << "Enter Link: ";
 	cin >> choice;
-	material->materials.insert({ _data, choice });
+	//material->materials.insert({ _data, choice }); // use database
 	material->Display();
 	cout << "Course Material Added Successfully" << endl;
 	cout << "Add Another Course Material?? #retry or #back" << endl;

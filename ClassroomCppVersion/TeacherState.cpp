@@ -25,6 +25,7 @@ void StateInfo::TeacherState::HandleInput()
 	}
 	if (choice == "#addmat")
 	{
+		// change in material.h
 		data->machine.addState(stateRef(new AddMaterialState(this->data)), false);
 	}
 	if (choice == "#addout")
@@ -38,6 +39,7 @@ void StateInfo::TeacherState::HandleInput()
 	}
 	if (choice == "#addassign")
 	{
+		// change in assignment.h
 		data->machine.addState(stateRef(new AddAssignmentState(this->data)), false);
 	}
 	if (choice == "#addpost")

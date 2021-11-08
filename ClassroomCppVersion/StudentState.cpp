@@ -20,7 +20,7 @@ void StateInfo::StudentState::HandleInput()
 
 	if(choice == "#seepost")
 	{
-		
+		data->machine.addState(stateRef(new seepostState(this->data)), false);
 	}
 
 	if(choice == "#seeassignment")
@@ -34,6 +34,7 @@ void StateInfo::StudentState::HandleInput()
 
 	if(choice =="seeoutline")
 	{
+		// retrieve from file
 		cout << data->currentCourse.getCourseOutline() << endl;
 	}
 	if (choice == "#exit")

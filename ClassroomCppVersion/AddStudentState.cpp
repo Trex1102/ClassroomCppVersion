@@ -42,6 +42,10 @@ void StateInfo::AddStudentState::HandleInput()
 	else
 	{
 		//data->currentCourse.getStudentList().push_back(user);
+		/*Database Part*/
+		Database::Relations::CourseStudent[data->currentCourse.getCourseCode()].push_back(user->getUsername());
+		Database::Relations::StudentCourse[user->getUsername()].push_back(data->currentCourse.getCourseCode());
+		//
 		cout << "User added successfully" << endl;
 		cout << "To back to previous state #back" << endl;
 		cin >> choice;

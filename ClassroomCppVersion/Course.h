@@ -35,6 +35,7 @@ namespace CourseInfo
 		string department;
 		string courseID;
 		string courseOutline;
+		// 1. char 2. file i/o
 		double courseCredit;
 
 	public:

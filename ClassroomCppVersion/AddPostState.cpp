@@ -15,7 +15,10 @@ void StateInfo::AddPostState::HandleInput()
 	string _data, choice;
 	auto post = new Feature::Post();
 	Feature::Post::totalPosts++;
+	post->createPostID();
 	Feature::Post::postList.push_back(post);
+	Database::Relations::CoursePost[data->currentCourse.getCourseCode()].push_back(post->getID());
+	post->enrolledCourseCode = data->currentCourse.getCourseCode();
 	//data->currentCourse.postList.push_back(post);
 	cin.ignore();
 	getline(cin, _data);

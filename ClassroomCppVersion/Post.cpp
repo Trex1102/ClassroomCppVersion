@@ -18,7 +18,7 @@ void Feature::Post::write()
 		cout << "\nCan't open file\n";
 		return;
 	}
-	for (int j = 0; j < postList.size(); j++)
+	for (unsigned j = 0; j < postList.size(); j++)
 	{
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)

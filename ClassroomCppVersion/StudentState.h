@@ -8,6 +8,7 @@
 #include "State.h"
 #include "Program.h"
 #include "LoginSystem.h"
+#include "seepostState.h"
 using namespace std;
 
 namespace StateInfo

@@ -19,8 +19,8 @@ namespace Database
 
 		static map<string, vector<string>> StudentCourse; 
 		static int StudentCoursecount; 
-		static map<string, vector<string>> TeacherCourse; // not implemented
-		static int TeacherCoursecount; // not implemented
+		static map<string, vector<string>> TeacherCourse;
+		static int TeacherCoursecount; 
 
 		static map<string, vector<string>> CoursePost;
 		static int CoursePostcount;
