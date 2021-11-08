@@ -3,29 +3,14 @@
 UserInfo::User LoginInfo::loginSystem()
 {
 	Database::Relations::read();
-	Database::Relations::display();
-
-	//Database::input();
-	//Database::Relations::write();
-
-
-	//////////
-
-	//Database0::read();
 	UserInfo::User::read();
 	CourseInfo::Course::read();
 	Feature::Assignment::read();
 	Feature::Post::read();
 	Feature::Material::read();
 	CourseInfo::attendance::read();
-	//cout<<"Count: "<<UserInfo::User::readCount() << endl;
 	string choice;
 	string username,password;
-
-	/*for (auto it : UserInfo::User::userList)
-	{
-		cout << "UserName: " << it->getUsername() << endl;
-	}*/
 
 	cout << "Welcome to Classroom CPP beta" << endl;
 	while (true) {
@@ -33,7 +18,6 @@ UserInfo::User LoginInfo::loginSystem()
 		cin >> choice;
 		if (choice == "#signin")
 		{
-			//cout << "Total Users: " << UserInfo::User::userID << endl;
 			cout << "Total Users: " << UserInfo::User::userList.size() << endl;
 			cout << "Username: ";
 			cin >> username;
@@ -58,14 +42,13 @@ UserInfo::User LoginInfo::loginSystem()
 			if (choice == "#yes") continue;
 			else
 			{
-				//Database0::write();
 				UserInfo::User::write();
 				CourseInfo::Course::write();
 				Feature::Assignment::write();
 				Feature::Post::write();
-
 				Feature::Material::write();
 				CourseInfo::attendance::write();
+				Database::Relations::write();
 				exit(0);
 			}
 		}
@@ -75,7 +58,6 @@ UserInfo::User LoginInfo::loginSystem()
 			UserInfo::User::createUser(*user);
 			UserInfo::User::userID++;
 			UserInfo::User::userList.push_back(user);
-			//UserInfo::User::write(); // write after exit
 			return *user;
 		}
 	}

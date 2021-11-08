@@ -49,7 +49,6 @@ void Database::Relations::write()
 	ouf.open("Database/db2.DAT", ios::trunc | ios::binary);
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	int i = 0;
@@ -86,7 +85,6 @@ void Database::Relations::write()
 	size = 30;
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	i = 0;
@@ -122,7 +120,6 @@ void Database::Relations::write()
 	size = 30;
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	i = 0;
@@ -157,7 +154,6 @@ void Database::Relations::write()
 	size = 30;
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	i = 0;
@@ -193,7 +189,6 @@ void Database::Relations::write()
 	size = 30;
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	i = 0;
@@ -228,7 +223,6 @@ void Database::Relations::write()
 	size = 30;
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	i = 0;
@@ -265,7 +259,6 @@ void Database::Relations::write()
 	size = 30;
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	i = 0;
@@ -301,7 +294,6 @@ void Database::Relations::write()
 	size = 30;
 	if (!ouf)
 	{
-		cout << "\nCan't open file\n";
 		return;
 	}
 	i = 0;
@@ -345,7 +337,6 @@ void Database::Relations::read()
 	inf.open("Database/db2.DAT", ios::binary);
 	if (!inf.is_open())
 	{
-		cout << "\nCan't open file\n"; return;
 		return;
 	}
 

@@ -55,7 +55,7 @@ namespace UserInfo {
             age = 18;
         }
 
-        //friend ostream& operator<<(ostream& c, const User& user);
+        //friend ostream& operator<<(ostream& c, const UserInfo::User& user);
 
         // class function
         void addAsStudent(CourseInfo::Course &course);

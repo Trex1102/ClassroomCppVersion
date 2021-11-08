@@ -1,9 +1,15 @@
 #include <iostream>
 #include "User.h"
 using namespace std;
-
 int UserInfo::User::userID;
 vector<UserInfo::User*> UserInfo::User::userList;
+
+//ostream& userinfo::operator<<(ostream& c, const userinfo::user& user)
+//{
+//	c << "user name: " << user.getfirstname() << ' ' << user.getmiddlename() << ' ' << user.getlastname() << endl;
+//	//c << "department: " << user.department << endl << "age: " << user.age << "email: " << user.email << "phone: " << user.phone << endl;
+//	return c;
+//}
 
 void UserInfo::User::addAsStudent(CourseInfo::Course& course)
 {
@@ -58,7 +64,7 @@ CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 
 void UserInfo::User::displayInfo() const
 {
-//	cout << this;
+
 }
 
 void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
@@ -224,8 +230,6 @@ void UserInfo::User::write()
 		}
 		ouf.write((char*)(userList[j]), size);
 	}
-
-	//cout << "Writing " << userList.size() << " Users.\n";
 	writeCount(userList.size());
 }
 void UserInfo::User::read()
@@ -253,8 +257,6 @@ void UserInfo::User::writeCount(int count)
 {
 	ofstream outfile("Database0/Count.txt",ios::trunc);
 	outfile << count;
-
-
 }
 int UserInfo::User::readCount()
 {
@@ -270,9 +272,5 @@ int UserInfo::User::readCount()
 	return count;
 }
 
-/*ostream& UserInfo::operator<<(ostream& c, const User& user)
-{
-	c << "User Name: " << user.firstName << ' ' << user.middleName << ' ' << user.lastName << endl;
-	c << "Department: " << user.department << endl << "Age: " << user.age << "Email: " << user.email << "Phone: " << user.phone << endl;
-	return c;
-}*/
+
+
