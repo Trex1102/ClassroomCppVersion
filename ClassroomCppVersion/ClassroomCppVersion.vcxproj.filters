@@ -87,9 +87,6 @@
     <ClCompile Include="seeassignmentState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Database0.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -174,9 +171,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="seematState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Database0.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
