@@ -116,7 +116,7 @@ void StateInfo::MainMenu::Display()
 	cout << "Welcome ";
 	cout << "User: " << data->currentUser.getUsername() << endl;
 	cout << "Total Courses: " << CourseInfo::Course::totalCourse<<endl;
-	cout << "To join Course Press #joincourse \nTo create course type #createcourse \nTo go back #back \nTo exit #exit" << endl;
+	cout << "To join Course Press #joincourse \nTo create course type #createcourse \nTo exit #exit" << endl;
 }
 
 

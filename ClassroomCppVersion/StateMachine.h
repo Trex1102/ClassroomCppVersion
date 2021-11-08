@@ -30,6 +30,7 @@ namespace StateInfo
 		void removeState();
 		void processStateChanges();
 		stateRef& getActiveState();
+		class EmptyStack{};
 
 	};
 

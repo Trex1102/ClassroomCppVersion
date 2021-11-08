@@ -3,6 +3,10 @@ using namespace std;
 
 StateInfo::AddMaterialState::AddMaterialState(ProgramDataRef data):data(data)
 {
+	if (data == nullptr)
+	{
+		throw nullProgramRef();
+	}
 }
 
 void StateInfo::AddMaterialState::Init()

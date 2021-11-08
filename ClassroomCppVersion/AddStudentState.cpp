@@ -3,6 +3,10 @@ using namespace std;
 
 StateInfo::AddStudentState::AddStudentState(ProgramDataRef data): data(data)
 {
+	if (data == nullptr)
+	{
+		throw nullProgramRef();
+	}
 }
 
 void StateInfo::AddStudentState::Init()
@@ -17,18 +21,18 @@ void StateInfo::AddStudentState::HandleInput()
 	cin >> username;
 	UserInfo::User* user = nullptr;
 
-	int count = 1;
+	//int count = 1;
 	for(const auto it: UserInfo::User::userList)
 	{
-		if (count == 1) continue;
-		else
-		{
+		//if (count == 1) continue;
+		//else
+		//{
 			if (it->getUsername() == username)
 			{
 				user = it;
 			}
-		}
-		count++;
+		//}
+		//count++;
 	}
 	
 	if(user== nullptr)
