@@ -57,7 +57,7 @@ void Feature::Material::write()
 		cout << "\nCan't open file\n";
 		return;
 	}
-	for (int j = 0; j < materialList.size(); j++)
+	for (unsigned j = 0; j < materialList.size(); j++)
 	{
 		//ouf.write((char*)&User, sizeof(User));
 		if (!ouf)

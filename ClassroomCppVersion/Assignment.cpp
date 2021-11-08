@@ -97,30 +97,30 @@ void Feature::Assignment::setData(std::string data)
 }
 
 
-CourseInfo::Course* Feature::Assignment::getAssignedCourse() const
-{
-    //return assignedCourse;
-}
+//CourseInfo::Course* Feature::Assignment::getAssignedCourse() const
+//{
+//    //return assignedCourse;
+//}
 
 void Feature::Assignment::setAssignedCourse(CourseInfo::Course* assignedCourse)
 {
    // this->assignedCourse = assignedCourse;
 }
 
-vector<UserInfo::User*> Feature::Assignment::getAssignedUsers() const
-{
-    //return assignedUsers;
-}
+//vector<UserInfo::User*> Feature::Assignment::getAssignedUsers() const
+//{
+//    //return assignedUsers;
+//}
 
 void Feature::Assignment::setAssignedUsers(vector<UserInfo::User*> assignedUsers)
 {
     //this->assignedUsers = assignedUsers;
 }
 
-vector<UserInfo::User*> Feature::Assignment::getComepletedUsers() const
-{
-    //return comepletedUsers;
-}
+//vector<UserInfo::User*> Feature::Assignment::getComepletedUsers() const
+//{
+//    //return comepletedUsers;
+//}
 
 void Feature::Assignment::setComepletedUsers(vector<UserInfo::User*> comepletedUsers)
 {
@@ -148,15 +148,15 @@ void Feature::Assignment::setPublishTime(std::string publishTime)
     this->publishTime = publishTime;
 }
 
-vector<UserInfo::User*> Feature::Assignment::getMissedUesrs() const
-{
-    //return missedUesrs;
-}
+//vector<UserInfo::User*> Feature::Assignment::getMissedUesrs() const
+//{
+//    //return missedUesrs;
+//}
 
-void Feature::Assignment::setMissedUesrs(vector<UserInfo::User*> missedUesrs)
-{
-    //this->missedUesrs = missedUesrs;
-}
+//void Feature::Assignment::setMissedUesrs(vector<UserInfo::User*> missedUesrs)
+//{
+//    //this->missedUesrs = missedUesrs;
+//}
 void Feature::Assignment::write()
 {
 
