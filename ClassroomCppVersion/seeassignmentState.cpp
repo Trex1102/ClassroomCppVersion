@@ -13,7 +13,13 @@ void StateInfo::seeassignmentState::Init()
 void StateInfo::seeassignmentState::HandleInput()
 {
 	Display();
-
+	string choice;
+	cout << "To go back #back\n";
+	if (choice == "#back") data->machine.removeState();
+	else
+	{
+		Init();
+	}
 }
 
 void StateInfo::seeassignmentState::Pause()
@@ -28,9 +34,12 @@ void StateInfo::seeassignmentState::Resume()
 void StateInfo::seeassignmentState::Display()
 {
 	system("cls");
-	/*for (int j = 0;j < data->currentCourse.assignmentList.size();j++)
+	for(auto it: Feature::Assignment::assignmentList)
 	{
-		data->currentCourse.assignmentList[j]->Display();
-	}*/
+		if(it->getAssignedCourse() == data->currentCourse.getCourseCode())
+		{
+			it->Display();
+		}
+	}
 
 }

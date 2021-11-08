@@ -28,9 +28,13 @@ void StateInfo::seematState::Resume()
 void StateInfo::seematState::Display()
 {
 	system("cls");
-	/*for (int j = 0;j < data->currentCourse.courseMaterialList.size();j++)
+
+	for(auto it: Feature::Material::materialList)
 	{
-		data->currentCourse.courseMaterialList[j]->Display();
-	}*/
+		if(it->getLinkedCourse() == data->currentCourse.getCourseCode())
+		{
+			it->Display();
+		}
+	}
 
 }
