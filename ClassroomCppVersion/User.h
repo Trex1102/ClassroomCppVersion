@@ -34,8 +34,6 @@ namespace UserInfo {
         static vector<User*> userList;
 
         static int userID;
-        vector<CourseInfo::Course*> asStudent; // realtion - course-user-student
-        vector<CourseInfo::Course*> asTeacher; // relation - course-user-teacher
 
         User()
         {
@@ -69,8 +67,10 @@ namespace UserInfo {
         static CourseInfo::Course* joinCourse(string courseCode,User& user);
         static void read();
         static void write();
-        ~User() = default;
+        static void writeCount(int);
+        static int readCount();
 
+        ~User() = default;
     // getters setters
 	public:
 	    string getUsername() const;
@@ -111,9 +111,5 @@ namespace UserInfo {
 
 	    int getUserID() const;
 	    void setUserID(int userID);
-
-        static void writeCount(int);
-        static int readCount();
-
-};
+	};
 }
