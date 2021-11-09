@@ -42,6 +42,51 @@
     <ClCompile Include="Login.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TeacherState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StudentState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AttendanceState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddStudentState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddPostState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Assignment.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Post.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddAssignmentState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddMaterialState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seepostState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seematState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="seeassignmentState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="User.h">
@@ -60,9 +105,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Attendance.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CourseMaterials.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CourseOutline.h">
@@ -84,6 +126,51 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Login.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TeacherState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AttendanceState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddStudentState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddPostState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Post.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Assignment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddAssignmentState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddMaterialState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seepostState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seeassignmentState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="seematState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

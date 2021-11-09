@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <fstream>
 #include "Course.h"
 #include "Attendance.h"
 
@@ -18,30 +19,25 @@ namespace UserInfo {
     {
     private:
         
-        string username;
-        string firstName;
-        string middleName;
-        string lastName;
-        string department;
+        string username=" ";
+        string firstName=" ";
+        string middleName=" ";
+        string lastName=" ";
+        string department=" ";
         int age;
-        string email;
-        string phone;
-        string password;
+        string email=" ";
+        string phone=" ";
+        string password=" ";
 
         string teacherID, studentID;
     public:
         static vector<User*> userList;
 
         static int userID;
-        vector<CourseInfo::Course*> asStudent;
-        vector<CourseInfo::Course*> asTeacher;
-
 
         User()
         {
             age = 18;
-            userID++;
-            userList.push_back(this);
         }
 
         User(string username, string first_name, string middle_name, string last_name, string department, int age,
@@ -57,23 +53,23 @@ namespace UserInfo {
 	          password(std::move(password))
         {
             age = 18;
-            userID++;
-            userList.push_back(this);
         }
 
+        //friend ostream& operator<<(ostream& c, const User& user);
+      //  void operator = (const User& user);
         // class function
-        void addAsStudent(CourseInfo::Course &course);
-        void addAsTeacher(CourseInfo::Course& course);
         void static createUser(User &user);
         void createUserName();
         void displayInfo() const;
         static void takeAttendance(CourseInfo::Course &course);
-        static void addStudent(CourseInfo::Course &course ,User& student);
         static void addCourseMaterials();
-        static string joinCourse(string courseCode,User& user);
+        static CourseInfo::Course* joinCourse(string courseCode,User& user);
+        static void read();
+        static void write();
+        static void writeCount(int);
+        static int readCount();
 
         ~User() = default;
-
     // getters setters
 	public:
 	    string getUsername() const;
@@ -114,6 +110,5 @@ namespace UserInfo {
 
 	    int getUserID() const;
 	    void setUserID(int userID);
-
-};
+	};
 }

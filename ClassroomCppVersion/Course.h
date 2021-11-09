@@ -3,8 +3,12 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "CourseMaterials.h"
+#include <array>
 #include "Attendance.h"
+#include "Post.h"
+#include "Assignment.h"
+#include "Material.h"
+#include "Database.h"
 using namespace std;
 namespace UserInfo
 {
@@ -13,10 +17,17 @@ namespace UserInfo
 	class User;
 }
 
+namespace Feature
+{
+	class Post;
+	class Assignment;
+	class Material;
+}
+
 namespace CourseInfo
 {
 	class attendance;
-	class CourseMaterials;
+	
 	class Course
 	{
 	private:
@@ -24,20 +35,19 @@ namespace CourseInfo
 		string department;
 		string courseID;
 		string courseOutline;
+		// 1. char 2. file i/o
 		double courseCredit;
 
-		vector<CourseMaterials*> courseMaterialList;
-		vector<UserInfo::User*> studentList;
-		vector<UserInfo::User*> teacherList;
-
 	public:
+		static int totalCourse;
 		static vector<Course*> courseList;
-		map<string, attendance*> attendanceList;
+
 	public:
 
 		Course()
 		{
 			createCourseCode();
+			
 		}
 		Course(string department, string course_id, string courseOutline, double courseCredit)
 			: department(std::move(department)),
@@ -45,21 +55,25 @@ namespace CourseInfo
 			  courseOutline(std::move(courseOutline)),
 			  courseCredit(courseCredit)
 		{
-			
 			createCourseCode();
 		}
-
-        // class functions
-
+		
+		//void operator = (const Course& course);
 		void enrollCourseTeacher(UserInfo::User& teacher);
-		void enrollCourseStudent(UserInfo::User& student);
-		void displayCourseInfo();
-		void addCourseMaterial(CourseMaterials& course_material);
-		void showCourseMaterials();
+		bool enrollCourseStudent(UserInfo::User& student);
+		bool enrollCourseStudent(string username);
+		void displayCourseInfo() const;
+		void showCourseMaterials() const;
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);
 		void createCourseCode();
+		static void display();
+		static void read();
+		static void write();
+		static void writeCount(int count);
+		static int readCount();
+
+
 		~Course() = default;
-		
 	public:
 	    string getCourseCode() const;
 	    void setCourseCode(string courseCode);
@@ -75,16 +89,5 @@ namespace CourseInfo
 
 	    double getCourseCredit() const;
 	    void setCourseCredit(double courseCredit);
-
-		vector<CourseMaterials*> getCourseMaterialList() const;
-		void setCourseMaterialList(vector<CourseMaterials*> courseMaterialList);
-
-		vector<UserInfo::User*> getStudentList() const;
-		void setStudentList(vector<UserInfo::User*> studentList);
-
-		vector<UserInfo::User*> getTeacherList() const;
-		void setTeacherList(vector<UserInfo::User*> teacherList);
-    
-
-};
+	};
 }

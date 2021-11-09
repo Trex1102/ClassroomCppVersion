@@ -6,12 +6,13 @@ void StateInfo::StateMachine::addState(stateRef newstate, bool isReplacing)
 	this->isAdding = true;
 	this->isReplacing = isReplacing;
 	this->newState = move(newstate);
-	//processStateChanges();
+	processStateChanges();
 }
 
 void StateInfo::StateMachine::removeState()
 {
 	this->isRemoving = true;
+	processStateChanges();
 }
 
 void StateInfo::StateMachine::processStateChanges()
@@ -25,6 +26,8 @@ void StateInfo::StateMachine::processStateChanges()
 			states.top()->Resume();
 		}
 		isRemoving = false;
+		states.top()->Init();
+		return;
 	}
 
 	if(isAdding)
@@ -44,12 +47,15 @@ void StateInfo::StateMachine::processStateChanges()
 		states.push(move(newState));
 		isAdding = false;
 		states.top()->Init();
-		states.top()->Display();
 	}
 }
 
 StateInfo::stateRef& StateInfo::StateMachine::getActiveState()
 {
+	if (states.empty())
+	{
+		throw EmptyStack();
+	}
 	return states.top();
 }
 

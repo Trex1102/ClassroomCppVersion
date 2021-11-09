@@ -3,11 +3,12 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "CourseMaterials.h"
+
 #include "Attendance.h"
 #include "State.h"
 #include "Program.h"
 #include "LoginSystem.h"
+#include "Database.h"
 using namespace std;
 
 namespace StateInfo

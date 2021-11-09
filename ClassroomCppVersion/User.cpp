@@ -1,19 +1,26 @@
 #include <iostream>
 #include "User.h"
 using namespace std;
-
 int UserInfo::User::userID;
 vector<UserInfo::User*> UserInfo::User::userList;
 
-void UserInfo::User::addAsStudent(CourseInfo::Course& course)
-{
-	this->asStudent.push_back(&course);
-}
+//ostream& userinfo::operator<<(ostream& c, const userinfo::user& user)
+//{
+//	c << "user name: " << user.getfirstname() << ' ' << user.getmiddlename() << ' ' << user.getlastname() << endl;
+//	//c << "department: " << user.department << endl << "age: " << user.age << "email: " << user.email << "phone: " << user.phone << endl;
+//	return c;
+//}
 
-void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
-{
-	this->asTeacher.push_back(&course);
-}
+//void UserInfo::User::addAsStudent(CourseInfo::Course& course)
+//{
+//	//this->asStudent.push_back(&course);
+//}
+
+//void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
+//{
+//	//this->asTeacher.push_back(&course);
+//}
+
 
 void UserInfo::User::createUser(User &user)
 {
@@ -42,40 +49,36 @@ void UserInfo::User::addCourseMaterials()
 {
 }
 
-string UserInfo::User::joinCourse(string courseCode, User& user)
+CourseInfo::Course* UserInfo::User::joinCourse(string courseCode, User & user)
 {
-	string choice;
+	
 	for(const auto it: CourseInfo::Course::courseList)
 	{
 		if(it->getCourseCode() == courseCode)
 		{
 			cout << "Course Found" << endl;
-			cout << "To join as teacher type #jointoteach" << endl << "To join as student type #jointolearn" << endl;
-			cin >> choice;
-			return choice;
+			return it;
 		}
 	}
-	return "error";
+	return nullptr;
 }
 
 void UserInfo::User::displayInfo() const
 {
-	cout << "Name: " << firstName << ' ' << middleName << ' ' << lastName << endl;
-	// other details
 
 }
 
-void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
-{
-	// check whether user is teacher of that course
-	// add student to that course
-}
+//void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
+//{
+//	// check whether user is teacher of that course
+//	// add student to that course
+//}
 
 void UserInfo::User::takeAttendance(CourseInfo::Course &course)
 {
 	CourseInfo::attendance attendance(&course);
 	attendance.takeAttendance();
-	course.attendanceList.insert({ static_cast<string>(__DATE__) , &attendance });
+	//course.attendanceList.insert({ static_cast<string>(__DATE__) , &attendance });
 }
 
 
@@ -209,4 +212,73 @@ void UserInfo::User::setUserID(int userID)
 {
     this->userID = userID;
 }
+
+void UserInfo::User::write()
+{
+	
+	ofstream ouf;
+	int size = sizeof(User);
+	ouf.open("Database0/User.DAT", ios::trunc | ios::binary);
+	if (!ouf)
+	{
+		return;
+	}
+	for (unsigned j = 0; j < userList.size(); j++)
+	{
+		if (!ouf)
+		{
+			return;
+		}
+		ouf.write((char*)(userList[j]), size);
+	}
+	writeCount(userList.size());
+}
+void UserInfo::User::read()
+{
+	int cur = readCount();
+	userID = cur;
+	int size = sizeof(User);
+	ifstream inf;
+	inf.open("Database0/User.DAT", ios::binary);
+	if (!inf.is_open())
+	{
+		return;
+	}
+	int TotalUser = 0; 
+	for(int j=0;j<cur;j++)
+	{
+		try
+		{
+			userList.push_back(nullptr);
+			userList[TotalUser] = new User;
+			size = sizeof(User);
+			inf.read((char*)userList[TotalUser], size);
+			TotalUser++;
+		}
+		catch (bad_alloc)
+		{
+			cout << "Can't allocate " << j << " th user" << endl;
+		}
+	}
+}
+void UserInfo::User::writeCount(int count)
+{
+	ofstream outfile("Database0/Count.txt",ios::trunc);
+	outfile << count;
+}
+int UserInfo::User::readCount()
+{
+	int count;
+	ifstream infile("Database0/Count.txt");
+
+	if (!infile.is_open())
+	{
+		return 0;
+	}
+
+	infile >> count;
+	return count;
+}
+
+
 

@@ -8,9 +8,22 @@
 #include "LoginSystem.h"
 #include "StateMachine.h"
 #include "Program.h"
+#include "Assignment.h"
 using namespace std;
 
 int main()
 {
-    StateInfo::Program mainProgram;
+    try 
+    {
+        StateInfo::Program mainProgram;
+    }
+    catch (StateInfo::nullProgramRef e)
+    {
+        cout << "Dataref faka"<<endl;
+    }
+    catch (StateInfo::StateMachine::EmptyStack e)
+    {
+        cout << "Stack Empty" << endl;
+    }
+
 }
