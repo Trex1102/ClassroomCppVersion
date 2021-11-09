@@ -28,6 +28,22 @@ bool CourseInfo::Course::enrollCourseStudent(UserInfo::User& student)
 	return true;
 }
 
+bool CourseInfo::Course::enrollCourseStudent(string username)
+{
+	if (!Database::Relations::TeacherCourse[username].empty())
+	{
+		cout << "Oh boy! You are already a teacher!\n";
+		return false;
+	}
+
+	cout << "You are added successfully\n";
+
+	/*Database Part*/
+	Database::Relations::StudentCourse[username].push_back(this->getCourseCode());
+	Database::Relations::CourseStudent[this->getCourseCode()].push_back(username);
+	return true;
+}
+
 void CourseInfo::Course::displayCourseInfo() const
 {
 	cout << "Course Information: " << endl;

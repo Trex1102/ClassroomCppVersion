@@ -61,6 +61,7 @@ namespace CourseInfo
 
 		void enrollCourseTeacher(UserInfo::User& teacher);
 		bool enrollCourseStudent(UserInfo::User& student);
+		bool enrollCourseStudent(string username);
 		void displayCourseInfo() const;
 		void showCourseMaterials() const;
 		void static createCourse(CourseInfo::Course &course, UserInfo::User &teacher);

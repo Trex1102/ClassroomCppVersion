@@ -47,5 +47,4 @@ void StateInfo::AddPostState::Display()
 {
 	system("cls");
 	cout << "Enter text" << endl;
-	
 }

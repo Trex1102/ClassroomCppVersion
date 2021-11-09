@@ -16,19 +16,13 @@ void StateInfo::AddStudentState::HandleInput()
 	string username, choice;
 	cin >> username;
 	UserInfo::User* user = nullptr;
-
-	int count = 1;
+	
 	for(const auto it: UserInfo::User::userList)
 	{
-		if (count == 1) continue;
-		else
+		if (it->getUsername() == username)
 		{
-			if (it->getUsername() == username)
-			{
-				user = it;
-			}
+			user = it;
 		}
-		count++;
 	}
 	
 	if(user== nullptr)

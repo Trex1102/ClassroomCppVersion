@@ -11,15 +11,15 @@ vector<UserInfo::User*> UserInfo::User::userList;
 //	return c;
 //}
 
-void UserInfo::User::addAsStudent(CourseInfo::Course& course)
-{
-	//this->asStudent.push_back(&course);
-}
+//void UserInfo::User::addAsStudent(CourseInfo::Course& course)
+//{
+//	//this->asStudent.push_back(&course);
+//}
 
-void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
-{
-	//this->asTeacher.push_back(&course);
-}
+//void UserInfo::User::addAsTeacher(CourseInfo::Course& course)
+//{
+//	//this->asTeacher.push_back(&course);
+//}
 
 void UserInfo::User::createUser(User &user)
 {
@@ -67,11 +67,11 @@ void UserInfo::User::displayInfo() const
 
 }
 
-void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
-{
-	// check whether user is teacher of that course
-	// add student to that course
-}
+//void UserInfo::User::addStudent(CourseInfo::Course &course,User& student)
+//{
+//	// check whether user is teacher of that course
+//	// add student to that course
+//}
 
 void UserInfo::User::takeAttendance(CourseInfo::Course &course)
 {

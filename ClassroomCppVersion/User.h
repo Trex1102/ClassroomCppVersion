@@ -58,13 +58,10 @@ namespace UserInfo {
         //friend ostream& operator<<(ostream& c, const UserInfo::User& user);
 
         // class function
-        void addAsStudent(CourseInfo::Course &course);
-        void addAsTeacher(CourseInfo::Course& course);
         void static createUser(User &user);
         void createUserName();
         void displayInfo() const;
         static void takeAttendance(CourseInfo::Course &course);
-        static void addStudent(CourseInfo::Course &course ,User& student);
         static void addCourseMaterials();
         static CourseInfo::Course* joinCourse(string courseCode,User& user);
         static void read();
