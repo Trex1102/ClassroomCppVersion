@@ -55,8 +55,8 @@ namespace UserInfo {
             age = 18;
         }
 
-        //friend ostream& operator<<(ostream& c, const UserInfo::User& user);
-
+        //friend ostream& operator<<(ostream& c, const User& user);
+      //  void operator = (const User& user);
         // class function
         void static createUser(User &user);
         void createUserName();

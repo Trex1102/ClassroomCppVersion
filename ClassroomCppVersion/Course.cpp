@@ -76,6 +76,7 @@ void CourseInfo::Course::display()
 }
 
 
+
 void CourseInfo::Course::createCourse(CourseInfo::Course &course , UserInfo::User &teacher)
 {
 	cout << "Department: "; cin >> course.department;
@@ -142,7 +143,7 @@ void CourseInfo::Course::read()
 		}
 		catch (bad_alloc)
 		{
-			cout << "Can't Allocate Course" << endl;
+			cout << "Can't Allocate "<<j<<" th Course" << endl;
 		}
 	}
 }

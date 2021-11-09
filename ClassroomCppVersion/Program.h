@@ -17,7 +17,9 @@ namespace StateInfo
         CourseInfo::Course currentCourse;
     };
 
+
     typedef shared_ptr<StateInfo::ProgramData> ProgramDataRef;
+    class nullProgramRef{};
 
     class Program
     { 

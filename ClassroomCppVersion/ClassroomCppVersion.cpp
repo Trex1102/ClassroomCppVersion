@@ -13,6 +13,17 @@ using namespace std;
 
 int main()
 {
-    StateInfo::Program mainProgram;
+    try 
+    {
+        StateInfo::Program mainProgram;
+    }
+    catch (StateInfo::nullProgramRef e)
+    {
+        cout << "Dataref faka"<<endl;
+    }
+    catch (StateInfo::StateMachine::EmptyStack e)
+    {
+        cout << "Stack Empty" << endl;
+    }
 
 }

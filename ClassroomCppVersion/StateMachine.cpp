@@ -52,6 +52,10 @@ void StateInfo::StateMachine::processStateChanges()
 
 StateInfo::stateRef& StateInfo::StateMachine::getActiveState()
 {
+	if (states.empty())
+	{
+		throw EmptyStack();
+	}
 	return states.top();
 }
 

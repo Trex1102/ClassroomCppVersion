@@ -2,6 +2,10 @@
 
 StateInfo::AddAssignmentState::AddAssignmentState(ProgramDataRef data):data(data)
 {
+	if (data == nullptr)
+	{
+		throw nullProgramRef();
+	}
 }
 
 void StateInfo::AddAssignmentState::Init()

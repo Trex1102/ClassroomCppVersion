@@ -2,6 +2,10 @@
 using namespace std;
 StateInfo::AddPostState::AddPostState(ProgramDataRef data): data(data)
 {
+	if (data == nullptr)
+	{
+		throw nullProgramRef();
+	}
 }
 
 void StateInfo::AddPostState::Init()

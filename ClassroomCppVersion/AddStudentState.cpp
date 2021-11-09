@@ -3,6 +3,10 @@ using namespace std;
 
 StateInfo::AddStudentState::AddStudentState(ProgramDataRef data): data(data)
 {
+	if (data == nullptr)
+	{
+		throw nullProgramRef();
+	}
 }
 
 void StateInfo::AddStudentState::Init()

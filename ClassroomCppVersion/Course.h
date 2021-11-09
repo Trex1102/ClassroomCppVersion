@@ -58,7 +58,7 @@ namespace CourseInfo
 			createCourseCode();
 		}
 		
-
+		//void operator = (const Course& course);
 		void enrollCourseTeacher(UserInfo::User& teacher);
 		bool enrollCourseStudent(UserInfo::User& student);
 		bool enrollCourseStudent(string username);

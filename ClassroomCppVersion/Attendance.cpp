@@ -69,12 +69,20 @@ void CourseInfo::attendance::read()
 	int Total = 0; // solution 1 : debug 2: store & retrieve
 	for (int j = 0;j < cur;j++)
 	{
-		//cout << TotalCourse << endl;
-		AttendanceList.push_back(nullptr);
-		AttendanceList[Total] = new attendance;
-		size = sizeof(attendance);
-		inf.read((char*)AttendanceList[Total], size);
-		Total++;
+		try
+		{
+
+			//cout << TotalCourse << endl;
+			AttendanceList.push_back(nullptr);
+			AttendanceList[Total] = new attendance;
+			size = sizeof(attendance);
+			inf.read((char*)AttendanceList[Total], size);
+			Total++;
+		}
+		catch(bad_alloc)
+		{
+			cout << "error allocating " << j << " th Attendance" << endl;
+		}
 	}
 	//cout << "Reading " << TotalCourse << " users\n";
 }
